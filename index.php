@@ -60,10 +60,12 @@
   height: auto;
 }
     </style>
+    <base href="/CampTrack/proyectoFinal/">
+
 </head>
 <body>
     <?php require_once('components/headerGen.php'); ?> <!-- component : headerGen.php -->
-    <?php require_once('components/nav.php'); ?>       <!-- component : nav.php -->
+    <?php require_once('./components/nav.php'); ?>       <!-- component : nav.php -->
 
 
     <!-- aside  (futuro carrusel) 

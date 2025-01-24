@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../../assets/css/layout_css/headerLigth.css" />
+<link rel="stylesheet" href="assets/css/layout_css/nav.css" />
 <header id="camptrack-header" class="main-header">
     <div class="logo">
         <img src="../../assets/img/logos/logoSF.png" alt="Logo">
