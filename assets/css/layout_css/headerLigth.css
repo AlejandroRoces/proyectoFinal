@@ -1,0 +1,125 @@
+/* Header principal */
+.main-header {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.main-header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaciado entre la imagen y el texto */
+}
+
+.main-header .logo img {
+    width: 50px; /* Imagen más pequeña */
+    height: 50px;
+}
+
+.main-header .logo h1 {
+    font-size: 24px; /* Texto más pequeño */
+    font-weight: bold;
+}
+
+/* Navegación */
+.main-header nav {
+    display: flex;
+    align-items: center;
+    gap: 0px; /* Reduce el espacio entre los elementos del nav */
+    font-size: 16px; /* Tamaño de texto más pequeño */
+    margin: 0 40px; /* Separa el nav del logo y de los botones */
+}
+
+.main-header nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px; /* Botones más pequeños */
+    border-radius: 5px; /* Menor redondeo */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.main-header nav a:hover {
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+/* Dropdown */
+.main-header .dropdown {
+    position: relative;
+}
+
+.main-header .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #444;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.main-header .dropdown-content a {
+    color: #fff;
+    padding: 8px 12px; /* Botones más pequeños */
+    text-decoration: none;
+    font-weight: normal;
+    display: block;
+}
+
+.main-header .dropdown-content a:hover {
+    background-color: #555;
+}
+
+.main-header .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.main-header .disabled {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Botones */
+.main-header .buttons {
+    display: flex;
+    gap: 15px; /* Espaciado reducido entre los botones */
+}
+
+.main-header .buttons button {
+    padding: 8px 16px; /* Botones más pequeños */
+    font-weight: bold;
+    border: none;
+    border-radius: 5px; /* Menor redondeo */
+    cursor: pointer;
+    font-size: 14px; /* Texto más pequeño */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.main-header .buttons .create-account {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.main-header .buttons .login {
+    background-color: #2196F3;
+    color: white;
+}
+
+.main-header .buttons button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}

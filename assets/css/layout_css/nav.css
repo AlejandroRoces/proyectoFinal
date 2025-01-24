@@ -1,0 +1,59 @@
+/* Estilos específicos para el nav con id 'main-nav' */
+#main-nav {
+  background-color: #333;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+#main-nav a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+#main-nav a:hover {
+  background-color: #555;
+}
+
+/* Estilos para el submenú dentro de #main-nav */
+#main-nav .dropdown {
+  position: relative;
+}
+
+#main-nav .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  top: 100%;
+  left: 0;
+  min-width: 150px;
+  z-index: 1;
+}
+
+#main-nav .dropdown-content a {
+  padding: 10px;
+  display: block;
+  text-align: left;
+}
+
+/* Mostrar el submenú al pasar el cursor sobre #main-nav */
+#main-nav .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Estilos para opción deshabilitada dentro de #main-nav */
+#main-nav .disabled {
+  color: gray;
+  pointer-events: none;
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media screen and (max-width: 700px) {
+  #main-nav {
+      flex-direction: column;
+  }
+}
