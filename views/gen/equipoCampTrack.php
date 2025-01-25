@@ -84,7 +84,7 @@
     </style>
 </head>
 <body>
-<?php require_once('../../components/headerLigth.php'); ?> <!-- component : headerGen.php -->
+<?php require_once('../../templates/headerLigth.php'); ?> <!-- component : headerGen.php -->
 
     <header class="o">
         <h1>Conoce a Nuestro Equipo de Monitores</h1>

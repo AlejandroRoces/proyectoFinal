@@ -89,7 +89,7 @@
     </style>
 </head>
 <body>
-<?php require_once('../../components/headerLigth.php'); ?> <!-- component : headerGen.php -->
+<?php require_once('../../templates/headerLigth.php'); ?> <!-- component : headerGen.php -->
 
 
     <header>

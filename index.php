@@ -115,9 +115,9 @@
 
 </head>
 <body>
-    <?php require_once('components/headerGen.php'); ?>     <!-- component : headerGen.php -->
-    <?php require_once('./components/nav.php'); ?>         <!-- component : nav.php -->
-    <?php require_once('./components/slider.php'); ?>      <!-- component : slider.php -->
+    <?php require_once('templates/headerGen.php'); ?>     <!-- component : headerGen.php -->
+    <?php require_once('./templates/nav.php'); ?>         <!-- component : nav.php -->
+    <?php require_once('./templates/slider.php'); ?>      <!-- component : slider.php -->
 
 
 
@@ -170,7 +170,7 @@
     </div>
 </div>
 </main>
-<?php require_once('components/footerGen.php'); ?>       <!-- component : nav.php -->
+<?php require_once('templates/footerGen.php'); ?>       <!-- component : nav.php -->
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">

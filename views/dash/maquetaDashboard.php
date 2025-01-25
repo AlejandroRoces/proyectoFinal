@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// Comprobar si el usuario está autenticado
+if (!isset($_SESSION['user'])) {
+    header('Location: index.php');
+    exit;
+}
+
+// Obtener el nombre del usuario para mostrarlo
+$usuario = $_SESSION['user'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +18,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aplicación Campus</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
   <style>
     /* Reset básico */
     * {
@@ -208,12 +220,10 @@ aside p {
   <!-- Cabecera -->
   <header>
     <div class="user-info">
-      <span>Usuario: Juan Pérez</span>
+      <span>Usuario: <?php echo htmlspecialchars($usuario); ?></span>
     </div>
     <div class="icons">
-      <img src="img/log/FOTO CARNET ALEJANDRO.jpg" alt="Notificaciones">
-      <img src= alt="Notificaciones">
-      <img src= alt="Mensajes">
+      <img src="img/log/FOTO CARNET ALEJANDRO.jpg" alt="Usuario">
       <img src="img/logos/logo.png" class="logo" alt="Logo de la App">
     </div>
   </header>
@@ -221,24 +231,23 @@ aside p {
   <!-- Menú de navegación -->
   <nav>
     <ul>
-      <li class="inicio"><a href="#"><i class="fas fa-home"></i> Inicio</a></li> <!-- Icono de casa -->
+      <li class="inicio"><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
       <li><br></li>
-      <li><a href="#"><i class="fas fa-building"></i> Instalación</a></li> <!-- Icono de casa diferente -->
-      <li><a href="#"><i class="fas fa-users"></i> Acampados</a></li> <!-- Icono de campistas -->
+      <li><a href="#"><i class="fas fa-building"></i> Instalación</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> Acampados</a></li>
       <li class="dropdown">
-        <a href="#" class="dropbtn"><i class="fas fa-futbol"></i> Actividades</a> <!-- Icono de balón -->
+        <a href="#"><i class="fas fa-futbol"></i> Actividades</a>
         <ul class="dropdown-content">
           <li><a href="#">Juegos</a></li>
           <li><a href="#">Veladas</a></li>
           <li><a href="#">Equipos</a></li>
         </ul>
       </li>
-      <li><a href="#"><i class="fas fa-user-friends"></i> Familias</a></li> <!-- Icono de padres -->
-      <li><a href="#"><i class="fas fa-cogs"></i> Configuración</a></li> <!-- Icono de configuración -->
+      <li><a href="#"><i class="fas fa-user-friends"></i> Familias</a></li>
+      <li><a href="#"><i class="fas fa-cogs"></i> Configuración</a></li>
+      <li><a href="logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
     </ul>
   </nav>
-  
-  
 
   <!-- Contenido principal -->
   <main>
@@ -248,7 +257,6 @@ aside p {
         <h3>ACTIVIDADES DADO EN NOMINA</h3>
         <p>(Actividades en las que estás contratado)</p>
       
-        <!-- Entrada de actividad 1 -->
         <div class="actividad">
           <h4>CAMP 1ª SEMANA JULIO</h4>
           <p><strong>Número de Personas:</strong> 150</p>
@@ -258,8 +266,7 @@ aside p {
             <p><strong>Fecha de Fin:</strong> 14 de julio de 2025</p>
           </div>
         </div>
-      
-        <!-- Entrada de actividad 2 -->
+
         <div class="actividad">
           <h4>CAMP 2ª SEMANA JULIO</h4>
           <p><strong>Número de Personas:</strong> 30</p>
@@ -270,7 +277,6 @@ aside p {
           </div>
         </div>
       
-        <!-- Entrada de actividad 3 -->
         <div class="actividad">
           <h4>CAMP 1ª SEMANA AGOSTO</h4>
           <p><strong>Número de Personas:</strong> 50</p>
@@ -280,9 +286,7 @@ aside p {
             <p><strong>Fecha de Fin:</strong> 15 de agosto de 2025</p>
           </div>
         </div>
-      
       </aside>
-      
 
       <!-- Área principal -->
       <div class="main-area">
@@ -290,12 +294,6 @@ aside p {
         <p>Aquí iría el contenido principal de la aplicación, como los cursos, tareas, etc.</p>
       </div>
     </div>
-    <iframe 
-        src="https://drive.google.com/drive/folders/1hvywwnd73AZZ0lXH-Uk9kGY3ZNwBToee?usp=sharing" 
-        width="100%" 
-        height="600" 
-        style="border: none;">
-    </iframe>
   </main>
 
 </body>
