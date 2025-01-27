@@ -70,6 +70,35 @@ $instalaciones = [
             ]
         ]
     ],
+
+    // =============================================
+    // Definición de la instalación: ALBERGUE MARISTAS (VILLAMANIN)
+    // Contiene los datos como título, ubicación, descripción, capacidad,
+    // facilidades, coordenadas para el mapa, e imágenes asociadas.
+    // =============================================
+    'albergue_maristas' => [
+        'titulo' => 'Albergue Juvenil',
+        'ubicacion' => 'Villamanin',
+        'descripcion' => 'Ideal para jóvenes que buscan diversión...',
+        'capacidad' => '100 personas',
+        'facilidades' => 'Dormitorios, comedor...',
+        'coordenadas' => [
+            'lat' => 42.93749713523749, 
+            'lng' => -5.655942987934993
+        ],
+        'imagenes' => [
+            'principal' => '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img1.MaristasVillamanin.jpg',
+            'galeria' => [
+                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img2.MaristasVillamanin.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img3.MaristasVillamanin.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img4.MaristasVillamanin.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img5.MaristasVillamanin.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img6.MaristasVillamanin.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img7.MaristasVillamanin.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img8.MaristasVillamanin.jpg',
+            ]
+        ]
+    ],
 ];
 
 // Verifica si la instalación existe

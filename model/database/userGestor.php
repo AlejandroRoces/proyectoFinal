@@ -1,6 +1,6 @@
 <?php
-session_start();                             // Iniciar sesión para guardar datos del usuario
-require_once 'C:\xampp\htdocs\CampTrack\proyectoFinal\model\database\connection.php';   // Conexion con la base de datos
+session_start(); // Iniciar sesión para guardar datos del usuario
+require_once 'C:\\xampp\\htdocs\\CampTrack\\proyectoFinal\\model\\database\\connection.php'; // Conexion con la base de datos
 
 // Función para recoger valores del formulario de manera segura
 function recogerValor($key) {
@@ -34,6 +34,7 @@ function consultaPass($user, $pass) {
         if ($pass == $registro['password']) {
             // Usuario y contraseña correctos
             $_SESSION['user'] = $registro['user']; // Guarda el usuario en la sesión
+            $_SESSION['role'] = $registro['role']; // Guarda el rol del usuario en la sesión
             return true;
         } else {
             echo "ERROR: Contraseña incorrecta.";
@@ -52,8 +53,21 @@ $pass = recogerValor('password');
 // Verifica que ambos campos estén completos
 if ($user && $pass && strpos($user, "ERROR") === false && strpos($pass, "ERROR") === false) {
     if (consultaPass($user, $pass)) {
-        // Si la autenticación es correcta, redirige al dashboard
-        header("Location: ../../views/dash/maquetaDashboard.php"); // esta instruccion direige como el href pero directo
+        // Redirige al usuario según su rol
+        switch ($_SESSION['role']) {
+            case 'admin':
+                header("Location: ../../views/dash/adminDash/adminDashboard.php");
+                break;
+            case 'monitor':
+                header("Location: ../../views/dash/monitoresDashboard.php");
+                break;
+            case 'usuario':
+                header("Location: ../../views/dash/familiasDashboard.php");
+                break;
+            default:
+                echo "ERROR: Rol desconocido.";
+                break;
+        }
         exit();
     }
 } else {
