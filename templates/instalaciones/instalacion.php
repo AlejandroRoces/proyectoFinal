@@ -1,89 +1,31 @@
+<!--
+=========================================================================================================
+Componente: instalacion.php
+Descripción: Este archivo presenta una página individual para cada instalación, mostrando su título, descripción, 
+             capacidad, facilidades, imágenes de la galería y ubicación en el mapa.
+Autor: Alejandro Roces Fernandez
+Fecha de Creación: 01 de enero de 2025
+Última Modificación: 28 de enero de 2025
+Versión: 1.0
+Dependencias:
+    - instalaciones.css     (estilos generales y específicos de la página)
+    - Google Maps API       (para la visualización del mapa, si se utiliza)
+
+Propósito:
+    - Presenta información detallada sobre una instalación específica, incluyendo descripción, imágenes y mapa.
+    - Permite mostrar datos dinámicos de las instalaciones con PHP, lo que facilita la gestión del contenido.
+    - La galería de imágenes permite visualizar diversas perspectivas de la instalación.
+    - La integración con Google Maps proporciona la ubicación precisa de la instalación para facilitar el acceso.
+    - Mantiene una estructura organizada con un diseño limpio y profesional para mejorar la experiencia del usuario.
+=========================================================================================================
+-->
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $instalacion['titulo']; ?></title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      background: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 20px 0;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      background: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 10px;
-    }
-
-    .installation-header {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .installation-header img {
-      width: 100%;
-      max-width: 400px;
-      border-radius: 10px;
-    }
-
-    .installation-info {
-      flex: 1;
-    }
-
-    .installation-info h1 {
-      color: #4CAF50;
-      margin-bottom: 10px;
-    }
-
-    .installation-info p {
-      line-height: 1.6;
-      color: #555;
-    }
-
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .gallery img {
-      width: calc(33.333% - 10px);
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    footer {
-      background: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 10px 0;
-      margin-top: 40px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 400px;
-      border: 0;
-      border-radius: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="../assets/css/instalacionTemplate/instalaciones.css" />
 </head>
 <body>
   <header>
@@ -111,7 +53,6 @@
         </div>
     </section>
 
-    <!-- Mapa Incrustado usando iframe sin API Key -->
     <section>
     <h2>Ubicación en el Mapa</h2>
     <?php if (isset($instalacion['coordenadas'])): ?>

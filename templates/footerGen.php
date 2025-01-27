@@ -1,3 +1,24 @@
+<!--
+=========================================================================================================
+Componente: footer.php
+Descripción: Este archivo contiene el pie de página global para la aplicación, que incluye información de contacto, 
+             enlaces a redes sociales, detalles de los campamentos, y otros enlaces informativos.
+Autor: Alejandro Roces Fernandez
+Fecha de Creación: 01 de enero de 2025
+Última Modificación: 28 de enero de 2025
+Versión: 1.0
+Dependencias:
+    - footer.css        (estilos adicionales, si aplican)
+    - FontAwesome       (para los iconos sociales, si se utiliza)
+
+Propósito:
+    - Proporciona una sección de pie de página consistente con información útil y enlaces para facilitar el contacto y 
+      acceso a la información relevante del sitio.
+    - Facilita la navegación hacia secciones adicionales como las tarifas, inscripciones y testimonios.
+    - Ofrece un acceso rápido a las redes sociales y opciones de contacto directo.
+    - Mejora la accesibilidad del sitio al proporcionar información relevante al final de cada página.
+=========================================================================================================
+-->
 <footer style="background-color: #10102a; color: #e0e0e0; padding: 40px 20px; font-family: 'Roboto', sans-serif; font-size: 16px;">
     <div style="display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 1200px; margin: auto; text-align: left; gap: 50px;"> <!-- Aumenté el gap aquí -->
       

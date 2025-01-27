@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+<!--
+    =========================================================================================================
+    Página: CampTrack (instalaciones)
+    Descripción: Esta pagina muestra los diferntes albergue que ofrece campTrack para sus campamentos.
+    Autor: Alejandro Roces Fernandez
+    Fecha de Creación: 01 de enero de 2025
+    Última Modificación: 28 de enero de 2025
+    Versión: 1.0
+    Dependencias:
+        - index.css (estilos específicos para esta página)
+        - boostrap  (librerias para estructuracion y funcionalidad)
+
+        - headerGen.php (header especifico del index con su css propio)
+        - nav.php       (nav para la navegabilidad de CampTrack)
+        - slider.php    (slider para la publicidad de campTrack )
+        - footerGen.php (footer completo de campTrack)
+    ========================================================================================================
+-->
 <html lang="es">
 <head>
     <meta charset="UTF-8">

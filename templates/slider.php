@@ -1,4 +1,22 @@
+<!--
+=========================================================================================================
+Componente: carousel.php
+Descripción: Este archivo contiene un carrusel de imágenes reutilizable para mostrar contenido de manera interactiva,
+             con controles manuales y temporizados. 
+Autor: Alejandro Roces Fernandez
+Fecha de Creación: 01 de enero de 2025
+Última Modificación: 28 de enero de 2025
+Versión: 1.0
+Dependencias:
+    - Bootstrap 5 (para los estilos y funcionalidades del carrusel)
 
+Propósito:
+    - Ofrecer una manera interactiva de mostrar contenido visual (imágenes o información) de forma dinámica.
+    - Utilizar Bootstrap para gestionar la navegación automática y manual entre las imágenes.
+    - Facilitar la reutilización del carrusel en diversas páginas con solo cambiar las imágenes o el contenido.
+    - Mejorar la experiencia del usuario proporcionando un formato visual atractivo y fácil de usar.
+=========================================================================================================
+-->
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000" style="max-width: 2240px; margin: auto; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
   <!-- Indicadores -->
   <div class="carousel-indicators">
