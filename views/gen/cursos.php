@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso de Programación Web</title>
+  <title>Cursos campTrack</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -32,14 +32,14 @@
 
     .slogan {
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 3rem;
       color: #555;
       margin-bottom: 20px;
     }
 
     .hero-image {
       width: 100%;
-      max-height: 400px;
+      max-height: 600px;
       object-fit: cover;
       border-radius: 10px;
     }
@@ -80,13 +80,13 @@
 <?php require_once('../../templates/headerLigth.php'); ?> <!-- component : headerGen.php -->
 
   <header>
-    <h1>Curso de Programación Web</h1>
+    <h1>Cursos de ocio y tiempo libre</h1>
   </header>
 
   <div class="container">
-    <p class="slogan">"Transforma tus ideas en realidad con código"</p>
+    <p class="slogan">Formate con nosotros</p>
 
-    <img src="https://via.placeholder.com/1200x400" alt="Cartel del curso" class="hero-image">
+    <img src="../../assets/img/cursos/anuncioCursos.jpg" alt="Cartel del curso" class="hero-image">
 
     <div class="file-section">
       <p>Consulta más información en el archivo oficial:</p>
@@ -94,7 +94,14 @@
     </div>
 
     <div class="description">
-      <p>Este curso está diseñado para principiantes y expertos que desean dominar las tecnologías web modernas, incluyendo HTML, CSS y JavaScript. Con instructores experimentados y un enfoque práctico, aprenderás a crear sitios web dinámicos y profesionales desde cero.</p>
+      <p>
+        ¡Fórmate con nosotros y lidera el cambio! En CampTrack te ofrecemos cursos especializados para impulsar tu carrera en el ámbito 
+        del ocio y tiempo libre: monitor de ocio y tiempo libre, coordinador de ocio y tiempo libre, monitor de necesidades especiales 
+        y monitor de nivel. Todos nuestros cursos están homologados y cuentan con validez en toda España.
+        Nos adaptamos a tus necesidades con modalidades online y semipresenciales, y siempre contamos con nuevas fechas disponibles para 
+        que no pierdas la oportunidad de formarte. Aprende de profesionales, crece como líder y prepárate para marcar la diferencia.
+       ¡Inscríbete hoy y da el primer paso hacia un futuro lleno de oportunidades! 🚀
+      </p>
     </div>
 
     <div class="form-section">
@@ -103,4 +110,6 @@
     </div>
   </div>
 </body>
+
+
 </html>

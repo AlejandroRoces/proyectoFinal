@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="assets/css/layout_css/nav.css" />
 <header id="camptrack-header" class="main-header">
     <div class="logo">
-        <img src="../../assets/img/logos/logoSF.png" alt="Logo">
+        <img src="../../assets/img/logos/logoSF.png" alt="Logo CampTrack" onclick="window.location.href='/CampTrack/proyectoFinal/index.php'">
         <h1>CampTrack</h1>
     </div>
     <?php require_once('nav.php'); ?>       <!-- component : nav.php -->
