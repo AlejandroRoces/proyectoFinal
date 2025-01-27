@@ -1,3 +1,13 @@
+<!--
+    =========================================================================================================
+    Página: CampTrack
+    Descripción: Esta pagina sirve para la gestion interna de la empresa asi como el contacto con el usuario.
+    Autor: Alejandro Roces Fernandez
+    Fecha de Creación: 01 de enero de 2025
+    Última Modificación: 27 de enero de 2025
+    Versión: 1.0
+    ========================================================================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,10 +128,7 @@
     <?php require_once('templates/headerGen.php'); ?>     <!-- component : headerGen.php -->
     <?php require_once('./templates/nav.php'); ?>         <!-- component : nav.php -->
     <?php require_once('./templates/slider.php'); ?>      <!-- component : slider.php -->
-
-
-
-    
+   
 <main style="background-color:gray">
 
 <div class="featurette">
