@@ -16,7 +16,7 @@ function recogerValor($key) {
 // Función para conectar y verificar las credenciales
 function consultaPass($user, $pass) {
     // Consulta SQL para buscar el usuario
-    $consulta = "SELECT * FROM login WHERE user = :user";
+    $consulta = "SELECT * FROM login_camptrack WHERE user = :user";
     $pdo = conectarDB(); // Establece conexión con la base de datos
 
     try {

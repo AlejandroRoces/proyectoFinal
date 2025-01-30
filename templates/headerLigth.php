@@ -31,8 +31,12 @@
     <?php require_once('nav.php'); ?>       <!-- component : nav.php -->
 
     <div class="buttons">
-        <button class="create-account">Crear Cuenta</button>
+    <a href="../../views/logs/login.php">
         <button class="login">Iniciar Sesión</button>
+    </a>
+    <a href="../../views/logs/singUp.php">
+        <button class="create-account">Crear Cuenta</button>
+    </a>
     </div>
 
 </header>

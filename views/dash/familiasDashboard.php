@@ -39,7 +39,7 @@
     <div class="header-container">
       <h1>Foro de Padres - Campamento</h1>
       <div class="user-info">
-        <span id="loggedInUser" class="text-light">Usuario: Juan Pérez</span>
+        <span id="loggedInUser" class="text-light">Usuario: USER 1</span>
         <a href="logout.php"><strong class="btn btn-light btn-sm ms-3">Cerrar sesión</strong></a>
       </div>
     </div>
@@ -60,10 +60,10 @@
       <!-- Ejemplo de publicación -->
       <div class="card message-card">
         <div class="card-body">
-          <h5 class="card-title">Mensaje del 25 de enero</h5>
-          <p class="card-text">¡Hoy los niños disfrutaron de una increíble caminata al aire libre!</p>
-          <img src="https://via.placeholder.com/400x200" alt="Foto de la caminata" class="img-fluid my-3">
-          <audio controls class="audio-player">
+          <h5 class="card-title">Mensaje del (fecha)</h5>
+          <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero eius earum iure natus eligendi nesciunt.</p>
+          <img src="\CampTrack\proyectoFinal\assets\img\dash\iimage.png" alt="Foto de la caminata" class="img-fluid my-3">
+          <br><audio controls class="audio-player">
             <source src="audio-ejemplo.mp3" type="audio/mpeg">
             Tu navegador no soporta la reproducción de audio.
           </audio>

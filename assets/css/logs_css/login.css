@@ -10,10 +10,10 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f2f581;
-    background-image: url(../../img/login/imgGen.login.jpeg);
+    background-image: url('../../img/login/imgGen.login.jpeg'); /* Corregido aquí */
     background-repeat: no-repeat;
-    background-size: cover
+    background-size: cover;
+    background-position: center;
 }
 
 .login-container {
@@ -58,6 +58,16 @@ body {
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
+}
+
+.password-feedback {
+    font-size: 12px;
+    margin-top: 5px;
+    color: red;
+}
+
+.password-feedback.success {
+    color: green;
 }
 
 .login-button {

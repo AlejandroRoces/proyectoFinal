@@ -1,11 +1,11 @@
 <?php
 
 function conectarDB() {
-    $host = "localhost";
-    $database = "login.camptrack";
-    $user = "root";
-    $password = "A1l2e3s4_";
 
+    $host = "bghrndhnyp5gxtol7egb-mysql.services.clever-cloud.com";
+    $database = "bghrndhnyp5gxtol7egb";
+    $user = "upbby8aqjyh1lhdy";
+    $password = "amJYE4jVE3gvlzK6B5W8";
     try {
         $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
         $conexion = new PDO($dsn, $user, $password);

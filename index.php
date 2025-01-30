@@ -33,6 +33,7 @@
     <?php require_once('templates/nav.php'); ?>         <!-- component : nav.php -->
     <?php require_once('templates/slider.php'); ?>      <!-- component : slider.php -->
 
+
     <main style="background-color:gray">
 
         <div class="featurette">

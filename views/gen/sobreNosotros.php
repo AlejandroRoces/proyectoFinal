@@ -15,7 +15,7 @@
         }
 
         .header {
-            background-color: #3b82f6;
+            background-color: #4CAF50 ;
             color: white;
             text-align: center;
             padding: 2.5rem 1rem;
@@ -34,7 +34,7 @@
         .section h2 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #3b82f6;
+            color: #4CAF50;
         }
 
         .section p {
@@ -134,11 +134,11 @@
 
     <section class="section">
         <h2>Sobre Nosotros</h2>
-        <p>Impulsamos el futuro mediante soluciones tecnológicas innovadoras. Nuestro equipo trabaja para transformar ideas en realidades que impactan el mundo positivamente.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed numquam perspiciatis dolor consequuntur accusamus necessitatibus sequi doloribus. Vero aliquam sed, distinctio nobis dolore voluptatum accusamus fugiat a dolorem veritatis debitis.</p>
     </section>
 
     <section class="section">
-        <h2>Nuestras Áreas</h2>
+        <h2>Que ofrecemos</h2>
         <div class="grid">
             <div class="card">
                 <img src="../../assets/img/sobreNosotros/multiaventura.jpg" alt="Desarrollo de software">

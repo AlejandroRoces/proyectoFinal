@@ -43,7 +43,7 @@ los valores de prueba dentro de la base de datos
                 </div>
 
                 <button type="submit" class="login-button" onclick=login()>Acceder</button>
-                <a href="forgotPass.php" class="forgot-password" style="color: #252222c9;"">He olvidado mi contraseña</a> <!-- redirige al forgot pass -->
+                <a href="forgotPass.php" class="forgot-password" style="color: #252222c9;">He olvidado mi contraseña</a> <!-- redirige al forgot pass -->
             </form>
         </div>
     </div>
