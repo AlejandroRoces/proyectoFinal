@@ -3,7 +3,7 @@ los valores de prueba dentro de la base de datos
 ('admin', 'admin123', 'admin@camptrack.com', 'admin'),
 ('user1', 'password1', 'user1@camptrack.com', 'usuario'),
 ('user2', 'password2', 'user2@camptrack.com', 'usuario'),
-('monitor', 'mmonitor123', 'monitorr@camptrack.com', 'monitor');
+('monitor', 'monitor123', 'monitorr@camptrack.com', 'monitor');
 -->
 <!DOCTYPE html>
 <html lang="es">

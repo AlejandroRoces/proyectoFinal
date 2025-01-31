@@ -1,40 +1,33 @@
 <?php
 session_start(); // Iniciar sesión para guardar datos del usuario
-require_once 'C:\\xampp\\htdocs\\CampTrack\\proyectoFinal\\model\\database\\connection.php'; // Conexion con la base de datos
+require_once __DIR__ . '/connection.php'; // Conexion con la base de datos
 
 // Función para recoger valores del formulario de manera segura
 function recogerValor($key) {
-    $valor = "";
-    if (isset($_POST[$key])) {
-        $valor = trim(htmlspecialchars($_POST[$key]));
-    } else {
-        $valor = "ERROR: Campo $key no fue proporcionado.";
-    }
-    return $valor;
+    return isset($_POST[$key]) ? trim(htmlspecialchars($_POST[$key])) : null;
 }
 
 // Función para conectar y verificar las credenciales
 function consultaPass($user, $pass) {
-    // Consulta SQL para buscar el usuario
     $consulta = "SELECT * FROM login_camptrack WHERE user = :user";
-    $pdo = conectarDB(); // Establece conexión con la base de datos
+    $pdo = conectarDB(); // Conectar a la base de datos
 
     try {
-        $resul = $pdo->prepare($consulta); // Prepara la consulta
+        $resul = $pdo->prepare($consulta);
         $resul->bindParam(':user', $user, PDO::PARAM_STR);
-        $resul->execute(); // Ejecuta la consulta
+        $resul->execute();
 
-        $registro = $resul->fetch(PDO::FETCH_ASSOC); // Obtiene el registro asociado al usuario
+        $registro = $resul->fetch(PDO::FETCH_ASSOC);
 
-        if ($registro == null) {
+        if (!$registro) {
             echo "ERROR: Usuario no encontrado.";
             return false;
         }
 
-        if ($pass == $registro['password']) {
+        if (password_verify($pass, $registro['password'])) { // Compara usando password_verify()
             // Usuario y contraseña correctos
-            $_SESSION['user'] = $registro['user']; // Guarda el usuario en la sesión
-            $_SESSION['role'] = $registro['role']; // Guarda el rol del usuario en la sesión
+            $_SESSION['user'] = $registro['user'];
+            $_SESSION['role'] = $registro['role'];
             return true;
         } else {
             echo "ERROR: Contraseña incorrecta.";
@@ -51,7 +44,7 @@ $user = recogerValor('username');
 $pass = recogerValor('password');
 
 // Verifica que ambos campos estén completos
-if ($user && $pass && strpos($user, "ERROR") === false && strpos($pass, "ERROR") === false) {
+if ($user && $pass) {
     if (consultaPass($user, $pass)) {
         // Redirige al usuario según su rol
         switch ($_SESSION['role']) {

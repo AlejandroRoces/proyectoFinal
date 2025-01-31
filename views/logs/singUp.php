@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" href="../../assets/img/logos/logoSF.png">
     <link rel="stylesheet" href="../../assets/css/logs_css/login.css">
     <script>
-    // Verificar contraseñas en tiempo real
+    
     function verificarContrasenas() {
         const contrasena = document.getElementById("contrasena").value;
         const confirmarContrasena = document.getElementById("confirmar_contrasena").value;
@@ -15,13 +15,12 @@
 
         if (contrasena !== confirmarContrasena && confirmarContrasena !== "") {
             feedback.textContent = "Las contraseñas no coinciden.";
-            feedback.style.color = "red"; // Mostrar mensaje en rojo
+            feedback.style.color = "red"; 
         } else {
-            feedback.textContent = ""; // Ocultar mensaje si coinciden
+            feedback.textContent = ""; 
         }
     }
 
-    // Mostrar alerta al enviar el formulario
     function mostrarConfirmacion(event) {
         event.preventDefault(); // Evitar el envío directo del formulario
         alert("¡Cuenta creada correctamente! Ahora serás redirigido al inicio.");

@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+// Verifica si el usuario ha iniciado sesión
+if (!isset($_SESSION['user'])) {
+    header("Location: ../../login.php"); // Redirige al login si no ha iniciado sesión
+    exit();
+}
+
+$userName = $_SESSION['user']; // Obtiene el nombre del usuario desde la sesión
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -35,18 +47,24 @@
   </style>
 </head>
 <body>
-  <header>
+
+<header>
     <div class="header-container">
-      <h1>Foro de Padres - Campamento</h1>
-      <div class="user-info">
-        <span id="loggedInUser" class="text-light">Usuario: USER 1</span>
-        <a href="logout.php"><strong class="btn btn-light btn-sm ms-3">Cerrar sesión</strong></a>
-      </div>
+        <h1>
+            <img src="../../assets/img/logos/logoSF.png" alt="Logo" style="height: 50px; vertical-align: middle; margin-right: 10px;">
+            Foro familias - Campamento
+        </h1>
+        <div class="user-info">
+            <span id="loggedInUser" class="text-light" style="font-size: 20px; font-weight: bold;">
+                👋 ¡Hola, <?php echo htmlspecialchars($userName); ?>!
+            </span>
+            <a href="logout.php"><strong class="btn btn-light btn-sm ms-3">Cerrar sesión</strong></a>
+        </div>
     </div>
-  </header>
+</header>
 
   <div class="container mt-4">
-    <!-- Filtro de ordenación -->
+    <!-- Filtro par ordenar los mensajes -->
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h2 class="h4">Publicaciones</h2>
       <select class="form-select w-auto" id="sortOptions">
@@ -55,9 +73,9 @@
       </select>
     </div>
 
-    <!-- Lista de publicaciones -->
+
     <div id="messagesContainer">
-      <!-- Ejemplo de publicación -->
+
       <div class="card message-card">
         <div class="card-body">
           <h5 class="card-title">Mensaje del (fecha)</h5>

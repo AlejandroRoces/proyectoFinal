@@ -42,26 +42,26 @@ session_start();
     }
 
     header .logo-container span {
-      font-size: 32px; /* Tamaño más grande para "Camptrack" */
+      font-size: 32px; 
       font-weight: bold;
     }
 
     header .user-info {
       display: flex;
       align-items: center;
-      justify-content: flex-end; /* Alinea a la derecha */
+      justify-content: flex-end; 
     }
 
     header .user-info span {
-      font-size: 20px; /* Texto más grande para el "Bienvenido" */
+      font-size: 20px; 
       margin-left: 10px;
     }
 
     header .user-info img {
-      width: 50px; /* Tamaño de la foto de perfil */
+      width: 50px; 
       height: 50px;
-      border-radius: 50%; /* Hace la imagen redonda */
-      object-fit: cover; /* Asegura que la imagen mantenga la proporción */
+      border-radius: 50%; 
+      object-fit: cover; 
     }
 
     header .icons {
@@ -106,8 +106,6 @@ session_start();
     nav ul li a:hover {
       text-decoration: underline;
     }
-
-    /* Tiempos de letra más pequeña para todos excepto "Inicio" */
     nav ul li:not(.inicio) a {
       font-size: 15px;
     }
@@ -153,10 +151,10 @@ session_start();
       padding: 0;
       height: 100vh;
       background-image: url('../../../assets/img/logos/logo.png');
-      background-size: cover; /* Asegura que la imagen cubra todo el espacio */
-      background-position: center; /* Centra la imagen */
-      background-repeat: no-repeat; /* Evita que la imagen se repita */
-      opacity: 0.2; /* Aplica transparencia a la imagen */
+      background-size: cover;
+      background-position: center; 
+      background-repeat: no-repeat; 
+      opacity: 0.2;
     }
   </style>
 </head>
@@ -191,9 +189,6 @@ session_start();
   </nav>
 
   <!-- Contenido principal -->
-  <main>
-    <!-- No es necesario agregar una imagen con <img> aquí, ya está como fondo del main -->
-  </main>
 
 </body>
 </html>
