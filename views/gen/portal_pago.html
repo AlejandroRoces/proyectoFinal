@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Seguro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        .icons {
+            font-size: 24px;
+            margin: 10px 0;
+            color: #666;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+            autocomplete: off;
+        }
+        .button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 16px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background-color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>Pago Seguro</h2>
+        <div class="icons">
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-brands fa-paypal"></i>
+        </div>
+        <div class="input-group">
+            <label for="card-number">Número de Tarjeta</label>
+            <input type="text" id="card-number" placeholder="**** **** **** ****" maxlength="19" autocomplete="off">
+        </div>
+        <div class="input-group">
+            <label for="expiry">Fecha de Expiración</label>
+            <input type="text" id="expiry" placeholder="MM/YY" maxlength="5" autocomplete="off">
+        </div>
+        <div class="input-group">
+            <label for="cvc">CVC</label>
+            <input type="text" id="cvc" placeholder="***" maxlength="3" autocomplete="off">
+        </div>
+        <button class="button">Pagar Ahora</button>
+    </div>
+</body>
+</html>

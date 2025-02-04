@@ -1,7 +1,3 @@
-Compartir
-
-
-Tú dijiste:
 <?php
 session_start();
 ?>
@@ -12,7 +8,8 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aplicación Campus</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -33,7 +30,11 @@ session_start();
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
 
     .logo-container {
@@ -116,12 +117,12 @@ session_start();
       background-color: #2c3e50;
       color: white;
       width: 200px;
-      height: 100vh;
-      position: fixed;
-      top: 0;
+      position: fixed; /* Fijar en el lateral */
+      top: 80px; /* Debajo del header */
       left: 0;
+      height: calc(100vh - 80px); /* Cubrir toda la pantalla menos el header */
       padding: 20px;
-      margin-top: 80px;
+      overflow-y: auto; /* Agregar scroll si es necesario */
     }
 
     nav ul {
@@ -144,17 +145,21 @@ session_start();
       text-decoration: underline;
     }
 
-    /* Contenido principal */
     main {
-    margin-left: 200px;
-    padding: 20px;
-    height: 100vh; /* Para que cubra toda la pantalla */
-    background: 
-        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
-        url('../../../assets/img/logos/logoSF.png') no-repeat center center/cover;
-}
+      margin-left: 200px;
+      margin-top: 100px;
+      padding: 20px;
+      min-height: 100vh;
+      background-image: url('../../../assets/img/logos/logo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.2;
+    }
 
-
+    li a span {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -165,15 +170,16 @@ session_start();
       <img src="../../../assets/img/logos/logoSF.png" alt="Logo">
       <span>Camptrack</span>
     </div>
-    <div class="user-menu" onclick="toggleMenu()">
+    <div class="user-menu" aria-haspopup="true" aria-expanded="false">
       <span>BIENVENIDO ALEJANDRO</span>
       <img src="../../../assets/img/log/FOTO CARNET ALEJANDRO.jpg" alt="Foto de perfil">
       <i class="fas fa-chevron-down"></i>
-      <div class="dropdown-menu" id="dropdownMenu">
+      <div class="dropdown-menu" id="dropdownMenu" role="menu">
         <a href="#">Perfil</a>
         <a href="#">Configuración</a>
-        <a href="#">Ayuda</a>
-        <a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+        <a href="../logout.php" onclick="return confirm('¿Estás seguro de que quieres cerrar sesión?');">
+          <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+        </a>
       </div>
     </div>
   </header>
@@ -181,30 +187,30 @@ session_start();
   <!-- Menú de navegación -->
   <nav>
     <ul>
-      <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
-      <li><a href="#"><i class="fas fa-building"></i> Instalaciones</a></li>
-      <li><a href="#"><i class="fas fa-users"></i> Trabajadores</a></li>
-      <li><a href="#"><i class="fas fa-user-friends"></i> Familias</a></li>
-      <li><a href="#"><i class="fas fa-cogs"></i> Actividades</a></li>
+      <li><a href="adminDashBoard.php"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
+      <li><a href="adminDashBoard_Instalaciones.php"><i class="fas fa-building"></i> Instalaciones</a></li>
+      <li><a href="adminDashBoard_Trabajadores.php"><i class="fas fa-users"></i> Trabajadores</a></li>
+      <li><a href="adminDashBoard_Inscripciones.php"><i class="fas fa-user-friends"></i> Inscripciones</a></li>
+      <li><a href="adminDashBoard_Actividades.php"><i class="fas fa-cogs"></i> Actividades</a></li>
     </ul>
   </nav>
 
   <!-- Contenido principal -->
-  <main>
-    <h1>Bienvenido a Camptrack</h1>
+  <main id="contenido">
   </main>
 
   <script>
-    function toggleMenu() {
-      var menu = document.getElementById("dropdownMenu");
-      menu.classList.toggle("show-menu");
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const userMenu = document.querySelector('.user-menu');
+      const dropdownMenu = document.getElementById('dropdownMenu');
 
-    window.onclick = function(event) {
-      if (!event.target.closest('.user-menu')) {
-        document.getElementById("dropdownMenu").classList.remove("show-menu");
-      }
-    }
+      userMenu.addEventListener('click', () => {
+        const isMenuVisible = dropdownMenu.style.display === 'block';
+        dropdownMenu.style.display = isMenuVisible ? 'none' : 'block';
+        userMenu.setAttribute('aria-expanded', !isMenuVisible);
+      });
+    });
   </script>
+
 </body>
 </html>
