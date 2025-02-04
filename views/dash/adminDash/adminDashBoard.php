@@ -1,3 +1,7 @@
+Compartir
+
+
+Tú dijiste:
 <?php
 session_start();
 ?>
@@ -29,49 +33,82 @@ session_start();
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: relative;
     }
 
-    header .logo-container {
+    .logo-container {
       display: flex;
       align-items: center;
     }
 
-    header .logo-container img {
+    .logo-container img {
       height: 50px;
       margin-right: 10px;
     }
 
-    header .logo-container span {
-      font-size: 32px; 
+    .logo-container span {
+      font-size: 32px;
       font-weight: bold;
     }
 
-    header .user-info {
+    .user-menu {
+      position: relative;
       display: flex;
       align-items: center;
-      justify-content: flex-end; 
+      cursor: pointer;
     }
 
-    header .user-info span {
-      font-size: 20px; 
+    .user-menu img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
       margin-left: 10px;
     }
 
-    header .user-info img {
-      width: 50px; 
-      height: 50px;
-      border-radius: 50%; 
-      object-fit: cover; 
+    .user-menu i {
+      margin-left: 10px;
+      font-size: 18px;
     }
 
-    header .icons {
-      display: flex;
-      gap: 15px;
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 60px;
+      background-color: white;
+      color: black;
+      border-radius: 5px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      width: 200px;
     }
 
-    header .icons img {
-      width: 25px;
-      height: 25px;
+    .dropdown-menu a, .dropdown-menu button {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: black;
+      text-align: left;
+      background: none;
+      border: none;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .dropdown-menu a:hover, .dropdown-menu button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .dropdown-menu button {
+      background-color: #1a73e8;
+      color: white;
+      font-weight: bold;
+      border-radius: 0 0 5px 5px;
+    }
+
+    .show-menu {
+      display: block;
     }
 
     /* Menú de navegación */
@@ -99,96 +136,75 @@ session_start();
     nav ul li a {
       color: white;
       text-decoration: none;
-      font-size: 28px;
+      font-size: 18px;
       display: block;
     }
 
     nav ul li a:hover {
       text-decoration: underline;
     }
-    nav ul li:not(.inicio) a {
-      font-size: 15px;
-    }
 
-    nav .inicio a {
-      font-size: 28px;
-    }
-
-    nav .dropdown {
-      position: relative;
-    }
-
-    nav .dropdown-content {
-      display: none;
-      position: absolute;
-      left: 0;
-      background-color: #34495e;
-      width: 100%;
-      z-index: 1;
-    }
-
-    nav .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    nav .dropdown-content li {
-      padding: 10px;
-      border-top: 1px solid #2c3e50;
-    }
-
-    nav .dropdown-content li a {
-      color: white;
-      font-size: 22px;
-    }
-
-    nav .dropdown-content li a:hover {
-      background-color: #2980b9;
-    }
-
-    /* Estilo para la imagen de fondo en el main */
+    /* Contenido principal */
     main {
-      margin-left: 200px;
-      padding: 0;
-      height: 100vh;
-      background-image: url('../../../assets/img/logos/logo.png');
-      background-size: cover;
-      background-position: center; 
-      background-repeat: no-repeat; 
-      opacity: 0.2;
-    }
+    margin-left: 200px;
+    padding: 20px;
+    height: 100vh; /* Para que cubra toda la pantalla */
+    background: 
+        linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), 
+        url('../../../assets/img/logos/logoSF.png') no-repeat center center/cover;
+}
+
+
   </style>
 </head>
 <body>
 
   <!-- Cabecera -->
   <header>
-    <!-- Logo y "Camptrack" -->
     <div class="logo-container">
       <img src="../../../assets/img/logos/logoSF.png" alt="Logo">
       <span>Camptrack</span>
     </div>
-
-    <!-- Información de usuario -->
-    <div class="user-info">
-      <img src="../../../assets/img/log/FOTO CARNET ALEJANDRO.jpg" alt="Foto de perfil">
+    <div class="user-menu" onclick="toggleMenu()">
       <span>BIENVENIDO ALEJANDRO</span>
+      <img src="../../../assets/img/log/FOTO CARNET ALEJANDRO.jpg" alt="Foto de perfil">
+      <i class="fas fa-chevron-down"></i>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <a href="#">Perfil</a>
+        <a href="#">Configuración</a>
+        <a href="#">Ayuda</a>
+        <a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a>
+      </div>
     </div>
   </header>
 
   <!-- Menú de navegación -->
   <nav>
     <ul>
-      <li class="inicio"><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
-      <li><br></li>
-      <li><a href="#"><i class="fas fa-building"></i> INSTALACIONES</a></li>
-      <li><a href="#"><i class="fas fa-users"></i> TRABAJADORES</a></li>
-      <li><a href="#"><i class="fas fa-user-friends"></i> FAMILIAS</a></li>
-      <li><a href="#"><i class="fas fa-cogs"></i> ACTIVIDADES</a></li>
-      <li><a href="../logout.php"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+      <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+      <li><a href="#"><i class="fas fa-building"></i> Instalaciones</a></li>
+      <li><a href="#"><i class="fas fa-users"></i> Trabajadores</a></li>
+      <li><a href="#"><i class="fas fa-user-friends"></i> Familias</a></li>
+      <li><a href="#"><i class="fas fa-cogs"></i> Actividades</a></li>
     </ul>
   </nav>
 
   <!-- Contenido principal -->
+  <main>
+    <h1>Bienvenido a Camptrack</h1>
+  </main>
 
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById("dropdownMenu");
+      menu.classList.toggle("show-menu");
+    }
+
+    window.onclick = function(event) {
+      if (!event.target.closest('.user-menu')) {
+        document.getElementById("dropdownMenu").classList.remove("show-menu");
+      }
+    }
+  </script>
 </body>
 </html>
