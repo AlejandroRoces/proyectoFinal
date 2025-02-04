@@ -144,7 +144,7 @@
   </div>
 
   <footer>
-    <p>&copy; 2024 Todos los derechos reservados | Actividades de Ocio</p>
+  <p>&copy; 2025 CampTrack. Todos los derechos reservados.</p>
   </footer>
 
   <script>

@@ -74,6 +74,12 @@
       height: 600px;
       border: none;
     }
+    footer {
+            text-align: center;
+            padding: 16px;
+            background-color: #4CAF50;
+            color: white;
+        }l
   </style>
 </head>
 <body>
@@ -109,6 +115,9 @@
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScAzxXMTsKkHNbce3QvhhM8hFl9witm9IsJHCJts-8Kq9Gv9A/viewform?embedded=true" width="640" height="3315" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
   </div>
+  <footer>
+    <p>&copy; 2025 CampTrack. Todos los derechos reservados.</p>
+    </footer>
 </body>
 
 

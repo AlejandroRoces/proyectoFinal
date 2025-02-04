@@ -179,7 +179,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Centro de Innovación Tecnológica. Todos los derechos reservados.</p>
+    <p>&copy; 2025 CampTrack. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>

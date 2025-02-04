@@ -59,6 +59,14 @@
                     <div id="passwordFeedback" class="password-feedback"></div>
                 </div>
 
+                <!-- Casilla de verificación para aceptar los términos justo antes del texto -->
+                <div>
+                    
+                    <input type="checkbox" id="aceptar_condiciones" name="aceptar_condiciones" required >
+                        Acepto los <a href="../../views/gen/termsAndConditions.php" target="_blank">Términos y Condiciones</a>
+                </div>
+                <br>
+
                 <button type="submit" class="login-button">Crear Cuenta</button>
                 <a href="../../views/logs/login.php" class="forgot-password">¿Ya tienes una cuenta? Inicia sesión aquí</a>
             </form>

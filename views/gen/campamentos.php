@@ -125,7 +125,7 @@
 </main>
 
 <footer>
-    <p>&copy; 2025 Empresa de Actividades. Todos los derechos reservados.</p>
+    <p>&copy; 2025 CampTrack. Todos los derechos reservados.</p>
 </footer>
 
 </body>
