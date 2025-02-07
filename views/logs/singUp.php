@@ -34,6 +34,7 @@
             <div class="login-icon">
                 <img src="../../assets/img/logos/logoSF.png" alt="Logo CampTrack">
                 <h4 style="color: #252222c9;">CREAR CUENTA</h4>
+                <br><br>
             </div>
 
             <!-- Ajustar acción para enviar a index.php -->

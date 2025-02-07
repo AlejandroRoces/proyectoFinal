@@ -4,88 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cursos campTrack</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
-    }
+  <link rel="icon" type="image/png" href="../../assets/img/logos/logoSF.png">
+  
+  <link rel="stylesheet" href="../../assets/css/gen_css/cursos.css">
+  <?php require_once('../../assets/css/styles.php'); ?> <!-- estilos configurador-->
 
-    header {
-      background-color: #4caf50;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .slogan {
-      text-align: center;
-      font-size: 3rem;
-      color: #555;
-      margin-bottom: 20px;
-    }
-
-    .hero-image {
-      width: 100%;
-      max-height: 600px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .file-section {
-      margin: 20px 0;
-      text-align: center;
-    }
-
-    .file-section a {
-      color: #4caf50;
-      text-decoration: none;
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .file-section a:hover {
-      text-decoration: underline;
-    }
-
-    .description {
-      margin: 20px 0;
-      font-size: 1.1rem;
-    }
-
-    .form-section {
-      margin-top: 40px;
-    }
-
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-    }
-    footer {
-            text-align: center;
-            padding: 16px;
-            background-color: #4CAF50;
-            color: white;
-        }l
-  </style>
 </head>
 <body>
 <?php require_once('../../templates/headerLigth.php'); ?> <!-- component : headerGen.php -->
 
-  <header>
+  <header class="header2">
     <h1>Cursos de ocio y tiempo libre</h1>
   </header>
 

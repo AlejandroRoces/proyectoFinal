@@ -20,7 +20,7 @@
     ========================================================================================================
 -->
 <link rel="stylesheet" href="../../assets/css/layout_css/headerLigth.css" />
-<link rel="stylesheet" href="assets/css/layout_css/nav.css" />
+<link rel="stylesheet" href="../../assets/css/layout_css/nav.css" />
 
 <header id="camptrack-header" class="main-header">
     <div class="logo">
@@ -33,9 +33,6 @@
     <div class="buttons">
     <a href="../../views/logs/login.php">
         <button class="login">Iniciar Sesión</button>
-    </a>
-    <a href="../../views/logs/singUp.php">
-        <button class="create-account">Crear Cuenta</button>
     </a>
     </div>
 

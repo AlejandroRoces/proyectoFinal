@@ -35,7 +35,8 @@ $documentos = $stmt4->fetchAll();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aplicación Campus</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
     * {
@@ -174,58 +175,66 @@ $documentos = $stmt4->fetchAll();
 
     main {
   margin-left: 200px; /* La misma anchura que el nav */
-  margin-top: 100px; /* Empuja el main hacia abajo para que no quede debajo del header */
+  margin-top: 80px; /* Empuja el main hacia abajo para que no quede debajo del header */
 
   padding: 20px;
   background-color: #fff;
   min-height: 100vh;
-}
-.table-container {
-  width: 80%; /* Reduce el ancho visible de la tabla */
-  max-height: 400px; /* Limita la altura para evitar que sea muy larga */
-  overflow-x: auto; /* Barra de desplazamiento horizontal */
-  overflow-y: auto; /* Barra de desplazamiento vertical */
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-  background: white;
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  margin: auto; /* Centra la tabla en la pantalla */
-}
+    }
+    .table-container {
+      width: 80%; /* Reduce el ancho visible de la tabla */
+      max-height: 400px; /* Limita la altura para evitar que sea muy larga */
+      overflow-x: auto; /* Barra de desplazamiento horizontal */
+      overflow-y: auto; /* Barra de desplazamiento vertical */
+      white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      margin: auto; /* Centra la tabla en la pantalla */
+    }
 
-table {
-  border-collapse: collapse;
-  width: max-content; /* Se ajusta al contenido */
-  min-width: 100%;
-}
+    table {
+      border-collapse: collapse;
+      width: max-content; /* Se ajusta al contenido */
+      min-width: 100%;
+    }
 
-th, td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-}
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
 
-th {
-  background-color: #1a73e8;
-  color: white;
-}
+    th {
+      background-color: #1a73e8;
+      color: white;
+    }
 
-/* Estilos para la barra de búsqueda */
-#searchInput {
-  width: 60%;
-  padding: 10px;
-  margin: 10px auto;
-  display: block;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
+    /* Estilos para la barra de búsqueda */
+    #searchInput {
+      width: 60%;
+      padding: 10px;
+      margin: 10px auto;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
 
-/* Estilos para resaltar la fila seleccionada */
-.highlight {
-  background-color: #ffeb3b !important;
-}
+    /* Estilos para resaltar la fila seleccionada */
+    .highlight {
+      background-color: #ffeb3b !important;
+    }
 
+    #genderChart {
+      width: 250px !important;  /* Establecer el ancho del gráfico */
+      height: 200px !important;  /* Establecer la altura del gráfico */
+    }
+    #ageChart {
+      width: 400px !important;  /* Establecer el ancho del gráfico */
+      height: 300px !important;  /* Establecer la altura del gráfico */
+    }
 
 
 
@@ -269,17 +278,28 @@ th {
   
 
   <h2>Participantes</h2>
-  <h2>Participantes</h2>
-<div style="display: flex; justify-content: center; gap: 10px;">
-  <input type="text" id="searchInput" placeholder="Buscar participante..." onkeyup="filtrarTabla()" />
-  <select id="orderSelect" onchange="ordenarTabla()">
+<div style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-top: 20px;">
+  <!-- Barra de búsqueda -->
+  <input type="text" id="searchInput" placeholder="Buscar participante..." onkeyup="filtrarTabla()" 
+    style="padding: 8px; border: 1px solid #ccc; border-radius: 5px; width: 700px;"/>
+
+  <!-- Botón de exportar -->
+  <button id="exportButton" style="padding: 8px 12px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer;">
+    Exportar a Excel
+  </button>
+
+  <!-- Selector de filtro -->
+  <select id="orderSelect" onchange="ordenarTabla()" 
+    style="padding: 8px; border: 1px solid #ccc; border-radius: 5px;">
     <option value="asc">Edad Ascendente</option>
     <option value="desc">Edad Descendente</option>
   </select>
 </div>
 
+<br><br>
 <div class="table-container">
   <table>
+    <!-- Fila de datos que contiene la tabla -->
     <tr>
       <th></th>
       <th>Nombre</th>
@@ -287,6 +307,7 @@ th {
       <th>DNI</th>
       <th>Fecha de Nacimiento</th>
       <th>Edad</th>
+      <th>Genero</th>
       <th>Alergias</th>
       <th>Enfermedades</th>
       <th>Medicinas</th>
@@ -311,15 +332,18 @@ th {
     </tr>
     <?php foreach ($participantes as $index => $participante): ?>
     <tr>
-    <td>
-            <button class="edit-btn" onclick="editarFila(this)">
-              <i class="fas fa-pencil-alt"></i>
-            </button>
-          </td>      <td><?php echo htmlspecialchars($participante['nombre']); ?></td>
+      <td>
+        <button class="edit-btn" onclick="editarFila(this)">
+          <i class="fas fa-pencil-alt"></i>
+        </button>
+      </td>
+      <!-- Datos de participantes -->     
+      <td><?php echo htmlspecialchars($participante['nombre']); ?></td>
       <td><?php echo htmlspecialchars($participante['apellidos']); ?></td>
       <td><?php echo htmlspecialchars($participante['dni']); ?></td>
       <td><?php echo htmlspecialchars($participante['fecha_nacimiento']); ?></td>
       <td><?php echo htmlspecialchars($participante['edad']); ?></td>
+      <td><?php echo htmlspecialchars($participante['genero']); ?></td>
       <td><?php echo htmlspecialchars($participante['alergias']); ?></td>
       <td><?php echo htmlspecialchars($participante['enfermedades']); ?></td>
       <td><?php echo htmlspecialchars($participante['medicinas']); ?></td>
@@ -351,6 +375,14 @@ th {
     <?php endforeach; ?>
   </table>
 </div>
+
+<!-- Contenedor para los gráficos -->
+<div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; margin-bottom: 20px;">
+  <canvas id="genderChart" width="150" height="75"></canvas>
+  <canvas id="ageChart" width="150" height="75"></canvas>
+</div>
+
+
 
 </main>
 
@@ -407,7 +439,135 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+////////////////////////////////////////  SCRIPTS DE JAVASCRIPT PARA LOS CANVAS
+window.onload = function() {
+  const generoCount = {
+    'Masculino': 0,
+    'Femenino': 0,
+    'Otro': 0
+  };
 
+  // Recorremos todos los participantes para contar cuántos hay de cada género
+  <?php foreach ($participantes as $participante): ?>
+    var genero = "<?php echo htmlspecialchars(trim($participante['genero'])); ?>";  
+    if (generoCount[genero] !== undefined) {
+      generoCount[genero]++;
+    }
+  <?php endforeach; ?>
+
+  // Datos para el gráfico de género
+  const genderLabels = Object.keys(generoCount);
+  const genderData = Object.values(generoCount);
+
+  // Crear el gráfico de género
+  const ctxGender = document.getElementById('genderChart').getContext('2d');
+  const genderChart = new Chart(ctxGender, {
+    type: 'pie',
+    data: {
+      labels: genderLabels,
+      datasets: [{
+        label: 'Distribución por Género',
+        data: genderData,
+        backgroundColor: ['#ff6384', '#36a2eb', '#ffce56'],
+        borderColor: ['#ffffff', '#ffffff', '#ffffff'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        },
+        tooltip: {
+          callbacks: {
+            label: function(tooltipItem) {
+              return tooltipItem.label + ': ' + tooltipItem.raw + ' participantes';
+            }
+          }
+        }
+      }
+    }
+  });
+
+  // Crear el gráfico de edad (Distribución por edad)
+  const ageCount = {
+    '10': 0,
+    '11': 0,
+    '12': 0,
+    '13': 0,
+    '14': 0,
+    '15': 0,
+    '16': 0,
+    '17': 0,
+    '18': 0
+    
+
+  };
+
+  <?php foreach ($participantes as $participante): ?>
+    var edad = "<?php echo htmlspecialchars(trim($participante['edad'])); ?>";
+    if (edad <= 10) {
+      ageCount['10']++;
+    } else if (edad == 11) {
+      ageCount['11']++;
+    } else if (edad == 12) {
+      ageCount['12']++;
+    } else if (edad == 13) {
+      ageCount['13']++;
+    } else if (edad == 14) {
+      ageCount['14']++;
+    } else if (edad == 15) {
+      ageCount['15']++;
+    } else if (edad == 16) {
+      ageCount['16']++;
+    } else if (edad == 17) {
+      ageCount['17']++;
+    } else {
+      ageCount['18']++;
+    }
+  <?php endforeach; ?>
+
+  // Datos para el gráfico de edad
+  const ageLabels = Object.keys(ageCount);
+  const ageData = Object.values(ageCount);
+
+  // Crear el gráfico de edad
+  const ctxAge = document.getElementById('ageChart').getContext('2d');
+  const ageChart = new Chart(ctxAge, {
+    type: 'bar',
+    data: {
+      labels: ageLabels,
+      datasets: [{
+        label: 'Distribución por Edad',
+        data: ageData,
+        backgroundColor: '#36a2eb',
+        borderColor: '#ffffff',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top',
+        }
+      }
+    }
+  });
+};
+
+////////////////////////////////////////  SCRIPTS DE JAVASCRIPT PARA EXPORTAR EN EXCEL
+document.getElementById('exportButton').addEventListener('click', function () {
+    // Obtén la tabla que quieres exportar
+    let table = document.querySelector('.table-container table');
+
+    // Convierte la tabla HTML a una hoja de trabajo de Excel (Workbook)
+    let wb = XLSX.utils.table_to_book(table, { sheet: "Participantes" });
+
+    // Exporta la hoja de trabajo a un archivo Excel (.xlsx)
+    XLSX.writeFile(wb, 'participantes.xlsx');
+  });
   </script>
   
 

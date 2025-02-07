@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('../../img/login/imgGen.login.jpeg'); /* Corregido aquí */
+    background-image: url('../../img/login/imgGen.login.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -26,7 +26,7 @@ body {
 }
 
 .login-box {
-    background-color: #ffffff97;
+    background-color: #ffffffd4;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

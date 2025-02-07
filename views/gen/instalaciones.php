@@ -22,99 +22,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nuestras instalaciones</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
+    <title>Instalaciones CampTrack</title>
+    <link rel="icon" type="image/png" href="../../assets/img/logos/logoSF.png">
 
-        header {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            padding: 16px 0;
-        }
+    <link rel="stylesheet" href="../../assets/css/gen_css/instalaciones.css">
+    <?php require_once('../../assets/css/styles.php'); ?> <!-- styles-->
 
-        .team-photo {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .section {
-            padding: 32px;
-            text-align: center;
-        }
-
-        .section h2 {
-            margin-bottom: 16px;
-            font-size: 32px;
-            color: #4CAF50;
-        }
-
-        .cards {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            justify-content: center;
-        }
-
-        .card {
-            background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            max-width: 350px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 220px;
-        }
-
-        .card h3 {
-            margin: 16px 0 8px;
-            color: #4CAF50;
-        }
-        .card h4 {
-            margin: 5px 0 8px;
-            color: #4CAF50;
-        }
-
-        .card p {
-            padding: 0 16px 16px;
-            font-size: 14px;
-            color: #666;
-            text-justify:auto;
-        }
-
-        .card a{
-            text-decoration: none;
-        }
-
-        footer {
-            text-align: center;
-            padding: 16px;
-            background-color: #4CAF50;
-            color: white;
-        }
-    </style>
 </head>
 <body>
 <?php require_once('../../templates/headerLigth.php'); ?> <!-- component : headerGen.php -->
 
 
-    <header>
+    <header class="header2">
         <h1>INSTALACIONES</h1>
     </header>
 

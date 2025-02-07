@@ -20,17 +20,15 @@ los valores de prueba dentro de la base de datos
             form.submit();
         }
     </script>
-
 </head>
 <body>
     <div class="login-container">
         <div class="login-box">
             <div class="login-icon">
                 <img src="../../assets/img/logos/logoSF.png" alt="Logo CampTrack">
-                <h4 style="color: #252222c9;">INICIO DE SESION</h4>
+                <h4 style="color: #252222c9;">INICIO DE SESIÓN</h4>
                 <br>
             </div>
-            
             
             <form method="post" name="usersLogin" id="usersLogin">
                 <div class="input-group">
@@ -42,8 +40,10 @@ los valores de prueba dentro de la base de datos
                     <input type="password" id="password" name="password" value="" required>
                 </div>
 
-                <button type="submit" class="login-button" onclick=login()>Acceder</button>
-                <a href="forgotPass.php" class="forgot-password" style="color: #252222c9;">He olvidado mi contraseña</a> <!-- redirige al forgot pass -->
+                <button type="submit" class="login-button" onclick="login()">Acceder</button>
+                <a href="forgotPass.php" class="forgot-password" style="color: #252222c9;">He olvidado mi contraseña</a>
+                <br>
+                <a href="singUp.php" class="register-link" style="color: #252222c9;">¿No tienes cuenta? Regístrate aquí</a>
             </form>
         </div>
     </div>

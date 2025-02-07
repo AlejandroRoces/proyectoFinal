@@ -8,6 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dni = $_POST['dni'];
     $fecha_nacimiento = $_POST['fecha_nacimiento'];
     $edad = $_POST['edad'];
+    $genero = $_POST['genero'];
     $alergias = $_POST['alergias'];
     $enfermedades = $_POST['enfermedades'];
     $medicinas = $_POST['medicinas'];
@@ -39,10 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Conectar a la base de datos
     $conexion = conectarDB();
     
-    // Insertar participante
-    $sql = "INSERT INTO Participantes_inscripciones_camptrack (nombre, apellidos, dni, fecha_nacimiento, edad, alergias, enfermedades, medicinas) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    // Insertar participante con el nuevo campo de género
+    $sql = "INSERT INTO Participantes_inscripciones_camptrack (nombre, apellidos, dni, fecha_nacimiento, edad, genero, alergias, enfermedades, medicinas) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql);
-    $stmt->execute([$nombre, $apellidos, $dni, $fecha_nacimiento, $edad, $alergias, $enfermedades, $medicinas]);
+    $stmt->execute([$nombre, $apellidos, $dni, $fecha_nacimiento, $edad, $genero, $alergias, $enfermedades, $medicinas]);
     
     // Obtener el id del participante insertado
     $id_participante = $conexion->lastInsertId();

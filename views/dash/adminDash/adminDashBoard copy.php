@@ -147,7 +147,7 @@ session_start();
 
     main {
       margin-left: 200px;
-      margin-top: 80px;
+      margin-top: 100px;
       padding: 20px;
       min-height: 100vh;
       background-image: url('../../../assets/img/logos/logo.png');

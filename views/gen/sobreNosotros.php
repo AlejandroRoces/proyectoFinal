@@ -5,130 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sobre Nosotros</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+    <link rel="icon" type="image/png" href="../../assets/img/logos/logoSF.png">
 
-        .header {
-            background-color: #4CAF50 ;
-            color: white;
-            text-align: center;
-            padding: 2.5rem 1rem;
-        }
+    <link rel="stylesheet" href="../../assets/css/gen_css/sobreNosotros.css">
+    <?php require_once('../../assets/css/styles.php'); ?> <!-- styles-->
 
-        .header h1 {
-            font-size: 3rem;
-            margin: 0;
-        }
 
-        .section {
-            padding: 3rem 1rem;
-            text-align: center;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #4CAF50;
-        }
-
-        .section p {
-            margin: 0 auto 2rem;
-            max-width: 600px;
-            font-size: 1.1rem;
-            color: #555;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 0 1rem;
-        }
-
-        .card {
-            position: relative;
-            background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .card .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            padding: 1rem;
-        }
-
-        .card:hover .overlay {
-            opacity: 1;
-        }
-
-        .card h3 {
-            margin: 1rem 0 0.5rem;
-            color: #3b82f6;
-        }
-
-        .card p {
-            padding: 0 1rem 1.5rem;
-            font-size: 1rem;
-            color: #555;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: #3b82f6;
-            color: white;
-        }
-
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .section h2 {
-                font-size: 2rem;
-            }
-
-            .card img {
-                height: 150px;
-            }
-        }
-    </style>
 </head>
 <body>
 <?php require_once('../../templates/headerLigth.php'); ?> <!-- component : headerGen.php -->
 
-    <header class="header">
+    <header class="header2">
         <h1>QUIEN SOMOS NOSOTROS</h1>
     </header>
 
