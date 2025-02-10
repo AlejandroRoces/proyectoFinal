@@ -32,6 +32,6 @@
         </div>
     </div>
     <a href="/CampTrack/proyectoFinal/views/gen/instalaciones.php">INSTALACIONES</a>
-    <a href="#" class="disabled">OTRAS ACTIVIDADES</a>
+    <a href="/CampTrack/proyectoFinal/views/gen/masActividades.php" >OTRAS ACTIVIDADES</a>
 
 </nav>
