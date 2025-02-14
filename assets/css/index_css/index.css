@@ -1,75 +1,39 @@
+/* estilos generales para el index*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* estilos para los respiraderos de imagenes*/
 .contenedor-fotos {
-    display: flex;
-    justify-content: space-between;  /* Alinea las imágenes una al lado de la otra */
-    gap: 1px; /* Espacio entre las imágenes */
-    margin-top: 30px;
-  }
-  
-  .contenedor-fotos img {
-    width: 25%; /* Ajusta el ancho para que se acomoden perfectamente en la fila */
-    height: auto;
-  }
-  
-  
-  /* Featurette - Nuevo Estilo */
-.featurette {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  text-align: center;
-  padding: 60px 30px;
-  background: #1e1e2f;
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  color: white;
-  margin-bottom: 50px;
-}
-
-.featurette-title {
-  font-size: 3rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #ffcc00;
-  text-shadow: 3px 3px 10px rgba(255, 204, 0, 0.5);
-}
-
-.featurette-description {
-  font-size: 1.3rem;
-  line-height: 2;
-  max-width: 700px;
-  margin: 20px auto;
-  opacity: 0.9;
-}
-
-/* Estilo para imágenes dentro de featurette */
-.featurette-image {
+  display: flex;
+  justify-content: space-between;
+  gap: 1px;
   margin-top: 30px;
 }
 
-.styled-image {
-  width: 90%;
-  max-width: 550px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.contenedor-fotos img {
+  width: 25%;
+  height: auto;
 }
 
-.styled-image:hover {
-  transform: scale(1.1);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+/* estilos para el navegador de la parte de abajo */
+.fila-imagenes {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-bottom: 40px;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .featurette {
-      padding: 40px 20px;
-  }
+.imagen {
+width: 500px;
+height: 420px; 
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .featurette-title {
-      font-size: 2.5rem;
-  }
-
-  .contenedor-fotos img {
-      width: 48%;
-  }
+.imagen:hover {
+transform: scale(1.05);
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }

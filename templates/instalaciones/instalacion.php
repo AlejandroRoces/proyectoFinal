@@ -26,9 +26,11 @@ Propósito:
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $instalacion['titulo']; ?></title>
   <link rel="stylesheet" href="../assets/css/instalacionTemplate/instalaciones.css" />
+  <?php require_once('../assets/css/styles.php'); ?> <!-- styles-->
+
 </head>
 <body>
-  <header>
+  <header class="header2">
     <h1><?php echo $instalacion['titulo']; ?></h1>
   </header>
 

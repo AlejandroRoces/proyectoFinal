@@ -8,6 +8,8 @@
     <title>aventura</title>
     <link rel="icon" type="image/png" href="../../assets/img/logos/logoSF.png">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../assets/css/gen_css/sobreNosotros.css">
     <?php require_once('../../assets/css/styles.php'); ?> <!-- styles-->
 
@@ -119,7 +121,7 @@
             flex-wrap: wrap;
             gap: 24px;
             justify-content: center;
-            margin-bottom:  20px;
+            margin-bottom: 20px;
         }
 
         .card {
@@ -127,7 +129,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             overflow: hidden;
-            max-width: 350px;
+            max-width: 400px;
             text-align: center;
             transition: transform 0.2s;
             padding-bottom: 30px;
@@ -153,102 +155,102 @@
         }
 
         .container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
 
-.header form {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
+        .header form {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
 
-.form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-.formulario {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+        .formulario {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
 
-textarea {
-    height: 100px;
-    resize: none;
-}
+        textarea {
+            height: 100px;
+            resize: none;
+        }
 
-.checkbox {
-    text-align: left;
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
+        .checkbox {
+            text-align: left;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-.checkbox input {
-    width: auto;
-}
+        .checkbox input {
+            width: auto;
+        }
 
-.checkbox label a {
-    color: #007bff;
-    text-decoration: none;
-}
+        .checkbox label a {
+            color: #007bff;
+            text-decoration: none;
+        }
 
-.checkbox label a:hover {
-    text-decoration: underline;
-}
+        .checkbox label a:hover {
+            text-decoration: underline;
+        }
 
-.info {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 20px;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 8px;
-}
+        .info {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
 
-.info div {
-    text-align: center;
-}
+        .info div {
+            text-align: center;
+        }
 
-.info img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 8px;
-}
+        .info img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 8px;
+        }
 
-.info strong {
-    display: block;
-    margin-bottom: 5px;
-}
+        .info strong {
+            display: block;
+            margin-bottom: 5px;
+        }
 
-.info a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-}
+        .info a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-.info a:hover {
-    color: #007bff;
-}
-
+        .info a:hover {
+            color: #007bff;
+        }
     </style>
 
 </head>
@@ -280,15 +282,15 @@ textarea {
         </div>
     </div>
 
-    <div class="divisor"><span>✦✦✦</span></div>   <!-- Separador de contenidos -->
+    <div class="divisor"><span>✦✦✦</span></div> <!-- Separador de contenidos -->
 
     <div class="cards">
         <div class="card">
             <img src="../../assets/img/masActividades/animacion.jpg" alt="Animaciones">
             <h3>Animaciones</h3>
-            <p>Realizamos animaciones infantiles para todo tipo de eventos de una forma totalmente personalizada y adaptada a tus necesidades. Si necesitas preparar un cumpleaños, una primera comunión, una boda, bautizo, o cualquier otro evento en el que participen niñ@s CampTrack puede ayudarte</p>
+            <p>El Campus Turístico Villamanín es un espacio ideal para disfrutar de la montaña, con actividades de aventura, senderismo y naturaleza. Un entorno perfecto para el descanso.</p>
             <div>
-                <a href="maquetaActividades.php" >+info</a>
+                <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
             <br>
         </div>
@@ -296,7 +298,7 @@ textarea {
         <div class="card">
             <img src="../../assets/img/masActividades/actividadEscolar.jpg" alt="Actividades Escolares">
             <h3>Actividades Escolares</h3>
-            <p>Ofrecemos excursiones de un día adaptadas a las necesidades de Colegios u otros Centros Educativos, principalmente relacionados con la Multiaventura o la Educación Ambiental.</p>
+            <p>El Albergue Juvenil Villamanín ofrece alojamiento y actividades en plena montaña leonesa. Un lugar ideal para grupos y jóvenes que buscan disfrutar del entorno natural o grupos escolares.  .</p>
             <div>
                 <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
@@ -304,7 +306,7 @@ textarea {
         <div class="card">
             <img src="../../assets/img/masActividades/SemanaBlanca.jpg" alt="Semanas Blancas">
             <h3>Semanas Blancas</h3>
-            <p>Ofrecemos excursiones de un día adaptadas a las necesidades de Colegios u otros Centros Educativos, principalmente relacionados con la Multiaventura o la Educación Ambiental.</p>
+            <p>El Albergue Maristas Villamanín es un centro educativo y recreativo en plena naturaleza leonesa, ideal para convivencias, campamentos y actividades al aire libre con grupos juveniles </p>
             <div>
                 <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
@@ -312,7 +314,7 @@ textarea {
         <div class="card">
             <img src="../../assets/img/masActividades/talleres.jpg" alt="Talleres">
             <h3>Talleres</h3>
-            <p>Ofrecemos excursiones de un día adaptadas a las necesidades de Colegios u otros Centros Educativos, principalmente relacionados con la Multiaventura o la Educación Ambiental.</p>
+            <p>El Campamento Juvenil Pola de Gordón es perfecto para disfrutar de la naturaleza con actividades multiaventura, rutas de senderismo y experiencias educativas para jóvenes.</p>
             <div>
                 <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
@@ -320,7 +322,7 @@ textarea {
         <div class="card">
             <img src="../../assets/img/masActividades/ludoteca.jpg" alt="Ludotecas">
             <h3>Ludotecas</h3>
-            <p>Ofrecemos excursiones de un día adaptadas a las necesidades de Colegios u otros Centros Educativos, principalmente relacionados con la Multiaventura o la Educación Ambiental.</p>
+            <p>El Albergue Santibáñez de Vidriales, en Zamora, ofrece un entorno rural único para campamentos, excursiones y actividades en plena naturaleza, con alojamiento confortable.</p>
             <div>
                 <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
@@ -328,17 +330,17 @@ textarea {
         <div class="card">
             <img src="../../assets/img/masActividades/familias.jpg" alt="Actividades familiares">
             <h3>Actividades familiares</h3>
-            <p>Ofrecemos excursiones de un día adaptadas a las necesidades de Colegios u otros Centros Educativos, principalmente relacionados con la Multiaventura o la Educación Ambiental.</p>
+            <p>La Colonia San José Barro, en Llanes, es un espacio perfecto para campamentos juveniles en la costa asturiana, con acceso a la playa y actividades de ocio y educación.</p>
             <div>
                 <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
         </div>
     </div>
 
-        
 
-    
-    <div class="divisor"><span>✦✦✦</span></div>  <!-- Separador de contenidos -->
+
+
+    <div class="divisor"><span>✦✦✦</span></div> <!-- Separador de contenidos -->
 
     <div class="container">
         <div class="header form">
@@ -353,7 +355,7 @@ textarea {
 
                 <div class="checkbox">
                     <input type="checkbox" id="privacidad">
-                    <label for="privacidad">He leído y acepto las <a href="#">políticas de privacidad</a></label>
+                    <label for="privacidad">He leído y acepto las <a href="termsAndConditions.php">políticas de privacidad</a></label>
                 </div>
             </div>
 
@@ -361,8 +363,8 @@ textarea {
                 <div>
                     <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Teléfono">
                     <strong>Teléfono</strong><br>
-                    <a href="tel:618486475">618 48 64 75</a> Roces <br>
-                
+                    <a href="tel:618486475">618 48 64 75</a><br>
+
                 </div>
                 <div>
                     <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email">
@@ -375,9 +377,9 @@ textarea {
 
 
 
-        <footer>
-            <p>&copy; 2025 CampTrack. Todos los derechos reservados.</p>
-        </footer>
+    <footer>
+        <p>&copy; 2025 CampTrack. Todos los derechos reservados.</p>
+    </footer>
 </body>
 
 </html>

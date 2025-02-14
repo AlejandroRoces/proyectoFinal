@@ -15,7 +15,10 @@ body {
     font-size: 3rem;
     margin: 0;
 }
-
+img{
+    height: 300px;
+    width: 350px;    
+}
 .section {
     padding: 3rem 1rem;
     text-align: center;

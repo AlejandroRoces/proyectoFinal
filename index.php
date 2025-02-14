@@ -5,11 +5,12 @@
     Descripción: Esta pagina sirve para la gestion interna de la empresa asi como el contacto con el usuario.
     Autor: Alejandro Roces Fernandez
     Fecha de Creación: 01 de enero de 2025
-    Última Modificación: 27 de enero de 2025
+    Última Modificación: 12.02.2025
     Versión: 1.0
     Dependencias:
-        - index.css (estilos específicos para esta página)
-        - boostrap  (librerias para estructuracion y funcionalidad)
+        - styles.php    (estilos generales de la aplicacion web)
+        - index.css     (estilos específicos para esta página)
+        - boostrap      (librerias para estructuracion y funcionalidad)
         
         - headerGen.php (header especifico del index con su css propio)
         - nav.php       (nav para la navegabilidad de CampTrack)
@@ -23,34 +24,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CampTrack</title>
     <link rel="icon" type="image/png" href="assets/img/logos/logoSF.png">
-    <link rel="stylesheet" href="assets/css/index_css/index.css" />
     <base href="/CampTrack/proyectoFinal/">
-    <style>
-        .fila-imagenes {
-            display: flex;
-            justify-content: flex-start;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
 
-        .imagen {
-    width: 500px; /* Tamaño fijo de las imágenes */
-    height: 420px; /* Mantiene la proporción de la imagen */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
-}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/index_css/index.css">
+    <?php require_once('assets/css/styles.php'); ?> <!-- styles-->
 
-/* Efecto al pasar el cursor */
-.imagen:hover {
-    transform: scale(1.05); /* Aumento mínimo del tamaño de la imagen */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-}
-</style>
+
+    
 </head>
 
 <body>
     <?php require_once('templates/headerGen.php'); ?> <!-- component : headerGen.php -->
     <?php require_once('templates/nav.php'); ?> <!-- component : nav.php -->
     <?php require_once('templates/slider.php'); ?> <!-- component : slider.php -->
+    
     <!-- Sección 1 -->
     <div class="container my-5">
         <div class="row align-items-center">
@@ -70,8 +59,8 @@
             </div>
         </div>
     </div>
-    <!-- Respiradero 1 -->
 
+    <!-- Respiradero 1 -->
     <div class="contenedor-fotos">
         <img src="assets/img/resp.sec.1/sec.1.1-edit.jpg" alt="Imagen 1">
         <img src="assets/img/resp.sec.1/sec.1.2-edit.jpg" alt="Imagen 2">
@@ -98,6 +87,7 @@
             </div>
         </div>
     </div>
+
     <!-- Respiradero 2 -->
     <div class="contenedor-fotos">
         <img src="assets/img/resp.sec.2/sec.2.1.jpeg" alt="Imagen1">
@@ -105,6 +95,7 @@
         <img src="assets/img/resp.sec.2/sec.2.3.jpg"  alt="Imagen3">
         <img src="assets/img/resp.sec.2/sec.2.4.jpeg" alt="Imagen4">
     </div>
+
     <!-- Sección 3 -->
     <div class="container my-5">
         <div class="row align-items-center">
@@ -124,6 +115,7 @@
         </div>
     </div>
 
+    <!--nav de imagnes-->
     <div class="fila-imagenes">
         <a href="views/gen/aventura.php"><img src="assets/img/nav2/(nav) AVENTURA.EDIT.jpg" alt="Imagen 1" class="imagen"></a>
         <a href="views/gen/cursos.php"><img src="assets/img/nav2/(nav) CURSOS.EDIT.jpg" alt="Imagen 2" class="imagen"></a> 
@@ -136,7 +128,6 @@
 
     <?php require_once('templates/footerGen.php'); ?> <!-- component : footerGen.php -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

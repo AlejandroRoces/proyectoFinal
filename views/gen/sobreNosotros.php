@@ -1,5 +1,22 @@
 <!DOCTYPE html>
+<!--
+    =========================================================================================================
+    Página: Sobre Nosotros
+    Descripción: Muestra la pesentacion de la empresa, quienes somos, y algunas de las actividades que ofrecemos. 
+    Autor: Alejandro Roces Fernandez
+    Fecha de Creación: 01 de enero de 2025
+    Última Modificación: 12.02.2025
+    Versión: 1.0
+    Dependencias:
+        - styles.php            (estilos generales de la aplicacion web)
+        - sobreNosotros.css     (estilos específicos para esta página)
+        - boostrap              (librerias para estructuracion y funcionalidad)
+        
+        - headerligth.php   (header ligero para la view con css integrado)
+    ========================================================================================================
+-->
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,25 +24,42 @@
     <title>Sobre Nosotros</title>
     <link rel="icon" type="image/png" href="../../assets/img/logos/logoSF.png">
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../assets/css/gen_css/sobreNosotros.css">
     <?php require_once('../../assets/css/styles.php'); ?> <!-- styles-->
 
 
 </head>
+
 <body>
-<?php require_once('../../templates/headerLigth.php'); ?> <!-- component : headerGen.php -->
+    <?php require_once('../../templates/headerLigth.php'); ?> <!-- component : headerGen.php -->
 
     <header class="header2">
         <h1>QUIEN SOMOS NOSOTROS</h1>
     </header>
 
-    <section class="section">
-        <h2>Sobre Nosotros</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed numquam perspiciatis dolor consequuntur accusamus necessitatibus sequi doloribus. Vero aliquam sed, distinctio nobis dolore voluptatum accusamus fugiat a dolorem veritatis debitis.</p>
-    </section>
+    <section class="container py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-6 text-center">
+            <img src="../../assets/img/sobreNosotros/equipo.jpg" class="img-fluid rounded shadow" alt="Nuestro Equipo">
+        </div>
+        <div class="col-lg-6">
+            <h2 class="mb-4 text-primary">Sobre Nosotros</h2>
+            <p class="text-muted">
+                En <strong>CampTrack</strong>, creemos que la clave para ofrecer experiencias inolvidables está en las personas que las hacen posibles. Nuestro equipo está formado por monitores, educadores y profesionales apasionados por el ocio y el tiempo libre, comprometidos con la diversión, la seguridad y el aprendizaje.
+            </p>
+            <p class="text-muted">
+                Cada miembro aporta su experiencia y entusiasmo para crear actividades innovadoras, fomentando valores como el compañerismo, el respeto por la naturaleza y la aventura. Juntos, diseñamos experiencias únicas para niños, jóvenes y familias, asegurándonos de que cada momento sea especial.
+            </p>
+            <p class="fw-bold text-primary">¡Conócenos y vive la magia del ocio con nosotros! 🎉🏕️</p>
+        </div>
+    </div>
+</section>
+
 
     <section class="section">
-        <h2>Que ofrecemos</h2>
+        <h2>Alguna de las cosas que ofrecemos ...</h2>
         <div class="grid">
             <div class="card">
                 <img src="../../assets/img/sobreNosotros/multiaventura.jpg" alt="Desarrollo de software">
@@ -66,7 +100,8 @@
     </section>
 
     <footer>
-    <p>&copy; 2025 CampTrack. Todos los derechos reservados.</p>
+        <p>&copy; 2025 CampTrack. Todos los derechos reservados.</p>
     </footer>
 </body>
+
 </html>

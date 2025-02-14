@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+<!--
+    =========================================================================================================
+    Página: Campamentos
+    Descripción: Muestra las diferentes opciones que oferta la aplicacion para los usuarios que la visiten. 
+    Autor: Alejandro Roces Fernandez
+    Fecha de Creación: 01 de enero de 2025
+    Última Modificación: 12.02.2025
+    Versión: 1.0
+    Dependencias:
+        - styles.php        (estilos generales de la aplicacion web)
+        - campamentos.css   (estilos específicos para esta página)
+        - boostrap          (librerias para estructuracion y funcionalidad)
+        
+        - headerligth.php   (header ligero para la view con css integrado)
+        - footerGen.php     (footer ligero para la view con css integrado)
+    ========================================================================================================
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">

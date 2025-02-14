@@ -65,6 +65,8 @@ $instalaciones = [
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_AlbergueJuvenil\img6.AlbergueJuvenil.jpg',
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_AlbergueJuvenil\img7.AlbergueJuvenil.jpg',
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_AlbergueJuvenil\img8.AlbergueJuvenil.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_AlbergueJuvenil\img9.AlbergueJuvenil.jpg'
+
 
 
             ]
@@ -96,9 +98,103 @@ $instalaciones = [
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img6.MaristasVillamanin.jpg',
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img7.MaristasVillamanin.jpg',
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img8.MaristasVillamanin.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img9.MaristasVillamanin.jpg',
+
+
             ]
         ]
     ],
+
+
+    // =============================================
+    // Definición de la instalación: COLONIA SAN JOSE (VILLAMANIN)
+    // Contiene los datos como título, ubicación, descripción, capacidad,
+    // facilidades, coordenadas para el mapa, e imágenes asociadas.
+    // =============================================
+    'colonia_barro' => [
+        'titulo' => 'Colonia San Jose Barro',
+        'ubicacion' => 'Llanes',
+        'descripcion' => 'Ideal para jóvenes que buscan diversión...',
+        'capacidad' => '100 personas',
+        'facilidades' => 'Dormitorios, comedor...',
+        'coordenadas' => [
+            'lat' => 42.93749713523749, 
+            'lng' => -5.655942987934993
+        ],
+        'imagenes' => [
+            'principal' => '\CampTrack\proyectoFinal\assets\img\installation\Llanes_ColoniaSanJose\img1.ColoniaSanJose.jpg',
+            'galeria' => [
+                '\CampTrack\proyectoFinal\assets\img\installation\Llanes_ColoniaSanJose\img2.ColoniaSanJose.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Llanes_ColoniaSanJose\img3.ColoniaSanJose.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Llanes_ColoniaSanJose\img4.ColoniaSanJose.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Llanes_ColoniaSanJose\img5.ColoniaSanJose.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Llanes_ColoniaSanJose\img6.ColoniaSanJose.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Llanes_ColoniaSanJose\img7.ColoniaSanJose.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Llanes_ColoniaSanJose\img8.ColoniaSanJose.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Llanes_ColoniaSanJose\img9.ColoniaSanJose.jpg',
+
+            ]
+        ]
+    ],
+    
+    // =============================================
+    // Definición de la instalación: SANTIVAÑEZ (ZAMORA)
+    // Contiene los datos como título, ubicación, descripción, capacidad,
+    // facilidades, coordenadas para el mapa, e imágenes asociadas.
+    // =============================================
+    'albergue_zamora' => [
+        'titulo' => 'Santibañez Zamora',
+        'ubicacion' => 'Llanes',
+        'descripcion' => 'Ideal para jóvenes que buscan diversión...',
+        'capacidad' => '100 personas',
+        'facilidades' => 'Dormitorios, comedor...',
+        'coordenadas' => [
+            'lat' => 42.93749713523749, 
+            'lng' => -5.655942987934993
+        ],
+        'imagenes' => [
+            'principal' => '\CampTrack\proyectoFinal\assets\img\installation\Zamora_AlbergueSantibáñezDeVidriales\img1.SantibañezZamora.jpg',
+            'galeria' => [
+                '\CampTrack\proyectoFinal\assets\img\installation\Zamora_AlbergueSantibáñezDeVidriales\img2.SantibañezZamora.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Zamora_AlbergueSantibáñezDeVidriales\img3.SantibañezZamora.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Zamora_AlbergueSantibáñezDeVidriales\img4.SantibañezZamora.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Zamora_AlbergueSantibáñezDeVidriales\img5.SantibañezZamora.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Zamora_AlbergueSantibáñezDeVidriales\img6.SantibañezZamora.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Zamora_AlbergueSantibáñezDeVidriales\img7.SantibañezZamora.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Zamora_AlbergueSantibáñezDeVidriales\img8.SantibañezZamora.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\Zamora_AlbergueSantibáñezDeVidriales\img9.SantibañezZamora.jpg',
+            ]
+        ]
+    ],
+    // =============================================
+    // Definición de la instalación: CAMPAMENTO JUVENIL (POLA DE GORDON)
+    // Contiene los datos como título, ubicación, descripción, capacidad,
+    // facilidades, coordenadas para el mapa, e imágenes asociadas.
+    // =============================================
+    'campamento_juvenil' => [
+        'titulo' => 'Campamento juvenil pola de gordon',
+        'ubicacion' => 'Llanes',
+        'descripcion' => 'Ideal para jóvenes que buscan diversión...',
+        'capacidad' => '100 personas',
+        'facilidades' => 'Dormitorios, comedor...',
+        'coordenadas' => [
+            'lat' => 42.93749713523749, 
+            'lng' => -5.655942987934993
+        ],
+        'imagenes' => [
+            'principal' => '\CampTrack\proyectoFinal\assets\img\installation\PolaGordon_CampamentoJuvenilPolaGordon\img1.CampamentoJuvenilPolaGordon.jpg',
+            'galeria' => [
+                '\CampTrack\proyectoFinal\assets\img\installation\PolaGordon_CampamentoJuvenilPolaGordon\img2.CampamentoJuvenilPolaGordon.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\PolaGordon_CampamentoJuvenilPolaGordon\img3.CampamentoJuvenilPolaGordon.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\PolaGordon_CampamentoJuvenilPolaGordon\img4.CampamentoJuvenilPolaGordon.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\PolaGordon_CampamentoJuvenilPolaGordon\img5.CampamentoJuvenilPolaGordon.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\PolaGordon_CampamentoJuvenilPolaGordon\img6.CampamentoJuvenilPolaGordon.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\PolaGordon_CampamentoJuvenilPolaGordon\img7.CampamentoJuvenilPolaGordon.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\PolaGordon_CampamentoJuvenilPolaGordon\img8.CampamentoJuvenilPolaGordon.jpg',
+                '\CampTrack\proyectoFinal\assets\img\installation\PolaGordon_CampamentoJuvenilPolaGordon\img9.CampamentoJuvenilPolaGordon.jpg',
+            ]
+        ]
+    ]
 ];
 
 // Verifica si la instalación existe

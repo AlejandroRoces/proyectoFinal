@@ -5,19 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos y Condiciones</title>
     <link rel="icon" type="image/png" href="img/logos/logoSF.png">
-    <link rel="stylesheet" href="../../assets/css/globales.php">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <?php require_once('../../assets/css/styles.php'); ?> <!-- styles-->
+
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
             color: #333;
         }
 
         header {
-            background-color: var(--color-nav);
             color: white;
             text-align: center;
             padding: 16px 0;
@@ -32,9 +32,7 @@
             border-radius: 10px;
         }
 
-        h1, h2 {
-            color: #4CAF50;
-        }
+
 
         p {
             line-height: 1.6;
@@ -43,7 +41,6 @@
         footer {
             text-align: center;
             padding: 16px;
-            background-color: #4CAF50;
             color: white;
         }
     </style>
@@ -51,7 +48,7 @@
 <body>
     <?php require_once('../../templates/headerLigth.php'); ?>
 
-    <header>
+    <header class="header2">
         <h1>Términos y Condiciones</h1>
     </header>
 
