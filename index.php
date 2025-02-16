@@ -10,14 +10,23 @@
     Dependencias:
         - styles.php    (estilos generales de la aplicacion web)
         - index.css     (estilos específicos para esta página)
-        - boostrap      (librerias para estructuracion y funcionalidad)
-        
+        - bootstrap     (librerías para estructuración y funcionalidad)
+
+
         - headerGen.php (header especifico del index con su css propio)
         - nav.php       (nav para la navegabilidad de CampTrack)
         - slider.php    (slider para la publicidad de campTrack )
         - footerGen.php (footer completo de campTrack)
+
+    Licencia:
+    Este código está licenciado bajo Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0).
+    No se permite su uso comercial sin autorización previa del autor.
+    Más información en: https://creativecommons.org/licenses/by-nc/4.0/
+
+    Copyright (c) 2025 Alejandro Roces Fernandez
     ========================================================================================================
 -->
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,6 +49,7 @@
     <?php require_once('templates/nav.php'); ?> <!-- component : nav.php -->
     <?php require_once('templates/slider.php'); ?> <!-- component : slider.php -->
     
+    <main>
     <!-- Sección 1 -->
     <div class="container my-5">
         <div class="row align-items-center">
@@ -80,7 +90,6 @@
                 <p>¡Los campamentos de 2025 serán una experiencia única! Con actividades emocionantes, aventuras al aire libre y un enfoque 
                     en el aprendizaje y los valores, garantizamos momentos inolvidables. Únete a nosotros y vive la mejor experiencia del año. 
                     ¡Te esperamos con los brazos abiertos!</p>
-                </p>
             </div>
             <div class="col-md-6 order-md-1">
                 <img src="assets/img/resp.sec.1/GettyImages-505936027.jpg" alt="Imagen seccion2" class="img-fluid">
@@ -110,7 +119,7 @@
                     cada detalle para que vivas momentos inolvidables. ¡Estás en buenas manos!</p>
             </div>
             <div class="col-md-6">
-                <img src="assets\img\monis\img.monisGen.jpg" alt="Imagen seccion3" class="img-fluid">
+                <img src="assets/img/monis/img.monisGen.jpg" alt="Imagen seccion3" class="img-fluid">
             </div>
         </div>
     </div>
@@ -121,8 +130,6 @@
         <a href="views/gen/cursos.php"><img src="assets/img/nav2/(nav) CURSOS.EDIT.jpg" alt="Imagen 2" class="imagen"></a> 
         <a href="views/gen/masActividades.php"><img src="assets/img/nav2/(nav) MAS ACTIVIDADES.EDIT.jpg" alt="Imagen 3" class="imagen"></a> 
     </div>
-
-
 
     </main>
 

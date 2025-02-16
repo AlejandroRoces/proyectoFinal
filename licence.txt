@@ -1,0 +1,14 @@
+Creative Commons Attribution-NonCommercial 4.0 International
+
+Copyright (c) 2025 Alejandro Roces Fernandez
+
+Este código está licenciado bajo la Licencia Creative Commons Atribución-NoComercial 4.0 Internacional.  
+Para ver una copia de esta licencia, visita https://creativecommons.org/licenses/by-nc/4.0/ o envía una carta a Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+Usted es libre de:  
+- Compartir: copiar y redistribuir el material en cualquier medio o formato.  
+- Adaptar: remezclar, transformar y construir a partir del material.  
+
+Bajo los siguientes términos:  
+- **Atribución**: Debe dar crédito de manera adecuada, proporcionar un enlace a la licencia e indicar si se han realizado cambios.  
+- **NoComercial**: No puede utilizar el material con fines comerciales.  

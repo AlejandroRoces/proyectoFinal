@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+
+  /* Cabecera */
+  header {
+    background-color: #1a73e8;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-container img {
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .logo-container span {
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  .user-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .user-menu img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+  }
+
+  .user-menu i {
+    margin-left: 10px;
+    font-size: 18px;
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+  }
+
+  .dropdown-menu a, .dropdown-menu button {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    background: none;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .dropdown-menu a:hover, .dropdown-menu button:hover {
+    background-color: #f0f0f0;
+  }
+
+  .dropdown-menu button {
+    background-color: #1a73e8;
+    color: white;
+    font-weight: bold;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .show-menu {
+    display: block;
+  }
+
+  /* Menú de navegación */
+  nav {
+    background-color: #2c3e50;
+    color: white;
+    width: 200px;
+    position: fixed; /* Fijar en el lateral */
+    top: 80px; /* Debajo del header */
+    left: 0;
+    height: calc(100vh - 80px); /* Cubrir toda la pantalla menos el header */
+    padding: 20px;
+    overflow-y: auto; /* Agregar scroll si es necesario */
+  }
+
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin: 15px 0;
+  }
+
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+  }
+
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+
+  main {
+    margin-left: 200px;
+    margin-top: 80px;
+    padding: 20px;
+    min-height: 100vh;
+    background-image: url('../../../assets/img/logos/logo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+  }
+
+  li a span {
+    text-decoration: underline;
+  }

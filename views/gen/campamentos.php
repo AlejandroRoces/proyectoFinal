@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <!--
     =========================================================================================================
-    Página: Campamentos
+    Página: Actividades
     Descripción: Muestra las diferentes opciones que oferta la aplicacion para los usuarios que la visiten. 
     Autor: Alejandro Roces Fernandez
     Fecha de Creación: 01 de enero de 2025
-    Última Modificación: 12.02.2025
+    Última Modificación: 16.02.2025
     Versión: 1.0
     Dependencias:
         - styles.php        (estilos generales de la aplicacion web)
-        - campamentos.css   (estilos específicos para esta página)
+        - actividades.css   (estilos específicos para esta página)
         - boostrap          (librerias para estructuracion y funcionalidad)
         
         - headerligth.php   (header ligero para la view con css integrado)
@@ -20,14 +20,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campamentos</title>
+    <title>Actividades</title>
     <link rel="icon" type="image/png" href="../../assets/img/logos/logoSF.png">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="../../assets/css/gen_css/campamentos.css">
     <?php require_once('../../assets/css/styles.php'); ?> <!-- styles-->
-
 </head>
 <body>
     <?php require_once('../../templates/headerLigth.php'); ?> <!-- component: headerGen.php -->
@@ -40,40 +39,26 @@
     <section class="section">
         <h2>¿Por qué nuestro campamento es la mejor opción?</h2>
         <div class="cards">
-            <div class="card">
-                <img src="../../assets/img/campamentos/camp1.jpg" alt="Camps de día (julio)">
-                <h3>Camps de día (julio)</h3>
-                <p>El campamento infantil de julio ofrece actividades divertidas y llenas de aprendizaje y exploración en la naturaleza. Diseñado para fomentar la creatividad y el trabajo en equipo.</p>
-                <div>
-                    <a href="maquetaActividades.php" class="btn btn-sm btn-outline-secondary">+info</a>
-                    <a href="inscripciones.php" class="btn btn-sm btn-outline-secondary">Apuntarse</a>
-                </div>
-                <br>
-            </div>
+            <?php
+            // Incluir el archivo de actividades.php que trae los datos de la base de datos
+            require_once('../../model/database/activities.php');
 
-            <div class="card">
-                <img src="../../assets/img/campamentos/camp2.jpg" alt="Camps de día (agosto)">
-                <h3>Camps de día (agosto)</h3>
-                <p>Agosto trae aventuras emocionantes, actividades al aire libre y talleres creativos. Es el momento perfecto para disfrutar de los últimos días de verano y crear recuerdos inolvidables.</p>
-                <div>
-                    <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
-                    <a href="#" class="btn btn-sm btn-outline-secondary">Apuntarse</a>
+            // Mostrar cada actividad dentro de una card
+            foreach ($actividades as $actividad): ?>
+                <div class="card">
+                    <img src="<?php echo htmlspecialchars($actividad['imagen']); ?>" alt="<?php echo htmlspecialchars($actividad['nombre']); ?>">
+                    <h3><?php echo htmlspecialchars($actividad['nombre']); ?></h3>
+                    <p><?php echo htmlspecialchars($actividad['descripcion']); ?></p>
+                    <div>
+                        <a href="maquetaActividades.php" class="btn btn-sm btn-outline-secondary">+info</a>
+                        <a href="inscripciones.php?id_actividad=<?php echo $actividad['id']; ?>" class="btn btn-sm btn-outline-secondary">Apuntarse</a>
+                        </div>
+                    <br>
                 </div>
-            </div>
-
-            <div class="card">
-                <img src="../../assets/img/campamentos/camp3.jpg" alt="Camps de día (septiembre)">
-                <h3>Camps de día (septiembre)</h3>
-                <p>Septiembre marca el regreso a la rutina con actividades que fomentan el aprendizaje, la creatividad y el trabajo en equipo. Ideal para prepararse para nuevos retos y proyectos.</p>
-                <div>
-                    <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
-                    <a href="#" class="btn btn-sm btn-outline-secondary">Apuntarse</a>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </section>
 </main>
-
 
 <footer>
     <p>&copy; 2025 CampTrack. Todos los derechos reservados.</p>

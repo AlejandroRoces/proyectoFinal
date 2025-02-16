@@ -65,10 +65,6 @@ $instalaciones = [
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_AlbergueJuvenil\img6.AlbergueJuvenil.jpg',
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_AlbergueJuvenil\img7.AlbergueJuvenil.jpg',
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_AlbergueJuvenil\img8.AlbergueJuvenil.jpg',
-                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_AlbergueJuvenil\img9.AlbergueJuvenil.jpg'
-
-
-
             ]
         ]
     ],
@@ -98,9 +94,6 @@ $instalaciones = [
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img6.MaristasVillamanin.jpg',
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img7.MaristasVillamanin.jpg',
                 '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img8.MaristasVillamanin.jpg',
-                '\CampTrack\proyectoFinal\assets\img\installation\Villamanin_Maristas\img9.MaristasVillamanin.jpg',
-
-
             ]
         ]
     ],
