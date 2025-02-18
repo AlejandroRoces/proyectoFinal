@@ -288,9 +288,9 @@
         <div class="card">
             <img src="../../assets/img/masActividades/animacion.jpg" alt="Animaciones">
             <h3>Animaciones</h3>
-            <p>El Campus Turístico Villamanín es un espacio ideal para disfrutar de la montaña, con actividades de aventura, senderismo y naturaleza. Un entorno perfecto para el descanso.</p>
+            <p>Las animaciones ofrecen momentos de diversión y entretenimiento con juegos, espectáculos y dinámicas participativas. Perfectas para cualquier evento o celebración.</p>
             <div>
-                <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
+                <a href="../../views/error404.php" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
             <br>
         </div>
@@ -298,41 +298,41 @@
         <div class="card">
             <img src="../../assets/img/masActividades/actividadEscolar.jpg" alt="Actividades Escolares">
             <h3>Actividades Escolares</h3>
-            <p>El Albergue Juvenil Villamanín ofrece alojamiento y actividades en plena montaña leonesa. Un lugar ideal para grupos y jóvenes que buscan disfrutar del entorno natural o grupos escolares.  .</p>
+            <p>Las actividades escolares complementan el aprendizaje con experiencias didácticas y recreativas. Excursiones, talleres y dinámicas adaptadas a cada etapa educativa.</p>
             <div>
-                <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
+                <a href="../../views/error404.php" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
         </div>
         <div class="card">
             <img src="../../assets/img/masActividades/SemanaBlanca.jpg" alt="Semanas Blancas">
             <h3>Semanas Blancas</h3>
-            <p>El Albergue Maristas Villamanín es un centro educativo y recreativo en plena naturaleza leonesa, ideal para convivencias, campamentos y actividades al aire libre con grupos juveniles </p>
+            <p>Las semanas blancas combinan deporte y aventura en la nieve, con esquí, snowboard y juegos invernales. Una experiencia única en entornos naturales espectaculares.</p>
             <div>
-                <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
+                <a href="../../views/error404.php" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
         </div>
         <div class="card">
             <img src="../../assets/img/masActividades/talleres.jpg" alt="Talleres">
             <h3>Talleres</h3>
-            <p>El Campamento Juvenil Pola de Gordón es perfecto para disfrutar de la naturaleza con actividades multiaventura, rutas de senderismo y experiencias educativas para jóvenes.</p>
-            <div>
-                <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
+            <p>Los talleres fomentan la creatividad y el aprendizaje práctico en distintas áreas, desde arte y ciencia hasta cocina y manualidades. Diversión y formación en un solo espacio.</p>            
+        <div>
+                <a href="../../views/error404.php" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
         </div>
         <div class="card">
             <img src="../../assets/img/masActividades/ludoteca.jpg" alt="Ludotecas">
             <h3>Ludotecas</h3>
-            <p>El Albergue Santibáñez de Vidriales, en Zamora, ofrece un entorno rural único para campamentos, excursiones y actividades en plena naturaleza, con alojamiento confortable.</p>
+            <p>Las ludotecas son espacios diseñados para el juego y la creatividad, con actividades educativas y de ocio adaptadas a cada edad. Un entorno seguro y estimulante.</p>
             <div>
-                <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
+                <a href="../../views/error404.php" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
         </div>
         <div class="card">
             <img src="../../assets/img/masActividades/familias.jpg" alt="Actividades familiares">
             <h3>Actividades familiares</h3>
-            <p>La Colonia San José Barro, en Llanes, es un espacio perfecto para campamentos juveniles en la costa asturiana, con acceso a la playa y actividades de ocio y educación.</p>
+            <p>Las actividades familiares fortalecen la unión con dinámicas divertidas y educativas para todas las edades. Una oportunidad única para compartir momentos especiales.</p>
             <div>
-                <a href="#" class="btn btn-sm btn-outline-secondary">+info</a>
+                <a href="../../views/error404.php" class="btn btn-sm btn-outline-secondary">+info</a>
             </div>
         </div>
     </div>
@@ -346,7 +346,7 @@
         <div class="header form">
             <h2>NECESITAS MÁS INFORMACIÓN</h2>
         </div>
-
+        <br>
         <div class="form-container">
             <div class="formulario">
                 <input type="text" placeholder="Nombre">
@@ -357,6 +357,7 @@
                     <input type="checkbox" id="privacidad">
                     <label for="privacidad">He leído y acepto las <a href="termsAndConditions.php">políticas de privacidad</a></label>
                 </div>
+                <button>enviar</button>
             </div>
 
             <div class="info">

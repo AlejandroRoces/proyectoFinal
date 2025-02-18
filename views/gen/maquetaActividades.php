@@ -1,3 +1,32 @@
+<?php
+require_once(__DIR__ . '/../../model/database/connection.php');
+
+$conn = conectarDB(); // Se obtiene la conexión con PDO
+
+// Verifica si se pasó un ID válido en la URL
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $id = $_GET['id'];
+
+    // Consulta para obtener los datos de la actividad específica con PDO
+    $sql = "SELECT * FROM actividades_camptrack WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $actividad = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Si la actividad no existe, mostrar error
+    if (!$actividad) {
+        echo "<p>Actividad no encontrada.</p>";
+        exit;
+    }
+} else {
+    echo "<p>ID de actividad no válido.</p>";
+    exit;
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -109,11 +138,17 @@
     <div class="activity-header">
       <img src="https://via.placeholder.com/400" alt="Foto de la actividad">
       <div class="activity-info">
-        <h1>Título de la Actividad</h1>
-        <p>Descripción breve de la actividad. Incluye detalles como el objetivo, a quién va dirigida y qué se puede esperar.</p>
-        <p><strong>Duración:</strong> 3 horas</p>
-        <p><strong>Ubicación:</strong> Centro de Ocio, Ciudad</p>
-        <a href="#" class="btn signup-btn">Apuntarse</a>
+      <h1><?php echo htmlspecialchars($actividad['nombre']); ?></h1>
+        <img src="<?php echo htmlspecialchars($actividad['imagen']); ?>" alt="<?php echo htmlspecialchars($actividad['nombre']); ?>" class="img-fluid">
+        <p><strong>Descripción:</strong> <?php echo htmlspecialchars($actividad['descripcion']); ?></p>
+        <p><strong>Instalación:</strong> <?php echo htmlspecialchars($actividad['instalacion']); ?></p>
+        <p><strong>Fecha de inicio:</strong> <?php echo htmlspecialchars($actividad['fecha_inicio']); ?></p>
+        <p><strong>Fecha de fin:</strong> <?php echo htmlspecialchars($actividad['fecha_fin']); ?></p>
+        <p><strong>Inicio inscripciones:</strong> <?php echo htmlspecialchars($actividad['inicio_inscripciones']); ?></p>
+        <p><strong>Fin inscripciones:</strong> <?php echo htmlspecialchars($actividad['fin_inscripciones']); ?></p>
+        <p><strong>Tarifa:</strong> <?php echo htmlspecialchars($actividad['tarifa']); ?>€</p>
+        
+        <a href="inscripciones.php?id_actividad=<?php echo $actividad['id']; ?>" class="btn btn-primary">Apuntarse</a>
         <a href="informacion_campamento.pdf" download class="btn">Descargar Información</a>
         <a href="formulario_inscripcion.pdf" download class="btn">Descargar Inscripción</a>
       </div>

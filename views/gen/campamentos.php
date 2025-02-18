@@ -50,8 +50,8 @@
                     <h3><?php echo htmlspecialchars($actividad['nombre']); ?></h3>
                     <p><?php echo htmlspecialchars($actividad['descripcion']); ?></p>
                     <div>
-                        <a href="maquetaActividades.php" class="btn btn-sm btn-outline-secondary">+info</a>
-                        <a href="inscripciones.php?id_actividad=<?php echo $actividad['id']; ?>" class="btn btn-sm btn-outline-secondary">Apuntarse</a>
+                    <a href="maquetaActividades.php?id=<?php echo $actividad['id']; ?>" class="btn btn-sm btn-outline-secondary">+info</a>
+                    <a href="inscripciones.php?id_actividad=<?php echo $actividad['id']; ?>" class="btn btn-sm btn-outline-secondary">Apuntarse</a>
                         </div>
                     <br>
                 </div>
