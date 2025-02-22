@@ -9,6 +9,55 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-control, .form-select {
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -150,15 +199,74 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Actividades</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <main class="main-fondo">
-               
+            <main >
+            <div class="container mt-5">
+    <h2>Crear Nueva Actividad</h2>
+    
+    <form action="procesar_actividad.php" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de la Actividad</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="instalacion" class="form-label">Instalación</label>
+            <select class="form-select" id="instalacion" name="instalacion" required>
+                <option value="">Seleccione una instalación</option>
+                <option value="Polideportivo Municipal">Polideportivo Municipal</option>
+                <option value="Centro Deportivo La Vega">Centro Deportivo La Vega</option>
+                <option value="Parque Natural El Bosque">Parque Natural El Bosque</option>
+                <option value="Club Náutico Playa">Club Náutico Playa</option>
+                <option value="Gimnasio Central">Gimnasio Central</option>
+                <option value="Sala Multiusos Norte">Sala Multiusos Norte</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="fecha_inicio_inscripcion" class="form-label">Inicio de Inscripción</label>
+            <input type="date" class="form-control" id="fecha_inicio_inscripcion" name="fecha_inicio_inscripcion" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="fecha_fin_inscripcion" class="form-label">Fin de Inscripción</label>
+            <input type="date" class="form-control" id="fecha_fin_inscripcion" name="fecha_fin_inscripcion" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="tarifa" class="form-label">Tarifa (€)</label>
+            <input type="number" step="0.01" class="form-control" id="tarifa" name="tarifa" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="fecha_inicio" class="form-label">Fecha de Inicio de la Actividad</label>
+            <input type="date" class="form-control" id="fecha_inicio" name="fecha_inicio" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="fecha_fin" class="form-label">Fecha de Fin de la Actividad</label>
+            <input type="date" class="form-control" id="fecha_fin" name="fecha_fin" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Guardar Actividad</button>
+    </form>
+</div>
             </main>
         </div>
     </div>

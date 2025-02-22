@@ -136,10 +136,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
   <div class="container">
     <!-- Información de la actividad -->
     <div class="activity-header">
-      <img src="https://via.placeholder.com/400" alt="Foto de la actividad">
-      <div class="activity-info">
+    <img src="<?php echo htmlspecialchars($actividad['imagen']); ?>" alt="<?php echo htmlspecialchars($actividad['nombre']); ?>" class="img-fluid">
+    <div class="activity-info">
       <h1><?php echo htmlspecialchars($actividad['nombre']); ?></h1>
-        <img src="<?php echo htmlspecialchars($actividad['imagen']); ?>" alt="<?php echo htmlspecialchars($actividad['nombre']); ?>" class="img-fluid">
         <p><strong>Descripción:</strong> <?php echo htmlspecialchars($actividad['descripcion']); ?></p>
         <p><strong>Instalación:</strong> <?php echo htmlspecialchars($actividad['instalacion']); ?></p>
         <p><strong>Fecha de inicio:</strong> <?php echo htmlspecialchars($actividad['fecha_inicio']); ?></p>

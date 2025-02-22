@@ -1,0 +1,101 @@
+:root {
+    --index: calc(1vw + 1vh);
+    --transition: cubic-bezier(.1, .7, 0, 1);
+}
+
+body {
+    background-color: #000;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    margin-bottom: 50px;
+}
+
+.inner-containers {
+    display: flex;
+    gap: 0.4rem;
+    perspective: calc(var(--index) * 35);
+}
+
+.inner-container {
+    width: calc(var(--index) * 3);
+    height: calc(var(--index) * 12);
+    background-color: #222;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    border-radius: 20px;
+    filter: grayscale(1) brightness(.5);
+    transition: transform 1.25s var(--transition), filter 3s var(--transition), width 1.25s var(--transition);
+    will-change: transform, filter, rotateY, width;
+    box-shadow: 0 0 2px #00fffc;
+}
+
+.inner-containers .inner-container:hover {
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 10));
+    width: 250px;
+}
+
+/* Right Side Transformations */
+.inner-containers .inner-container:hover+* {
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 8.5)) rotateY(35deg);
+    z-index: -1;
+    width: 160px;
+}
+
+.inner-containers .inner-container:hover+*+* {
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 5.6)) rotateY(40deg);
+    z-index: -2;
+    width: 80px;
+}
+
+.inner-containers .inner-container:hover+*+*+* {
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 2.5)) rotateY(30deg);
+    z-index: -3;
+    width: 40px;
+}
+
+.inner-containers .inner-container:hover+*+*+*+* {
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * .6)) rotateY(15deg);
+    z-index: -4;
+    width: 20px;
+}
+
+/* Left Side Transformations */
+.inner-containers .inner-container:has(+ :hover) {
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 8.5)) rotateY(-35deg);
+}
+
+.inner-containers .inner-container:has(+ * + :hover) {
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 5.6)) rotateY(-40deg);
+}
+
+.inner-containers .inner-container:has(+ * + * + :hover) {
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 2.5)) rotateY(-30deg);
+}
+
+.inner-containers .inner-container:has(+ * + * + * + :hover) {
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * .6)) rotateY(-15deg);
+}
+
+.inner-containers .inner-container:active,
+.inner-containers .inner-container:focus {
+    width: 28vw;
+    filter: inherit;
+    z-index: 100;
+    transform: translateZ(calc(var(--index) * 10));
+}
