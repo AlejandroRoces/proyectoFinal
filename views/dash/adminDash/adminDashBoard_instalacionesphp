@@ -58,6 +58,208 @@
             font-size: 18px;
             border-radius: 10px;
         }
+        
+        .toggle-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.toggle-wrapper {
+    position: relative;
+    width: 250px;
+    height: 45px;
+    border-radius: 25px;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle-wrapper input {
+    display: none;
+}
+
+.toggle-label {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background: #444;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.4s;
+}
+
+.toggle-label::before {
+    content: "";
+    position: absolute;
+    width: calc(50% - 5px); /* Reducido para evitar que sobresalga */
+    height: 80%;
+    background: white;
+    border-radius: 25px;
+    left: 5px;
+    transition: 0.4s;
+}
+
+.toggle-wrapper input:checked + .toggle-label::before {
+    left: calc(50% + 2px); /* Ajuste fino para evitar desbordes */
+}
+
+.toggle-wrapper input:checked + .toggle-label {
+    background: #007bff; /* Cambia de color cuando está en "Reservas" */
+}
+
+.toggle-text {
+    position: relative;
+    z-index: 1;
+}
+
+<!-- calendario-->
+.calendario {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.calendar-container {
+    width: 90%;
+    max-width: 1000px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    padding: 10px;
+    background: #e3e3e3;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    font-size: 1rem;
+}
+
+.event-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    max-width: 40px;
+}
+
+.event-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .calendar-grid {
+        grid-template-columns: repeat(7, minmax(30px, 1fr)); /* Espacio dinámico */
+        gap: 2px;
+    }
+
+    .calendar-day {
+        min-height: 50px;
+        font-size: 0.8rem;
+    }
+
+    .event-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .calendar-header button {
+        font-size: 1.2rem;
+    }
+}
+        .tooltip {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .event-dot:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    
+
+        .legend-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+        }
+        .color-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -197,7 +399,6 @@
         </aside>
 
 
-
         <div class="page-wrapper">
             <div class="page-breadcrumb">
                 <div class="row align-items-center">
@@ -216,7 +417,18 @@
             </div>
             <main>
                 <br>
-                <h2 class="mb-4 text-center">Instalaciones registradas</h2>
+    <div class="toggle-container">
+        <div class="toggle-wrapper">
+            <input type="checkbox" id="toggle-section" onclick="toggleSection()">
+            <label for="toggle-section" class="toggle-label">
+                <span class="toggle-text instalaciones">Instalaciones</span>
+                <span class="toggle-text reservas">Reservas</span>
+            </label>
+        </div>
+    </div>
+
+    <div id="instalaciones-section">
+        <h2 class="mb-4 text-center">Instalaciones registradas</h2>
                 <div class="wrapper">
                     <div class="inner-containers">
                         <div class="inner-container" tabindex="0"
@@ -253,16 +465,93 @@
                 </div>
 
 
-                <div id="info-container" class="d-flex justify-content-center align-items-center mb-4">Haga click en la instalacion para ver la info.</div>
-                <div class="mb-4 text-center"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1sIft0GEmBazpK8O53oCy3p9a4MFrjVw&ehbc=2E312F"
-                    width="640" height="480"></iframe></div>
+                <div id="info-container" class="d-flex justify-content-center align-items-center mb-4">Haga click en la
+                    instalacion para ver la info.</div>
+                <div class="mb-4 text-center"><iframe
+                        src="https://www.google.com/maps/d/u/0/embed?mid=1sIft0GEmBazpK8O53oCy3p9a4MFrjVw&ehbc=2E312F"
+                        width="640" height="480"></iframe></div>
 
-                
 
 
-
-        </div>
     </div>
+    
+        <div id="reservas-section" style="display: none;">
+            <h2 class="mb-4 text-center">Reservas</h2>
+            
+                <div class="calendario ">
+                    <div class="reservas-container" >
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <button id="prevMonth">&#9665;</button>
+                                <h2 id="monthYear"></h2>
+                                <button id="nextMonth">&#9655;</button>
+                            </div>
+                            <div class="calendar-grid" id="calendar"></div>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="text-center mt-4">Leyenda de Instalaciones</h4>
+                <div class="legend-container">
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #ff5733;"></span> Colonia San José, Llanes
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #33ff57;"></span> Campamento Juvenil Pola de Gordón
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #5733ff;"></span> Albergue Juvenil Villamanín
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #ff33a8;"></span> Campus Turístico Villamanín
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #ffcc33;"></span> Albergue Maristas Villamanín
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-box" style="background-color: #33d4ff;"></span> Albergue Santibáñez, Zamora
+                    </div>
+                    <div class="container">
+                        <br><br>
+                        <h2 class="text-center">Añadir Evento al Calendario</h2>
+                        
+                        <form id="event-form" action="../../../controller/guardar_eventos.php" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label">Motivo:</label>
+                                <input type="text" class="form-control" name="motivo" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Inicio:</label>
+                                <input type="date" class="form-control" name="fecha_inicio" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Fecha de Fin:</label>
+                                <input type="date" class="form-control" name="fecha_fin" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="instalacion" class="form-label">Instalación</label>
+                                <select class="form-select" name="instalacion" required>
+                                    <option value="">Seleccione una instalación</option>
+                                    <option value="Campus Turistico">Campus Turistico</option>
+                                    <option value="Albergue Juvenil">Albergue Juvenil</option>
+                                    <option value="Albergue Maristas">Albergue Maristas</option>
+                                    <option value="Campamento Juvenil">Campamento Juvenil Pola Gordon</option>
+                                    <option value="Colonia San Jose">Colonia San Jose</option>
+                                    <option value="Santibañez de Vidriales">Santibañez de Vidriales</option>
+                                </select>
+                            </div>
+                        
+                            <button type="submit" class="btn btn-primary">Añadir Evento</button>
+                        </form>
+                        
+                
+                    </div>
+        </div>
+    
+        
+       
+    </div>
+    </div>
+    
     </main>
 
     <script src="../../../assets/plugins/jquery.min.js"></script>
@@ -298,6 +587,93 @@
                 container.style.backgroundImage = initialImage;
             });
         });
+
+        /////
+        function toggleSection() {
+        const toggle = document.getElementById('toggle-section');
+        if (toggle.checked) {
+            document.getElementById('instalaciones-section').style.display = 'none';
+            document.getElementById('reservas-section').style.display = 'block';
+        } else {
+            document.getElementById('instalaciones-section').style.display = 'block';
+            document.getElementById('reservas-section').style.display = 'none';
+        }
+    }
+    <!--calendario-->
+    document.addEventListener("DOMContentLoaded", function () {
+    const calendar = document.getElementById("calendar");
+    const monthYear = document.getElementById("monthYear");
+    const prevMonth = document.getElementById("prevMonth");
+    const nextMonth = document.getElementById("nextMonth");
+
+    let date = new Date();
+    let events = [];
+
+    function fetchEvents() {
+        fetch("obtener_eventos.php")
+            .then(response => response.json())
+            .then(data => {
+                events = data;
+                renderCalendar();
+            })
+            .catch(error => console.error("Error al obtener eventos:", error));
+    }
+
+    function renderCalendar() {
+        calendar.innerHTML = "";
+        let firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+        let daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+        monthYear.innerText = date.toLocaleDateString("es-ES", { month: "long", year: "numeric" });
+
+        for (let i = 0; i < firstDay; i++) {
+            let emptyDiv = document.createElement("div");
+            emptyDiv.classList.add("calendar-day");
+            calendar.appendChild(emptyDiv);
+        }
+
+        for (let i = 1; i <= daysInMonth; i++) {
+            let dayDiv = document.createElement("div");
+            dayDiv.classList.add("calendar-day");
+            dayDiv.innerText = i;
+
+            let currentDate = new Date(date.getFullYear(), date.getMonth(), i);
+            let formattedDate = currentDate.toISOString().split("T")[0];
+
+            let eventContainer = document.createElement("div");
+            eventContainer.classList.add("event-container");
+
+            events.forEach(event => {
+                if (formattedDate >= event.fecha_inicio && formattedDate <= event.fecha_fin) {
+                    let eventDot = document.createElement("div");
+                    eventDot.classList.add("event-dot");
+                    eventDot.style.backgroundColor = event.color;
+
+                    let tooltip = document.createElement("div");
+                    tooltip.classList.add("tooltip");
+                    tooltip.innerText = event.motivo || "Reservado";
+
+                    eventDot.appendChild(tooltip);
+                    eventContainer.appendChild(eventDot);
+                }
+            });
+
+            dayDiv.appendChild(eventContainer);
+            calendar.appendChild(dayDiv);
+        }
+    }
+
+    prevMonth.addEventListener("click", () => {
+        date.setMonth(date.getMonth() - 1);
+        renderCalendar();
+    });
+
+    nextMonth.addEventListener("click", () => {
+        date.setMonth(date.getMonth() + 1);
+        renderCalendar();
+    });
+
+    fetchEvents();
+});
 
     </script>
 </body>

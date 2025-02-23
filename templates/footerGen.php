@@ -33,8 +33,8 @@ Propósito:
             </p>
             <div style="margin-top: 15px;">
                 <a href="#" style="margin-right: 15px;"><img style="width: 30px;" src="assets/img/icons/faceboook.png" alt="Facebook"></a>
-                <a href="#" style="margin-right: 15px;"><img style="width: 30px;" src="assets/img/icons/instagram.png" alt="Instagram"></a>
-                <a href="#"><img style="width: 30px;" src="assets/img/icons/tiktok.png" alt="TikTok"></a>
+                <a href="https://www.instagram.com/camptrack.app?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" style="margin-right: 15px;"><img style="width: 30px;" src="assets/img/icons/instagram.png" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@camptrack?is_from_webapp=1&sender_device=pc"><img style="width: 30px;" src="assets/img/icons/tiktok.png" alt="TikTok"></a>
             </div>
         </div>
 

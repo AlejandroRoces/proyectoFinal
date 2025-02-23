@@ -210,7 +210,7 @@
             <div class="container mt-5">
     <h2>Crear Nueva Actividad</h2>
     
-    <form action="procesar_actividad.php" method="POST" enctype="multipart/form-data">
+    <form action="../../../controller/procesar_actividad.php" method="POST" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre de la Actividad</label>
             <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -223,14 +223,14 @@
 
         <div class="mb-3">
             <label for="instalacion" class="form-label">Instalación</label>
-            <select class="form-select" id="instalacion" name="instalacion" required>
+            <select class="form-select" id="instalacion" name="instalacion" required>s
                 <option value="">Seleccione una instalación</option>
-                <option value="Polideportivo Municipal">Polideportivo Municipal</option>
-                <option value="Centro Deportivo La Vega">Centro Deportivo La Vega</option>
-                <option value="Parque Natural El Bosque">Parque Natural El Bosque</option>
-                <option value="Club Náutico Playa">Club Náutico Playa</option>
-                <option value="Gimnasio Central">Gimnasio Central</option>
-                <option value="Sala Multiusos Norte">Sala Multiusos Norte</option>
+                <option value="Campus Turistico ">Campus Turistico</option>
+                <option value="Albergue Juvenil">Albergue Juvenil</option>
+                <option value="Albergue Maristas">Albergue Maristas</option>
+                <option value="Campamento Juvenil">Campamento Juvenil Pola Gordon</option>
+                <option value="Colonia San Jose">Colonia san Jose</option>
+                <option value="Santibañez de Vidriales">Santibañez de Vidriales</option>
             </select>
         </div>
 
