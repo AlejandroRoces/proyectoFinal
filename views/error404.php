@@ -81,7 +81,7 @@
         <h2>Algo salió mal...</h2>
         <p>No podemos cargar la página que estabas buscando. Por favor, inténtalo de nuevo o contacta con soporte si el problema persiste.</p>
         <div class="button-container">
-            <a href="../views/gen/instalaciones.php">Volver al Inicio</a>
+            <a href="../index.php">Volver al Inicio</a>
         </div>
     </div>
 </body>
