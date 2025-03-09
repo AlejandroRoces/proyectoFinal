@@ -52,14 +52,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt_actividad->bindParam(':tarifa', $tarifa);
             $stmt_actividad->bindParam(':fecha_inicio', $fecha_inicio);
             $stmt_actividad->bindParam(':fecha_fin', $fecha_fin);
+            $edad_minima = isset($_POST['edad_minima']) ? intval($_POST['edad_minima']) : null;
+            $edad_maxima = isset($_POST['edad_maxima']) ? intval($_POST['edad_maxima']) : null;
+
 
             $stmt_actividad->execute();
             $actividad_id = $conexion->lastInsertId(); // Obtener el ID de la actividad recién insertada
 
             // Insertar en reservasInstalaciones_camptrack
-            $sql_reserva = "INSERT INTO reservasInstalaciones_camptrack 
-                (instalacion, fecha_inicio, fecha_fin, motivo) 
-                VALUES (:instalacion, :fecha_inicio, :fecha_fin, :motivo)";
+            $sql_actividad = "INSERT INTO actividades_camptrack 
+            (nombre, descripcion, imagen, instalacion, inicio_inscripciones, fin_inscripciones, tarifa, fecha_inicio, fecha_fin, edad_minima, edad_maxima) 
+            VALUES (:nombre, :descripcion, :imagen, :instalacion, :inicio_inscripciones, :fin_inscripciones, :tarifa, :fecha_inicio, :fecha_fin, :edad_minima, :edad_maxima)";
+
+            $stmt_actividad = $conexion->prepare($sql_actividad);
+            $stmt_actividad->bindParam(':edad_minima', $edad_minima);
+            $stmt_actividad->bindParam(':edad_maxima', $edad_maxima);
 
             $stmt_reserva = $conexion->prepare($sql_reserva);
             $motivo = "Actividad: " . $nombre; // Motivo de la reserva
@@ -85,4 +92,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error al subir la imagen.";
     }
 }
-?>

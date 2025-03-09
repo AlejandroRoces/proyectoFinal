@@ -303,7 +303,7 @@ try {
         .switch-wrapper {
             position: relative;
             display: inline-block;
-            width: 100px;
+            width: 200px;
             height: 40px;
         }
 
@@ -326,7 +326,7 @@ try {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 5px;
+            padding: 0px;
             font-size: 14px;
             font-weight: bold;
             color: white;
@@ -336,7 +336,7 @@ try {
             content: "";
             position: absolute;
             height: 32px;
-            width: 45px;
+            width: 90px;
             left: 4px;
             bottom: 4px;
             background-color: white;
@@ -349,7 +349,7 @@ try {
         }
 
         input:checked+.switch-label::before {
-            transform: translateX(50px);
+            transform: translateX(100px);
         }
 
         .switch-text {
@@ -457,7 +457,7 @@ try {
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link"
-                                href="adminDashBoard_instalacionesphp" aria-expanded="false">
+                                href="adminDashBoard_instalaciones.php" aria-expanded="false">
                                 <i class="fas fa-building me-2"></i> <!-- Icono con margen a la derecha -->
                                 <span class="hide-menu">Instalaciones</span>
                             </a>
@@ -626,7 +626,7 @@ try {
                             <span class="color-box" style="background-color: #33d4ff;"></span> Albergue Santibáñez,
                             Zamora
                         </div>
-                        
+
                     </div>
                     <div class="switch-container">
                         <div class="switch-wrapper">
@@ -677,369 +677,369 @@ try {
                     </div>
 
                     <div id="section-edit" class="content-section">
-                    <div onload="seleccionarOpcion(document.getElementById('btn-todos'), 'todos')">
+                        <div onload="seleccionarOpcion(document.getElementById('btn-todos'), 'todos')">
 
-<div class="container mt-4">
-    <form id="formulario">
-        <input type="hidden" name="opcion" id="opcionSeleccionada" value="todos">
+                            <div class="container mt-4">
+                                <form id="formulario">
+                                    <input type="hidden" name="opcion" id="opcionSeleccionada" value="todos">
 
-        <div class="text-center mb-3">
-            <button type="button" class="btn btn-primary active" id="btn-todos" onclick="seleccionarOpcion(this, 'todos')">
-                Mostrar Todo
-            </button>
-        </div>
+                                    <div class="text-center mb-3">
+                                        <button type="button" class="btn btn-primary active" id="btn-todos" onclick="seleccionarOpcion(this, 'todos')">
+                                            Mostrar Todo
+                                        </button>
+                                    </div>
 
 
-        <div class="accordion" id="accordionInstalaciones">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCampamentos">
-                        Campamentos
-                    </button>
-                </h2>
-                <div id="collapseCampamentos" class="accordion-collapse collapse" data-bs-parent="#accordionInstalaciones">
-                    <div class="accordion-body d-flex flex-column gap-2">
-                        <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido2')">Campamento Pola Gordón</button>
-                        <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido4')">Campus Turístico</button>
+                                    <div class="accordion" id="accordionInstalaciones">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCampamentos">
+                                                    Campamentos
+                                                </button>
+                                            </h2>
+                                            <div id="collapseCampamentos" class="accordion-collapse collapse" data-bs-parent="#accordionInstalaciones">
+                                                <div class="accordion-body d-flex flex-column gap-2">
+                                                    <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido2')">Campamento Pola Gordón</button>
+                                                    <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido4')">Campus Turístico</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseColonias">
+                                                    Colonias
+                                                </button>
+                                            </h2>
+                                            <div id="collapseColonias" class="accordion-collapse collapse" data-bs-parent="#accordionInstalaciones">
+                                                <div class="accordion-body">
+                                                    <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido1')">Colonia San José</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlbergues">
+                                                    Albergues
+                                                </button>
+                                            </h2>
+                                            <div id="collapseAlbergues" class="accordion-collapse collapse" data-bs-parent="#accordionInstalaciones">
+                                                <div class="accordion-body d-flex flex-column gap-2">
+                                                    <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido3')">Albergue Juvenil</button>
+                                                    <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido5')">Albergue Maristas</button>
+                                                    <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido6')">Albergue Santibáñez</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <div id="contenido1" class="contenido">
+                                    <h3>Colonia San José</h3>
+                                    <div class="mt-4">
+                                        <?php if (isset($instalaciones['Colonia San Jose'])) : ?>
+                                            <table class="table table-bordered table-striped table-hover">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Fecha Inicio</th>
+                                                        <th>Fecha Fin</th>
+                                                        <th>Motivo</th>
+                                                        <th>Acción</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $ultimo_mes = "";
+                                                    $contador = 1;
+                                                    foreach ($instalaciones['Colonia San Jose'] as $reserva) :
+                                                        $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
+
+                                                        if ($mes_actual !== $ultimo_mes) {
+                                                            echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
+                                                            $ultimo_mes = $mes_actual;
+                                                            $contador = 1; // Reiniciar contador al cambiar de mes
+                                                        }
+                                                    ?>
+                                                        <tr>
+                                                            <td><?= $contador++ ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
+                                                            <td><?= htmlspecialchars($reserva['motivo']) ?></td>
+                                                            <td>
+                                                                <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
+                                                                    🗑 Eliminar
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        <?php else : ?>
+                                            <p class="text-muted">No hay reservas para esta instalación.</p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+                                <div id="contenido2" class="contenido">
+                                    <h3>Campamento Pola Gordón</h3>
+                                    <div class="mt-4">
+                                        <?php if (isset($instalaciones['Campamento Juvenil'])) : ?>
+                                            <table class="table table-bordered table-striped table-hover">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Fecha Inicio</th>
+                                                        <th>Fecha Fin</th>
+                                                        <th>Motivo</th>
+                                                        <th>Acción</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $ultimo_mes = "";
+                                                    $contador = 1;
+                                                    foreach ($instalaciones['Campamento Juvenil'] as $reserva) :
+                                                        $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
+
+                                                        if ($mes_actual !== $ultimo_mes) {
+                                                            echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
+                                                            $ultimo_mes = $mes_actual;
+                                                            $contador = 1; // Reiniciar contador al cambiar de mes
+                                                        }
+                                                    ?>
+                                                        <tr>
+                                                            <td><?= $contador++ ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
+                                                            <td><?= htmlspecialchars($reserva['motivo']) ?></td>
+                                                            <td>
+                                                                <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
+                                                                    🗑 Eliminar
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        <?php else : ?>
+                                            <p class="text-muted">No hay reservas para esta instalación.</p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+                                <div id="contenido3" class="contenido">
+                                    <h3>Albergue Juvenil</h3>
+                                    <div class="mt-4">
+                                        <?php if (isset($instalaciones['Albergue Juvenil'])) : ?>
+                                            <table class="table table-bordered table-striped table-hover">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Fecha Inicio</th>
+                                                        <th>Fecha Fin</th>
+                                                        <th>Motivo</th>
+                                                        <th>Acción</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $ultimo_mes = "";
+                                                    $contador = 1;
+                                                    foreach ($instalaciones['Albergue Juvenil'] as $reserva) :
+                                                        $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
+
+                                                        if ($mes_actual !== $ultimo_mes) {
+                                                            echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
+                                                            $ultimo_mes = $mes_actual;
+                                                            $contador = 1; // Reiniciar contador al cambiar de mes
+                                                        }
+                                                    ?>
+                                                        <tr>
+                                                            <td><?= $contador++ ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
+                                                            <td><?= htmlspecialchars($reserva['motivo']) ?></td>
+                                                            <td>
+                                                                <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
+                                                                    🗑 Eliminar
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        <?php else : ?>
+                                            <p class="text-muted">No hay reservas para esta instalación.</p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+
+                                <div id="contenido4" class="contenido">
+                                    <h3>Campus Turístico</h3>
+                                    <div class="mt-4">
+                                        <?php if (isset($instalaciones['Campus Turistico'])) : ?>
+                                            <table class="table table-bordered table-striped table-hover">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Fecha Inicio</th>
+                                                        <th>Fecha Fin</th>
+                                                        <th>Motivo</th>
+                                                        <th>Acción</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $ultimo_mes = "";
+                                                    $contador = 1;
+                                                    foreach ($instalaciones['Campus Turistico'] as $reserva) :
+                                                        $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
+
+                                                        if ($mes_actual !== $ultimo_mes) {
+                                                            echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
+                                                            $ultimo_mes = $mes_actual;
+                                                            $contador = 1; // Reiniciar contador al cambiar de mes
+                                                        }
+                                                    ?>
+                                                        <tr>
+                                                            <td><?= $contador++ ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
+                                                            <td><?= htmlspecialchars($reserva['motivo']) ?></td>
+                                                            <td>
+                                                                <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
+                                                                    🗑 Eliminar
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        <?php else : ?>
+                                            <p class="text-muted">No hay reservas para esta instalación.</p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+
+                                <div id="contenido5" class="contenido">
+                                    <h3>Albergue Maristas</h3>
+                                    <div class="mt-4">
+                                        <?php if (isset($instalaciones['Albergue Maristas'])) : ?>
+                                            <table class="table table-bordered table-striped table-hover">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Fecha Inicio</th>
+                                                        <th>Fecha Fin</th>
+                                                        <th>Motivo</th>
+                                                        <th>Acción</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $ultimo_mes = "";
+                                                    $contador = 1;
+                                                    foreach ($instalaciones['Albergue Maristas'] as $reserva) :
+                                                        $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
+
+                                                        if ($mes_actual !== $ultimo_mes) {
+                                                            echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
+                                                            $ultimo_mes = $mes_actual;
+                                                            $contador = 1; // Reiniciar contador al cambiar de mes
+                                                        }
+                                                    ?>
+                                                        <tr>
+                                                            <td><?= $contador++ ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
+                                                            <td><?= htmlspecialchars($reserva['motivo']) ?></td>
+                                                            <td>
+                                                                <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
+                                                                    🗑 Eliminar
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        <?php else : ?>
+                                            <p class="text-muted">No hay reservas para esta instalación.</p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+
+                                <div id="contenido6" class="contenido">
+                                    <h3>Albergue Santibáñez</h3>
+                                    <div class="mt-4">
+                                        <?php if (isset($instalaciones['Santibañez de Vidriales'])) : ?>
+                                            <table class="table table-bordered table-striped table-hover">
+                                                <thead class="table-dark">
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Fecha Inicio</th>
+                                                        <th>Fecha Fin</th>
+                                                        <th>Motivo</th>
+                                                        <th>Acción</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $ultimo_mes = "";
+                                                    $contador = 1;
+                                                    foreach ($instalaciones['Santibañez de Vidriales'] as $reserva) :
+                                                        $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
+
+                                                        if ($mes_actual !== $ultimo_mes) {
+                                                            echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
+                                                            $ultimo_mes = $mes_actual;
+                                                            $contador = 1; // Reiniciar contador al cambiar de mes
+                                                        }
+                                                    ?>
+                                                        <tr>
+                                                            <td><?= $contador++ ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
+                                                            <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
+                                                            <td><?= htmlspecialchars($reserva['motivo']) ?></td>
+                                                            <td>
+                                                                <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
+                                                                    🗑 Eliminar
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach; ?>
+                                                </tbody>
+                                            </table>
+                                        <?php else : ?>
+                                            <p class="text-muted">No hay reservas para esta instalación.</p>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseColonias">
-                        Colonias
-                    </button>
-                </h2>
-                <div id="collapseColonias" class="accordion-collapse collapse" data-bs-parent="#accordionInstalaciones">
-                    <div class="accordion-body">
-                        <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido1')">Colonia San José</button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlbergues">
-                        Albergues
-                    </button>
-                </h2>
-                <div id="collapseAlbergues" class="accordion-collapse collapse" data-bs-parent="#accordionInstalaciones">
-                    <div class="accordion-body d-flex flex-column gap-2">
-                        <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido3')">Albergue Juvenil</button>
-                        <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido5')">Albergue Maristas</button>
-                        <button type="button" class="btn w-100" onclick="seleccionarOpcion(this, 'contenido6')">Albergue Santibáñez</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-
-    <div id="contenido1" class="contenido">
-        <h3>Colonia San José</h3>
-        <div class="mt-4">
-            <?php if (isset($instalaciones['Colonia San Jose'])) : ?>
-                <table class="table table-bordered table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Fecha Inicio</th>
-                            <th>Fecha Fin</th>
-                            <th>Motivo</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $ultimo_mes = "";
-                        $contador = 1;
-                        foreach ($instalaciones['Colonia San Jose'] as $reserva) :
-                            $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
-
-                            if ($mes_actual !== $ultimo_mes) {
-                                echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
-                                $ultimo_mes = $mes_actual;
-                                $contador = 1; // Reiniciar contador al cambiar de mes
-                            }
-                        ?>
-                            <tr>
-                                <td><?= $contador++ ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
-                                <td><?= htmlspecialchars($reserva['motivo']) ?></td>
-                                <td>
-                                    <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
-                                        🗑 Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else : ?>
-                <p class="text-muted">No hay reservas para esta instalación.</p>
-            <?php endif; ?>
         </div>
     </div>
 
-    <div id="contenido2" class="contenido">
-        <h3>Campamento Pola Gordón</h3>
-        <div class="mt-4">
-            <?php if (isset($instalaciones['Campamento Juvenil'])) : ?>
-                <table class="table table-bordered table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Fecha Inicio</th>
-                            <th>Fecha Fin</th>
-                            <th>Motivo</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $ultimo_mes = "";
-                        $contador = 1;
-                        foreach ($instalaciones['Campamento Juvenil'] as $reserva) :
-                            $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
+    </main>
 
-                            if ($mes_actual !== $ultimo_mes) {
-                                echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
-                                $ultimo_mes = $mes_actual;
-                                $contador = 1; // Reiniciar contador al cambiar de mes
-                            }
-                        ?>
-                            <tr>
-                                <td><?= $contador++ ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
-                                <td><?= htmlspecialchars($reserva['motivo']) ?></td>
-                                <td>
-                                    <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
-                                        🗑 Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else : ?>
-                <p class="text-muted">No hay reservas para esta instalación.</p>
-            <?php endif; ?>
-        </div>
-    </div>
-
-    <div id="contenido3" class="contenido">
-        <h3>Albergue Juvenil</h3>
-        <div class="mt-4">
-            <?php if (isset($instalaciones['Albergue Juvenil'])) : ?>
-                <table class="table table-bordered table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Fecha Inicio</th>
-                            <th>Fecha Fin</th>
-                            <th>Motivo</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $ultimo_mes = "";
-                        $contador = 1;
-                        foreach ($instalaciones['Albergue Juvenil'] as $reserva) :
-                            $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
-
-                            if ($mes_actual !== $ultimo_mes) {
-                                echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
-                                $ultimo_mes = $mes_actual;
-                                $contador = 1; // Reiniciar contador al cambiar de mes
-                            }
-                        ?>
-                            <tr>
-                                <td><?= $contador++ ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
-                                <td><?= htmlspecialchars($reserva['motivo']) ?></td>
-                                <td>
-                                    <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
-                                        🗑 Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else : ?>
-                <p class="text-muted">No hay reservas para esta instalación.</p>
-            <?php endif; ?>
-        </div>
-    </div>
-
-
-    <div id="contenido4" class="contenido">
-        <h3>Campus Turístico</h3>
-        <div class="mt-4">
-            <?php if (isset($instalaciones['Campus Turistico'])) : ?>
-                <table class="table table-bordered table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Fecha Inicio</th>
-                            <th>Fecha Fin</th>
-                            <th>Motivo</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $ultimo_mes = "";
-                        $contador = 1;
-                        foreach ($instalaciones['Campus Turistico'] as $reserva) :
-                            $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
-
-                            if ($mes_actual !== $ultimo_mes) {
-                                echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
-                                $ultimo_mes = $mes_actual;
-                                $contador = 1; // Reiniciar contador al cambiar de mes
-                            }
-                        ?>
-                            <tr>
-                                <td><?= $contador++ ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
-                                <td><?= htmlspecialchars($reserva['motivo']) ?></td>
-                                <td>
-                                    <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
-                                        🗑 Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else : ?>
-                <p class="text-muted">No hay reservas para esta instalación.</p>
-            <?php endif; ?>
-        </div>
-    </div>
-
-
-    <div id="contenido5" class="contenido">
-        <h3>Albergue Maristas</h3>
-        <div class="mt-4">
-            <?php if (isset($instalaciones['Albergue Maristas'])) : ?>
-                <table class="table table-bordered table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Fecha Inicio</th>
-                            <th>Fecha Fin</th>
-                            <th>Motivo</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $ultimo_mes = "";
-                        $contador = 1;
-                        foreach ($instalaciones['Albergue Maristas'] as $reserva) :
-                            $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
-
-                            if ($mes_actual !== $ultimo_mes) {
-                                echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
-                                $ultimo_mes = $mes_actual;
-                                $contador = 1; // Reiniciar contador al cambiar de mes
-                            }
-                        ?>
-                            <tr>
-                                <td><?= $contador++ ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
-                                <td><?= htmlspecialchars($reserva['motivo']) ?></td>
-                                <td>
-                                    <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
-                                        🗑 Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else : ?>
-                <p class="text-muted">No hay reservas para esta instalación.</p>
-            <?php endif; ?>
-        </div>
-    </div>
-
-
-    <div id="contenido6" class="contenido">
-        <h3>Albergue Santibáñez</h3>
-        <div class="mt-4">
-            <?php if (isset($instalaciones['Santibañez de Vidriales'])) : ?>
-                <table class="table table-bordered table-striped table-hover">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>#</th>
-                            <th>Fecha Inicio</th>
-                            <th>Fecha Fin</th>
-                            <th>Motivo</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $ultimo_mes = "";
-                        $contador = 1;
-                        foreach ($instalaciones['Santibañez de Vidriales'] as $reserva) :
-                            $mes_actual = date("F Y", strtotime($reserva['fecha_inicio']));
-
-                            if ($mes_actual !== $ultimo_mes) {
-                                echo "<tr class='table-info'><td colspan='5' class='fw-bold text-center'>$mes_actual</td></tr>";
-                                $ultimo_mes = $mes_actual;
-                                $contador = 1; // Reiniciar contador al cambiar de mes
-                            }
-                        ?>
-                            <tr>
-                                <td><?= $contador++ ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_inicio'])) ?></td>
-                                <td><?= date("d-m-Y", strtotime($reserva['fecha_fin'])) ?></td>
-                                <td><?= htmlspecialchars($reserva['motivo']) ?></td>
-                                <td>
-                                    <button class="btn btn-danger btn-sm" onclick="eliminarReserva(<?= $reserva['id'] ?>)">
-                                        🗑 Eliminar
-                                    </button>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            <?php else : ?>
-                <p class="text-muted">No hay reservas para esta instalación.</p>
-            <?php endif; ?>
-        </div>
-    </div>
-
-</div>
-</div>
-</div>
-                    </div>
-
-
-                </div>
-        </div>
-
-        </main>
-
-        <script src="../../../assets/plugins/jquery.min.js"></script>
-        <script src="../../../assets/plugins/bootstrap.bundle.min.js"></script>
-        <script src="../../../assets/js/app-style-switcher.js"></script>
-        <script src="../../../assets/js/waves.js"></script>
-        <script src="../../../assets/js/sidebarmenu.js"></script>
-        <script src="../../../assets/js/custom.js"></script>
-        <script>
-            function showInfo(nombre, aforo, lugar, ficha, contrato) {
-                document.getElementById("info-container").innerHTML = `
+    <script src="../../../assets/plugins/jquery.min.js"></script>
+    <script src="../../../assets/plugins/bootstrap.bundle.min.js"></script>
+    <script src="../../../assets/js/app-style-switcher.js"></script>
+    <script src="../../../assets/js/waves.js"></script>
+    <script src="../../../assets/js/sidebarmenu.js"></script>
+    <script src="../../../assets/js/custom.js"></script>
+    <script>
+        function showInfo(nombre, aforo, lugar, ficha, contrato) {
+            document.getElementById("info-container").innerHTML = `
         <div class="card p-3 shadow-lg" style="max-width: 400px;">
             <h5 class="card-title">${nombre}</h5>
             <p><strong>Aforo:</strong> <span>${aforo} personas</span></p>
@@ -1050,148 +1050,152 @@ try {
             </div>
         </div>
     `;
-            }
+        }
 
-            document.querySelectorAll('.inner-container').forEach(container => {
-                const initialImage = container.style.backgroundImage;  // Guarda la imagen inicial
-                const hoverImage = `url(${container.getAttribute('data-image')})`;
+        document.querySelectorAll('.inner-container').forEach(container => {
+            const initialImage = container.style.backgroundImage; // Guarda la imagen inicial
+            const hoverImage = `url(${container.getAttribute('data-image')})`;
 
-                container.addEventListener('mouseenter', () => {
-                    container.style.backgroundImage = hoverImage;
-                });
-
-                container.addEventListener('mouseleave', () => {
-                    container.style.backgroundImage = initialImage;
-                });
+            container.addEventListener('mouseenter', () => {
+                container.style.backgroundImage = hoverImage;
             });
 
-            /////
-            function toggleSection() {
-                const toggle = document.getElementById('toggle-section');
-                if (toggle.checked) {
-                    document.getElementById('instalaciones-section').style.display = 'none';
-                    document.getElementById('reservas-section').style.display = 'block';
-                } else {
-                    document.getElementById('instalaciones-section').style.display = 'block';
-                    document.getElementById('reservas-section').style.display = 'none';
-                }
-            }
-            <!--calendario-->
-            document.addEventListener("DOMContentLoaded", function () {
-                const calendar = document.getElementById("calendar");
-                const monthYear = document.getElementById("monthYear");
-                const prevMonth = document.getElementById("prevMonth");
-                const nextMonth = document.getElementById("nextMonth");
-
-                let date = new Date();
-                let events = [];
-
-                function fetchEvents() {
-                    fetch("obtener_eventos.php")
-                        .then(response => response.json())
-                        .then(data => {
-                            events = data;
-                            renderCalendar();
-                        })
-                        .catch(error => console.error("Error al obtener eventos:", error));
-                }
-
-                function renderCalendar() {
-                    calendar.innerHTML = "";
-                    let firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
-                    let daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
-                    monthYear.innerText = date.toLocaleDateString("es-ES", { month: "long", year: "numeric" });
-
-                    for (let i = 0; i < firstDay; i++) {
-                        let emptyDiv = document.createElement("div");
-                        emptyDiv.classList.add("calendar-day");
-                        calendar.appendChild(emptyDiv);
-                    }
-
-                    for (let i = 1; i <= daysInMonth; i++) {
-                        let dayDiv = document.createElement("div");
-                        dayDiv.classList.add("calendar-day");
-                        dayDiv.innerText = i;
-
-                        let currentDate = new Date(date.getFullYear(), date.getMonth(), i);
-                        let formattedDate = currentDate.toISOString().split("T")[0];
-
-                        let eventContainer = document.createElement("div");
-                        eventContainer.classList.add("event-container");
-
-                        events.forEach(event => {
-                            if (formattedDate >= event.fecha_inicio && formattedDate <= event.fecha_fin) {
-                                let eventDot = document.createElement("div");
-                                eventDot.classList.add("event-dot");
-                                eventDot.style.backgroundColor = event.color;
-
-                                let tooltip = document.createElement("div");
-                                tooltip.classList.add("tooltip");
-                                tooltip.innerText = event.motivo || "Reservado";
-
-                                eventDot.appendChild(tooltip);
-                                eventContainer.appendChild(eventDot);
-                            }
-                        });
-
-                        dayDiv.appendChild(eventContainer);
-                        calendar.appendChild(dayDiv);
-                    }
-                }
-
-                prevMonth.addEventListener("click", () => {
-                    date.setMonth(date.getMonth() - 1);
-                    renderCalendar();
-                });
-
-                nextMonth.addEventListener("click", () => {
-                    date.setMonth(date.getMonth() + 1);
-                    renderCalendar();
-                });
-
-                fetchEvents();
+            container.addEventListener('mouseleave', () => {
+                container.style.backgroundImage = initialImage;
             });
-            function changeSection() {
-                const createSection = document.getElementById("section-create");
-                const editSection = document.getElementById("section-edit");
-                const selector = document.getElementById("option-selector");
+        });
 
-                if (selector.checked) {
-                    createSection.classList.remove("visible-section");
-                    editSection.classList.add("visible-section");
-                } else {
-                    createSection.classList.add("visible-section");
-                    editSection.classList.remove("visible-section");
-                }
-            }
-
-
-
-            /** */
-            function seleccionarOpcion(boton, idContenido) {
-        console.log("Botón seleccionado:", boton);
-        console.log("ID de contenido seleccionado:", idContenido);
-
-        document.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
-        boton.classList.add("active");
-
-        document.getElementById("opcionSeleccionada").value = idContenido;
-        document.querySelectorAll(".contenido").forEach(div => div.style.display = "none");
-
-        if (idContenido === "todos") {
-            document.querySelectorAll(".contenido").forEach(div => div.style.display = "block");
-        } else {
-            let contenido = document.getElementById(idContenido);
-            if (contenido) {
-                contenido.style.display = "block";
-                console.log("Cargando reservas para:", idContenido);
-                cargarReservas(idContenido);
+        /** toggle entre reservas y intalaciones */
+        function toggleSection() {
+            const toggle = document.getElementById('toggle-section');
+            if (toggle.checked) {
+                document.getElementById('instalaciones-section').style.display = 'none';
+                document.getElementById('reservas-section').style.display = 'block';
             } else {
-                console.error("No se encontró el contenedor con ID:", idContenido);
+                document.getElementById('instalaciones-section').style.display = 'block';
+                document.getElementById('reservas-section').style.display = 'none';
             }
         }
-    }
-        </script>
+        /** Gestion del calendario */
+        document.addEventListener("DOMContentLoaded", function() {
+            const calendar = document.getElementById("calendar");
+            const monthYear = document.getElementById("monthYear");
+            const prevMonth = document.getElementById("prevMonth");
+            const nextMonth = document.getElementById("nextMonth");
+
+            let date = new Date();
+            let events = [];
+
+            function fetchEvents() {
+                fetch("obtener_eventos.php")
+                    .then(response => response.json())
+                    .then(data => {
+                        events = data;
+                        renderCalendar();
+                    })
+                    .catch(error => console.error("Error al obtener eventos:", error));
+            }
+
+            function renderCalendar() {
+                calendar.innerHTML = "";
+                let firstDay = new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+                let daysInMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+                monthYear.innerText = date.toLocaleDateString("es-ES", {
+                    month: "long",
+                    year: "numeric"
+                });
+
+                for (let i = 0; i < firstDay; i++) {
+                    let emptyDiv = document.createElement("div");
+                    emptyDiv.classList.add("calendar-day");
+                    calendar.appendChild(emptyDiv);
+                }
+
+                for (let i = 1; i <= daysInMonth; i++) {
+                    let dayDiv = document.createElement("div");
+                    dayDiv.classList.add("calendar-day");
+                    dayDiv.innerText = i;
+
+                    let currentDate = new Date(date.getFullYear(), date.getMonth(), i);
+                    let formattedDate = currentDate.toISOString().split("T")[0];
+
+                    let eventContainer = document.createElement("div");
+                    eventContainer.classList.add("event-container");
+
+                    events.forEach(event => {
+                        if (formattedDate >= event.fecha_inicio && formattedDate <= event.fecha_fin) {
+                            let eventDot = document.createElement("div");
+                            eventDot.classList.add("event-dot");
+                            eventDot.style.backgroundColor = event.color;
+
+                            let tooltip = document.createElement("div");
+                            tooltip.classList.add("tooltip");
+                            tooltip.innerText = event.motivo || "Reservado";
+
+                            eventDot.appendChild(tooltip);
+                            eventContainer.appendChild(eventDot);
+                        }
+                    });
+
+                    dayDiv.appendChild(eventContainer);
+                    calendar.appendChild(dayDiv);
+                }
+            }
+
+            prevMonth.addEventListener("click", () => {
+                date.setMonth(date.getMonth() - 1);
+                renderCalendar();
+            });
+
+            nextMonth.addEventListener("click", () => {
+                date.setMonth(date.getMonth() + 1);
+                renderCalendar();
+            });
+
+            fetchEvents();
+        });
+
+        function changeSection() {
+            const createSection = document.getElementById("section-create");
+            const editSection = document.getElementById("section-edit");
+            const selector = document.getElementById("option-selector");
+
+            if (selector.checked) {
+                createSection.classList.remove("visible-section");
+                editSection.classList.add("visible-section");
+            } else {
+                createSection.classList.add("visible-section");
+                editSection.classList.remove("visible-section");
+            }
+        }
+
+
+
+        /** Display de seleccion entre creacion y modificacion*/
+        function seleccionarOpcion(boton, idContenido) {
+            console.log("Botón seleccionado:", boton);
+            console.log("ID de contenido seleccionado:", idContenido);
+
+            document.querySelectorAll("button").forEach(btn => btn.classList.remove("active"));
+            boton.classList.add("active");
+
+            document.getElementById("opcionSeleccionada").value = idContenido;
+            document.querySelectorAll(".contenido").forEach(div => div.style.display = "none");
+
+            if (idContenido === "todos") {
+                document.querySelectorAll(".contenido").forEach(div => div.style.display = "block");
+            } else {
+                let contenido = document.getElementById(idContenido);
+                if (contenido) {
+                    contenido.style.display = "block";
+                    console.log("Cargando reservas para:", idContenido);
+                    cargarReservas(idContenido);
+                } else {
+                    console.error("No se encontró el contenedor con ID:", idContenido);
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>

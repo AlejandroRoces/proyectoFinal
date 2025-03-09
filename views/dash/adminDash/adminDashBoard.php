@@ -89,7 +89,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_instalacionesphp" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_instalaciones.php" aria-expanded="false">
                         <i class="fas fa-building me-2"></i> <!-- Icono con margen a la derecha -->
                         <span class="hide-menu">Instalaciones</span>
                     </a>
