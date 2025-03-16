@@ -73,7 +73,7 @@ $instalaciones = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtenemos los datos
         }
 
 
-        
+
 
 
 
@@ -83,17 +83,20 @@ $instalaciones = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtenemos los datos
             align-items: center;
             margin: 20px;
         }
+
         .switch-wrapper {
             position: relative;
             display: inline-block;
-            width: 100px;
-            height: 40px;
+            width: 200px;
+            height: 47px;
         }
+
         .switch-wrapper input {
             opacity: 0;
             width: 0;
             height: 0;
         }
+
         .switch-label {
             position: absolute;
             cursor: pointer;
@@ -112,28 +115,33 @@ $instalaciones = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtenemos los datos
             font-weight: bold;
             color: white;
         }
+
         .switch-label::before {
             content: "";
             position: absolute;
             height: 32px;
-            width: 45px;
+            width: 90px;
             left: 4px;
             bottom: 4px;
             background-color: white;
             border-radius: 18px;
             transition: 0.4s;
         }
-        input:checked + .switch-label {
+
+        input:checked+.switch-label {
             background-color: #007bff;
         }
-        input:checked + .switch-label::before {
-            transform: translateX(50px);
+
+        input:checked+.switch-label::before {
+            transform: translateX(100px);
         }
+
         .switch-text {
             z-index: 1;
             width: 50%;
             text-align: center;
         }
+
         .content-section {
             display: none;
             text-align: center;
@@ -142,6 +150,7 @@ $instalaciones = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtenemos los datos
             font-weight: bold;
             color: #333;
         }
+
         .visible-section {
             display: block;
         }

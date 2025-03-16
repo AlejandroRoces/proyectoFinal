@@ -52,10 +52,10 @@ if ($user && $pass) {
                 header("Location: ../../views/dash/adminDash/adminDashboard.php");
                 break;
             case 'monitor':
-                header("Location: ../../views/dash/monitoresDashboard.php");
+                header("Location: ../../views/dash/monisDash/monisDashboard.php");
                 break;
             case 'usuario':
-                header("Location: ../../views/dash/familiasDashboard.php");
+                header("Location: ../../views/dash/familyDash/familiasDashBoard.php");
                 break;
             default:
                 echo "ERROR: Rol desconocido.";

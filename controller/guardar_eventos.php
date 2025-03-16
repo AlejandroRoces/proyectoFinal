@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Reserva añadida correctamente
             echo "<script>
                     alert('Reserva añadida con éxito.');
-                    window.location.href = 'formulario.html'; /* Cambia a la ruta que prefieras */
+                    window.reload();
                   </script>";
         } else {
             // Error al insertar

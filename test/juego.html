@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Aventura - Actividad</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilo personalizado -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+        }
+        .header {
+            background-color: #0056b3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .event-type {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        .event-type::before {
+            content: "";
+            background: url('https://www.transparenttextures.com/patterns/brushed-alum.png');
+            background-color: #ffcc00;
+            display: block;
+            width: 200px;
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) rotate(-5deg);
+            z-index: -1;
+            border-radius: 10px;
+        }
+        .container-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .content-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .materials, .annexes {
+            flex: 1;
+            min-width: 300px;
+        }
+        .pdf-icon {
+            font-size: 80px; /* Ícono más grande */
+            text-align: center;
+            display: block;
+            color: #d32f2f;
+            margin-top: 10px;
+        }
+        .export-button {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-4 text-center">
+    <div class="event-type">Actividad</div> <!-- Cambia esto a "Velada" o "Juego" según corresponda -->
+    <br><br>
+    <div class="header">
+        <h1>Juego de Aventura</h1>
+    </div>
+    
+    <div class="container-content">
+        <!-- Descripción -->
+        <div class="content-box flex-grow-1">
+            <h3>Descripción</h3>
+            <p>Una emocionante actividad de aventura para todos los participantes del campamento. Consiste en superar varios retos y desafíos al aire libre.</p>
+        </div>
+        
+        <!-- Materiales -->
+        <div class="content-box materials">
+            <h3>Materiales</h3>
+            <ul>
+                <li>Cuerda</li>
+                <li>Brújula</li>
+                <li>Mapa</li>
+                <li>Linterna</li>
+            </ul>
+        </div>
+        
+        <!-- Anexos -->
+        <div class="content-box annexes text-center">
+            <h3>Anexos</h3>
+            <a href="#" class="pdf-icon">
+                <i class="bi bi-file-earmark-pdf"></i>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Botón de Exportar/Imprimir -->
+    <div class="export-button">
+        <button class="btn btn-primary" onclick="window.print()">Exportar / Imprimir</button>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+</body>
+</html> 

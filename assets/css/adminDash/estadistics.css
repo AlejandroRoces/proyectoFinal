@@ -1,0 +1,40 @@
+main {
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+
+.counter-box {
+    background-color: #21242b;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border-bottom: 8px solid #18f98f;
+    transition: transform 0.3s ease-in-out;
+}
+
+.counter-box:hover {
+    transform: translateY(-5px);
+}
+
+.counter-box i {
+    color: #18f98f;
+    font-size: 2.5rem;
+}
+
+.num {
+    font-size: 2.2rem;
+    font-weight: bold;
+}
+
+.text {
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+
+    #container {
+        position: relative;
+        width: 800px;
+        height: 400px;
+        margin: 50px auto;
+    }

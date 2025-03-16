@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+// Verifica si el usuario ha iniciado sesión
+if (!isset($_SESSION['user'])) {
+    header("Location: ../../login.php");
+    exit();
+}
+
+$userName = $_SESSION['user']; 
+
+// Obtener la primera letra del nombre del usuario
+$firstLetter = strtoupper(substr($userName, 0, 1));
+
+// Generar un color a partir del hash del nombre del usuario
+$hash = md5($userName); // Hash MD5 de todo el nombre
+$color = substr($hash, 0, 6); // Tomamos los primeros 6 caracteres del hash
+$randomColor = '#' . $color; // Formato hexadecimal
+?>
+
 <!--
 ============================================================
  CAMPTRACK DASHBOARD - PANEL DE ADMINISTRACIÓN
@@ -101,10 +121,15 @@ Copyright (c) 2025 Alejandro Roces Fernandez
 
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#"
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark d-flex justify-content-end align-items-center" href="#"
                                 id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                BIENVENIDO ALEJANDRO
-                                <img src="../../../assets/img/log/FOTO CARNET ALEJANDRO.jpg" alt="user" class="profile-pic me-2">
+                                <span class="me-2">👋 ¡Hola, <?php echo htmlspecialchars($userName); ?>!</span>
+
+                                <!-- Círculo con color aleatorio y primera letra -->
+                                <span class="profile-circle me-2" style="background-color: <?php echo $randomColor; ?>; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                    <?php echo $firstLetter; ?>
+                                </span>
+
                                 <i class="fas fa-chevron-down"></i>
                                 <div class="dropdown-menu" id="dropdownMenu" role="menu">
                                     <a href="#">Perfil</a>
@@ -114,6 +139,9 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                                     </a>
                                 </div>
                             </a>
+
+
+
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                         </li>
                     </ul>
@@ -126,46 +154,27 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard.php" aria-expanded="false">
-                                <i class="fas fa-home me-2"></i>
-                                <span class="hide-menu">Inicio</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard.php" aria-expanded="false">
+                                <i class="fas fa-home fa-2x me-2"></i> <!-- Casa en inicio -->
+                                <span class="hide-menu">INICIO</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_instalaciones.php" aria-expanded="false">
-                                <i class="fas fa-building me-2"></i>
-                                <span class="hide-menu">Instalaciones</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Actividades.php" aria-expanded="false">
+                                <i class="fas fa-calendar-alt fa-2x"></i> <!-- Calendario en actividades -->
+                                <span class="hide-menu">TUS ACTIVIDADES</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Trabajadores.php" aria-expanded="false">
-                                <i class="fas fa-users me-2"></i>
-                                <span class="hide-menu">Trabajadores</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Chat.php" aria-expanded="false">
+                                <i class="fas fa-users fa-2x me-2"></i> <!-- Icono de chat -->
+                                <span class="hide-menu">TU CHAT</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Inscripciones.php" aria-expanded="false">
-                                <i class="fas fa-list me-2"></i>
-                                <span class="hide-menu">Inscripciones</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Estadisticas.php" aria-expanded="false">
-                                <i class="fas fa-chart-line me-2"></i>
-                                <span class="hide-menu">Estadísticas</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Actividades.php" aria-expanded="false">
-                                <i class="fas fa-calendar me-2"></i>
-                                <span class="hide-menu">Actividades</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item" style="position: absolute; bottom: 0; width: 100%; margin-bottom: 10px;">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../logout.php" aria-expanded="false" onclick="return confirm('¿Estás seguro de que quieres cerrar sesión?');">
-                                <i class="fas fa-sign-out-alt me-2"></i>
-                                <span class="hide-menu">Cerrar sesión</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Emergencias.php" aria-expanded="false">
+                                <i class="fas fa-exclamation-triangle fa-2x me-2"></i> <!-- Señal de alerta en emergencia -->
+                                <span class="hide-menu">EMERGENCIAS</span>
                             </a>
                         </li>
                     </ul>
@@ -181,8 +190,8 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item"><a href="familiasDashBoard.php">Inicio</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Chat</li>
                                 </ol>
                             </nav>
                         </div>
@@ -202,4 +211,5 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <script src="../../../assets/js/sidebarmenu.js"></script>
     <script src="../../../assets/js/custom.js"></script>
 </body>
+
 </html>

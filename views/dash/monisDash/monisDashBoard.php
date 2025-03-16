@@ -1,57 +1,70 @@
+<?php
+session_start();
+
+// Verifica si el usuario ha iniciado sesión
+if (!isset($_SESSION['user'])) {
+    header("Location: ../../login.php");
+    exit();
+}
+
+$userName = $_SESSION['user'];
+
+// Obtener la primera letra del nombre del usuario
+$firstLetter = strtoupper(substr($userName, 0, 1));
+
+// Generar un color a partir del hash del nombre del usuario
+$hash = md5($userName); // Hash MD5 de todo el nombre
+$color = substr($hash, 0, 6); // Tomamos los primeros 6 caracteres del hash
+$randomColor = '#' . $color; // Formato hexadecimal
+?>
+
 <!--
 ============================================================
- CAMPTRACK DASHBOARD - PANEL DE ESTADISTICAS
+ CAMPTRACK DASHBOARD - PANEL DE ADMINISTRACIÓN
 ============================================================
 
-Autor: Alejandro Roces Fernández  
+Autor: Alejandro Roces Fernandez  
 Fecha: 11.03.2025  
 Versión: 1.0  
 
 Descripción:  
-Este archivo representa la interfaz del panel de administración del sistema **Camptrack**.  
-Incluye el diseño de la barra de navegación, la barra lateral y el contenido principal,  
-mostrando estadísticas clave como:  
-- Número de trabajadores, clientes e instalaciones  
-- Actividades registradas  
-- Gráfico interactivo de visitas a la página web  
+Este archivo representa la interfaz principal del panel de administración de Camptrack.  
+Incluye la barra de navegación, el menú lateral y el área de contenido.  
+
+Características principales:  
+✔ Diseño responsivo con Bootstrap 5  
+✔ Barra lateral con accesos directos a secciones clave  
+✔ Barra de navegación superior con menú desplegable  
+✔ Breadcrumbs para mejorar la navegación  
+✔ Integración con Font Awesome para iconos  
 
 Tecnologías utilizadas:  
-- HTML5, CSS3 y JavaScript → Estructura, estilos y funcionalidades  
-- Bootstrap 5 → Componentes visuales y responsividad  
-- Font Awesome → Iconos personalizados  
-- Lightweight Charts → Representación gráfica de datos  
+- HTML5, CSS3 y JavaScript  
+- Bootstrap 5 para la estructura y componentes visuales  
+- Font Awesome para iconos  
+- jQuery para interactividad  
 
-📂 Dependencias:  
+📦 Dependencias:  
 
  **CSS** (Estilos)  
-  - `assets/css/style.css` → Estilos generales del dashboard  
-  - `assets/css/adminDash/estadistics.css` → Estilos personalizados para estadísticas  
-  - `assets/libs/bootstrap/bootstrap.min.css` → Estilos de Bootstrap  
-  - `assets/libs/fontawesome/css/all.min.css` → Iconos Font Awesome  
+  - `assets/css/dash/dashGen/style.min.css` → Estilos generales del dashboard  
 
  **JavaScript** (Funcionalidades)  
-  - `assets/js/dashboardAdmin/estadistics-counters.js` → Contadores estadísticos  
-  - `assets/js/dashboardAdmin/estadistics-char.js` → Gráfico de visualizaciones  
-  - `assets/js/main.js` → Funcionalidades interactivas y eventos  
-  - `assets/js/charts.js` → Configuración y renderizado de gráficos  
-  - `assets/libs/bootstrap/bootstrap.bundle.min.js` → Scripts de Bootstrap  
-  - `assets/libs/lightweight-charts/lightweight-charts.min.js` → Librería de gráficos  
-
-Características destacadas:  
-✔ Animaciones y efectos visuales en las tarjetas de estadísticas  
-✔ Gráfica dinámica de visitas con datos de varios meses  
-✔ Diseño responsivo adaptable a diferentes dispositivos  
-✔ Interacción con la barra de navegación y el menú lateral  
+  - `assets/plugins/jquery.min.js` → Librería jQuery  
+  - `assets/plugins/bootstrap.bundle.min.js` → Scripts de Bootstrap  
+  - `assets/js/app-style-switcher.js` → Personalización de estilos  
+  - `assets/js/waves.js` → Efectos visuales  
+  - `assets/js/sidebarmenu.js` → Interacciones con la barra lateral  
+  - `assets/js/custom.js` → Funcionalidades adicionales  
 
 🔐 Licencia:  
 Este código está bajo la licencia **Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0)**.  
 No se permite su uso comercial sin autorización previa del autor.  
 Más información en: https://creativecommons.org/licenses/by-nc/4.0/  
 
-Copyright (c) 2025 Alejandro Roces Fernandez
+Copyright (c) 2025 Alejandro Roces Fernandez  
 ============================================================
 -->
-
 
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
@@ -64,7 +77,6 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
-    <link href="../../../assets/css/adminDash/estadistics.css" rel="stylesheet">
 </head>
 
 <body>
@@ -109,10 +121,15 @@ Copyright (c) 2025 Alejandro Roces Fernandez
 
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#"
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark d-flex justify-content-end align-items-center" href="#"
                                 id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                BIENVENIDO ALEJANDRO
-                                <img src="../../../assets/img/log/FOTO CARNET ALEJANDRO.jpg" alt="user" class="profile-pic me-2">
+                                <span class="me-2">👋 ¡Hola, <?php echo htmlspecialchars($userName); ?>!</span>
+
+                                <!-- Círculo con color aleatorio y primera letra -->
+                                <span class="profile-circle me-2" style="background-color: <?php echo $randomColor; ?>; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                    <?php echo $firstLetter; ?>
+                                </span>
+
                                 <i class="fas fa-chevron-down"></i>
                                 <div class="dropdown-menu" id="dropdownMenu" role="menu">
                                     <a href="#">Perfil</a>
@@ -122,6 +139,9 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                                     </a>
                                 </div>
                             </a>
+
+
+
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                         </li>
                     </ul>
@@ -132,7 +152,7 @@ Copyright (c) 2025 Alejandro Roces Fernandez
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
+                <ul id="sidebarnav">
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard.php" aria-expanded="false">
                                 <i class="fas fa-home me-2"></i>
@@ -140,7 +160,13 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_instalaciones.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Chat.php" aria-expanded="false">
+                                <i class="fas fa-comments me-2"></i>
+                                <span class="hide-menu">Chat</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Instalaciones.php" aria-expanded="false">
                                 <i class="fas fa-building me-2"></i>
                                 <span class="hide-menu">Instalaciones</span>
                             </a>
@@ -148,27 +174,47 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Trabajadores.php" aria-expanded="false">
                                 <i class="fas fa-users me-2"></i>
-                                <span class="hide-menu">Trabajadores</span>
+                                <span class="hide-menu">Familias</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Inscripciones.php" aria-expanded="false">
                                 <i class="fas fa-list me-2"></i>
-                                <span class="hide-menu">Inscripciones</span>
+                                <span class="hide-menu">Acampados</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Estadisticas.php" aria-expanded="false">
-                                <i class="fas fa-chart-line me-2"></i>
-                                <span class="hide-menu">Estadísticas</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Actividades.php" aria-expanded="false">
-                                <i class="fas fa-calendar me-2"></i>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false" onclick="toggleDropdown('actividadesDropdown')">
+                                <i class="fas fa-futbol me-2"></i>
                                 <span class="hide-menu">Actividades</span>
+                                <i class="fas fa-chevron-down float-end"></i>
+                            </a>
+                            <ul id="actividadesDropdown" class="dropdown-content" style="display: none;">
+                                <li><a href="adminDashBoard_juegos.php"><i class="fas fa-gamepad me-2"></i>Juegos</a></li>
+                                <li><a href="adminDashBoard_veladas.php"><i class="fas fa-moon me-2"></i>Veladas</a></li>
+                                <li><a href="adminDashBoard_equipos.php"><i class="fas fa-users-cog me-2"></i>Equipos</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Almacen.php" aria-expanded="false">
+                                <i class="fas fa-warehouse me-2"></i>
+                                <span class="hide-menu">Almacén</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Horarios.php" aria-expanded="false">
+                                <i class="fas fa-clock me-2"></i>
+                                <span class="hide-menu">Horarios</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Materiales.php" aria-expanded="false">
+                                <i class="fas fa-box-open me-2"></i>
+                                <span class="hide-menu">Materiales</span>
+                            </a>
+                        </li>
+
+                        <!-- Cerrar sesión -->
                         <li class="sidebar-item" style="position: absolute; bottom: 0; width: 100%; margin-bottom: 10px;">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../logout.php" aria-expanded="false" onclick="return confirm('¿Estás seguro de que quieres cerrar sesión?');">
                                 <i class="fas fa-sign-out-alt me-2"></i>
@@ -176,6 +222,13 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                             </a>
                         </li>
                     </ul>
+
+                    <script>
+                        function toggleDropdown(id) {
+                            var dropdown = document.getElementById(id);
+                            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+                        }
+                    </script>
                 </nav>
             </div>
         </aside>
@@ -188,57 +241,15 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="adminDashBoard.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Estadisticas</li>
+                                    <li class="breadcrumb-item"><a href="familiasDashBoard.php">Inicio</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <main>
-                <div class="container py-5">
-                    <div class="row g-4 text-center justify-content-center">
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="counter-box">
-                                <i class="fas fa-user"></i>
-                                <div class="num" data-val="40">000</div>
-                                <div class="text">Trabajadores</div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="counter-box">
-                                <i class="fas fa-users"></i>
-                                <div class="num" data-val="2200">000</div>
-                                <div class="text">Clientes</div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="counter-box">
-                                <i class="fas fa-futbol"></i>
-                                <div class="num" data-val="30">000</div>
-                                <div class="text">Actividades </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <div class="counter-box">
-                                <i class="fas fa-building"></i>
-                                <div class="num" data-val="6">000</div>
-                                <div class="text">Instalaciones</div>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="counter-box chart-box">
-                                <div id="container"></div>
-                                <div class="text">Visitas a la pagina web</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <main class="main-fondo">
 
             </main>
         </div>
@@ -250,11 +261,6 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <script src="../../../assets/js/waves.js"></script>
     <script src="../../../assets/js/sidebarmenu.js"></script>
     <script src="../../../assets/js/custom.js"></script>
-    <script src="../../../assets/js/dashboardAdmin/estadistics-counters.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@3.4.0/dist/lightweight-charts.standalone.production.js"></script>
-    <script src="../../../assets/js/dashboardAdmin/estadistics-char.js"></script>
-
 </body>
 
 </html>

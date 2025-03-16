@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+// Verifica si el usuario ha iniciado sesión
+if (!isset($_SESSION['user'])) {
+    header("Location: ../../login.php");
+    exit();
+}
+
+$userName = $_SESSION['user']; 
+
+// Obtener la primera letra del nombre del usuario
+$firstLetter = strtoupper(substr($userName, 0, 1));
+
+// Generar un color a partir del hash del nombre del usuario
+$hash = md5($userName); // Hash MD5 de todo el nombre
+$color = substr($hash, 0, 6); // Tomamos los primeros 6 caracteres del hash
+$randomColor = '#' . $color; // Formato hexadecimal
+?>
+
 <!--
 ============================================================
  CAMPTRACK DASHBOARD - PANEL DE ADMINISTRACIÓN
@@ -57,6 +77,57 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
+    <style>
+        .emergencias {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            border: 4px solid red;
+            background-color: #ffe6e6;
+        }
+        h2 {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+        .phone {
+            font-weight: bold;
+            color:orange;
+        }
+        .whatsapp-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            background-color: #25D366;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .whatsapp-button img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
 </head>
 
 <body>
@@ -101,10 +172,15 @@ Copyright (c) 2025 Alejandro Roces Fernandez
 
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#"
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark d-flex justify-content-end align-items-center" href="#"
                                 id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                BIENVENIDO ALEJANDRO
-                                <img src="../../../assets/img/log/FOTO CARNET ALEJANDRO.jpg" alt="user" class="profile-pic me-2">
+                                <span class="me-2">👋 ¡Hola, <?php echo htmlspecialchars($userName); ?>!</span>
+
+                                <!-- Círculo con color aleatorio y primera letra -->
+                                <span class="profile-circle me-2" style="background-color: <?php echo $randomColor; ?>; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold;">
+                                    <?php echo $firstLetter; ?>
+                                </span>
+
                                 <i class="fas fa-chevron-down"></i>
                                 <div class="dropdown-menu" id="dropdownMenu" role="menu">
                                     <a href="#">Perfil</a>
@@ -114,6 +190,9 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                                     </a>
                                 </div>
                             </a>
+
+
+
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul>
                         </li>
                     </ul>
@@ -125,47 +204,28 @@ Copyright (c) 2025 Alejandro Roces Fernandez
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard.php" aria-expanded="false">
-                                <i class="fas fa-home me-2"></i>
-                                <span class="hide-menu">Inicio</span>
+                    <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard.php" aria-expanded="false">
+                                <i class="fas fa-home fa-2x me-2"></i> <!-- Casa en inicio -->
+                                <span class="hide-menu">INICIO</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_instalaciones.php" aria-expanded="false">
-                                <i class="fas fa-building me-2"></i>
-                                <span class="hide-menu">Instalaciones</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Actividades.php" aria-expanded="false">
+                                <i class="fas fa-calendar-alt fa-2x"></i> <!-- Calendario en actividades -->
+                                <span class="hide-menu">TUS ACTIVIDADES</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Trabajadores.php" aria-expanded="false">
-                                <i class="fas fa-users me-2"></i>
-                                <span class="hide-menu">Trabajadores</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Chat.php" aria-expanded="false">
+                                <i class="fas fa-users fa-2x me-2"></i> <!-- Icono de chat -->
+                                <span class="hide-menu">TU CHAT</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Inscripciones.php" aria-expanded="false">
-                                <i class="fas fa-list me-2"></i>
-                                <span class="hide-menu">Inscripciones</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Estadisticas.php" aria-expanded="false">
-                                <i class="fas fa-chart-line me-2"></i>
-                                <span class="hide-menu">Estadísticas</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Actividades.php" aria-expanded="false">
-                                <i class="fas fa-calendar me-2"></i>
-                                <span class="hide-menu">Actividades</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item" style="position: absolute; bottom: 0; width: 100%; margin-bottom: 10px;">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../logout.php" aria-expanded="false" onclick="return confirm('¿Estás seguro de que quieres cerrar sesión?');">
-                                <i class="fas fa-sign-out-alt me-2"></i>
-                                <span class="hide-menu">Cerrar sesión</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Emergencias.php" aria-expanded="false">
+                                <i class="fas fa-exclamation-triangle fa-2x me-2"></i> <!-- Señal de alerta en emergencia -->
+                                <span class="hide-menu">EMERGENCIAS</span>
                             </a>
                         </li>
                     </ul>
@@ -181,20 +241,59 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                         <div class="d-flex align-items-center">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item"><a href="familiasDashBoard.php">Inicio</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Emergencias</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <main class="main-fondo">
-
+            <main class="emergencias">
+                <div class="container">
+                    <h2>⚠️ Contacto de Emergencia ⚠️</h2>
+                    <ul id="company-contact-list" class="list-group"></ul>
+                    <a id="whatsapp-link" class="whatsapp-button btn" href="#" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Enviar WhatsApp
+                    </a>
+                </div>
             </main>
         </div>
     </div>
+    <script>
+        const companyContacts = [{
+                name: "📞 Atención al Cliente",
+                phone: "+34 900 123 456"
+            },
+            {
+                name: "📍 Coordinador de Campamento",
+                phone: "+34 678 987 654"
+            },
+            {
+                name: "🏢 Administración",
+                phone: "+34 912 345 678"
+            },
+            {
+                name: "⏳ Soporte 24h",
+                phone: "+34 600 112 233"
+            }
+        ];
 
+        const listElement = document.getElementById("company-contact-list");
+        companyContacts.forEach(contact => {
+            const listItem = document.createElement("li");
+            listItem.classList.add("list-group-item");
+            listItem.innerHTML = `<strong>${contact.name}</strong> <span class="phone">${contact.phone}</span>`;
+            listElement.appendChild(listItem);
+        });
+
+        const whatsappNumber = "34618486475";
+        document.getElementById("whatsapp-link").href = `https://wa.me/${whatsappNumber}`;
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../../../assets/plugins/jquery.min.js"></script>
     <script src="../../../assets/plugins/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/js/app-style-switcher.js"></script>
@@ -202,4 +301,5 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <script src="../../../assets/js/sidebarmenu.js"></script>
     <script src="../../../assets/js/custom.js"></script>
 </body>
+
 </html>
