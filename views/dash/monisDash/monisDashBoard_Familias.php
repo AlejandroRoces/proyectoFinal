@@ -13,9 +13,9 @@ $userName = $_SESSION['user'];
 $firstLetter = strtoupper(substr($userName, 0, 1));
 
 // Generar un color a partir del hash del nombre del usuario
-$hash = md5($userName); 
-$color = substr($hash, 0, 6); 
-$randomColor = '#' . $color; 
+$hash = md5($userName);
+$color = substr($hash, 0, 6);
+$randomColor = '#' . $color;
 ?>
 
 <!--
@@ -77,6 +77,132 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
+    <style>
+        main {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .nav-tabs {
+            background-color: #007bff;
+            border-radius: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .nav-tabs .nav-item {
+            margin: 0 10px;
+        }
+
+        .nav-tabs .nav-item .nav-link {
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-tabs .nav-item .nav-link.active,
+        .nav-tabs .nav-item .nav-link:hover {
+            background-color: white;
+            color: #007bff;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .active-content {
+            display: block;
+        }
+
+        .message-box {
+            background-color: #ffffff;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .attachment-area {
+            border: 2px dashed #007bff;
+            padding: 20px;
+            text-align: center;
+            margin-top: 10px;
+            background-color: #f0f8ff;
+        }
+
+        .editor {
+            height: 150px;
+        }
+
+        /* Estilo para los textos en azul */
+        .text-blue {
+            color: #007bff !important;
+            /* Color azul */
+        }
+
+        /* Estilo personalizado para los campos y botones */
+        .message-box {
+            border: 2px solid #007bff;
+            background-color: #f0f8ff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group label {
+            color: #007bff;
+            /* Etiquetas en azul */
+        }
+
+        .form-control {
+            border: 1px solid #007bff;
+        }
+
+        .attachment-area {
+            border: 2px dashed #007bff;
+            padding: 20px;
+            background-color: #e7f1fe;
+            text-align: center;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .btn-link {
+            color: #007bff;
+        }
+
+        .btn-link:hover {
+            color: #0056b3;
+        }
+
+        /* Botones y textos dentro de los formularios */
+        .message-box h2,
+        .message-box .text-primary,
+        .message-box .text-blue,
+        .message-box .btn-link {
+            color: #007bff !important;
+            /* Hacer que todos los textos sean azules */
+        }
+    </style>
 </head>
 
 <body>
@@ -238,15 +364,73 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="familiasDashBoard.php">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Familias</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <main class="main-fondo">
+            <main>
+                <div class="container mt-5">
+                    <ul class="nav nav-tabs" id="menu">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" onclick="showTab('escribir')">Escribir Mensaje</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showTab('familias')">Ver Familias</a>
+                        </li>
+                    </ul>
+                    <br><br><br>
+                    <div id="escribir" class="content active-content">
+                        <div class="message-box" style="border: 2px solid #007bff; background-color: #f0f8ff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                            <!-- Título -->
+                            <h2 class="text-center text-primary">Nuevo Mensaje</h2>
 
+                            <form>
+                                <!-- Destinatarios -->
+                                <div class="form-group">
+                                    <label for="destinatarios" class="text-primary">Destinatarios</label>
+                                    <input type="text" class="form-control" id="destinatarios" placeholder="Introduce destinatarios" style="border: 1px solid #007bff;">
+                                    <button type="button" class="btn btn-primary mt-2">+</button>
+                                </div>
+
+                                <!-- Asunto -->
+                                <div class="form-group">
+                                    <label for="asunto" class="text-primary">Asunto</label>
+                                    <input type="text" class="form-control" id="asunto" placeholder="Introduce el asunto" style="border: 1px solid #007bff;">
+                                </div>
+
+                                <!-- Mensaje -->
+                                <div class="form-group">
+                                    <label for="mensaje" class="text-primary">Mensaje</label>
+                                    <textarea class="form-control editor" id="mensaje" placeholder="Escribe tu mensaje" style="border: 1px solid #007bff;"></textarea>
+                                </div>
+
+                                <!-- Área de archivos adjuntos -->
+                                <div class="attachment-area" style="border: 2px dashed #007bff; padding: 20px; background-color: #e7f1fe; text-align: center; margin-top: 10px; border-radius: 10px;">
+                                    <p class="text-primary">Arrastra los archivos hasta aquí o pulse para buscarlos</p>
+                                    <input type="file" multiple style="display: none;" id="file-input">
+                                    <button type="button" onclick="document.getElementById('file-input').click();" class="btn btn-link text-primary">Buscar archivos</button>
+                                </div>
+
+                                <!-- Botones de acción -->
+                                <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                                <button type="button" class="btn btn-secondary mt-3 ml-2" onclick="window.history.back();">Volver</button>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div id="familias" class="content">
+                        <!-- Título con texto azul -->
+                        <h2 class="text-center text-blue mt-3">Ver Familias</h2>
+
+                        <!-- Descripción con texto azul -->
+                        <p class="text-center text-blue">Aquí puedes visualizar las familias registradas.</p>
+                    </div>
+
+                </div>
             </main>
         </div>
     </div>
@@ -257,6 +441,16 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <script src="../../../assets/js/waves.js"></script>
     <script src="../../../assets/js/sidebarmenu.js"></script>
     <script src="../../../assets/js/custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script>
+        function showTab(tabId) {
+            document.querySelectorAll('.content').forEach(div => div.classList.remove('active-content'));
+            document.getElementById(tabId).classList.add('active-content');
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 
 </html>

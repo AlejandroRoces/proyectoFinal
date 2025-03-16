@@ -3,322 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Inventarios</title>
+    <title>Menu Actividades</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        .menu {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-
-        .menu button {
-            padding: 10px;
-            background-color: #007bff;
+        /* Estilo para las opciones del menú */
+        .menu-opcion {
+            background-color: #007bff; /* Azul principal */
             color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 0 5px;
         }
 
-        .menu button.active {
-            background-color: #0056b3;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        input {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #28a745;
+        .menu-opcion:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
             color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
         }
 
-        button:hover {
-            background-color: #218838;
-        }
-
-        table {
-            width: 100%;
-            margin-top: 20px;
-            border-collapse: collapse;
-        }
-
-        th, td {
+        /* Estilo para el contenedor de actividades */
+        .actividad-contenedor {
+            display: none;
+            margin-top: 10px;
+            background-color: #cce5ff; /* Azul claro */
             padding: 10px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        /* Estilos para el modal */
-        .modal {
-            display: none; /* Oculto por defecto */
-            position: fixed; /* Fijo */
-            z-index: 1; /* En la parte superior */
-            left: 0;
-            top: 0;
-            width: 100%; /* Ancho completo */
-            height: 100%; /* Alto completo */
-            overflow: auto; /* Habilitar desplazamiento si es necesario */
-            background-color: rgb(0,0,0); /* Color de fondo */
-            background-color: rgba(0,0,0,0.4); /* Fondo negro con opacidad */
-            padding-top: 60px; /* Espacio en la parte superior */
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto; /* 15% desde la parte superior y centrado */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* Ancho del modal */
-            max-width: 400px; /* Ancho máximo */
             border-radius: 5px;
         }
 
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
+        /* Estilo para las actividades */
+        .actividad-item {
+            background-color: #66b3ff; /* Azul más claro */
+            color: #003366; /* Color oscuro para texto */
         }
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+        .actividad-item:hover {
+            background-color: #3385ff; /* Azul intermedio al pasar el ratón */
         }
-        #list-products-section {
-    display: block;
-    text-align: center; /* Esto asegura que el contenido dentro de la sección esté centrado */
-}
-
-#print-pdf-btn {
-    display: block;
-    margin: 20px auto; /* Centra el botón */
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#print-pdf-btn:hover {
-    background-color: #0056b3;
-}
-
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.11/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Gestión de Inventarios</h1>
-        <div class="menu">
-            <button id="toggle-section-btn" class="active">Añadir Producto</button>
-        </div>
+    <div class="container mt-4">
+        <h1 class="text-center">Menú de Actividades</h1>
+        <div class="list-group">
+            <!-- Opción Juego de Aventura -->
+            <a href="actividad.html" class="list-group-item list-group-item-action menu-opcion">Juego de Aventura</a>
 
-        <div id="add-product-section">
-            <form id="inventory-form">
-                <input type="text" id="product-name" placeholder="Nombre del producto" required>
-                <input type="number" id="product-quantity" placeholder="Cantidad" required>
-                <button type="submit">Agregar Producto</button>
-            </form>
-        </div>
-
-        <div id="list-products-section" style="display: none;">
-            <table id="inventory-table">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Cantidad</th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Los productos se agregarán aquí -->
-                </tbody>
-            </table>
-            <button id="print-pdf-btn">Imprimir PDF</button>
-        </div>
-
-        <!-- Modal para ingresar motivo e instalación -->
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Detalles del Inventario</h2>
-                <label for="motivo">Motivo:</label>
-                <input type="text" id="motivo" placeholder="Ingrese el motivo" required>
-                <label for="instalacion">Instalación:</label>
-                <input type="text" id="instalacion" placeholder="Ingrese la instalación" required>
-                <button id="confirm-btn">Confirmar</button>
+            <!-- Opción Actividades en Equipo -->
+            <a href="#" class="list-group-item list-group-item-action menu-opcion" onclick="toggleActividades('actividadesEquipo')">Actividades en Equipo</a>
+            <div id="actividadesEquipo" class="actividad-contenedor">
+                <a href="actividad.html?actividad=deportes" class="list-group-item list-group-item-action actividad-item">Deportes en Equipo</a>
+                <a href="actividad.html?actividad=juegos" class="list-group-item list-group-item-action actividad-item">Juegos en Grupo</a>
+                <a href="actividad.html?actividad=concursos" class="list-group-item list-group-item-action actividad-item">Concursos</a>
             </div>
+
+            <!-- Opción Manualidades Creativas -->
+            <a href="actividad.html?actividad=manualidades" class="list-group-item list-group-item-action menu-opcion">Manualidades Creativas</a>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('inventory-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-        
-            const productName = document.getElementById('product-name').value;
-            const productQuantity = document.getElementById('product-quantity').value;
-        
-            addProductToTable(productName, productQuantity);
-        
-            // Limpiar el formulario
-            this.reset();
-        });
-        
-        function addProductToTable(name, quantity) {
-            const tableBody = document.querySelector('#inventory-table tbody');
-            const row = document.createElement('tr');
-        
-            row.innerHTML = `
-                <td>${name}</td>
-                <td><input type="number" value="${quantity}" onchange="updateQuantity(this)" /></td>
-                <td>
-                    <button onclick="removeProduct(this)">Eliminar</button>
-                </td>
-            `;
-        
-            tableBody.appendChild(row);
-        }
-        
-        function removeProduct(button) {
-            const row = button.parentElement.parentElement;
-            row.remove();
-        }
-        
-        function updateQuantity(input) {
-            const newQuantity = input.value;
-            console.log(`Cantidad actualizada a: ${newQuantity}`);
-        }
-        
-        // Cambiar entre secciones
-        document.getElementById('toggle-section-btn').addEventListener('click', function() {
-            const isAdding = this.classList.contains('active');
-        
-            // Alternar entre añadir y ver
-            if (isAdding) {
-                this.textContent = 'Ver Productos';
-                this.classList.remove('active');
-                document.getElementById('add-product-section').style.display = 'none';
-                document.getElementById('list-products-section').style.display = 'block';
+        // Función para mostrar u ocultar las actividades
+        function toggleActividades(id) {
+            var actividadContenedor = document.getElementById(id);
+            if (actividadContenedor.style.display === "none" || actividadContenedor.style.display === "") {
+                actividadContenedor.style.display = "block"; // Muestra la caja
             } else {
-                this.textContent = 'Añadir Producto';
-                this.classList.add('active');
-                document.getElementById('add-product-section').style.display = 'block';
-                document.getElementById('list-products-section').style.display = 'none';
+                actividadContenedor.style.display = "none"; // Oculta la caja
             }
-        });
-
-        document.getElementById('print-pdf-btn').addEventListener('click', function() {
-    // Abrir el modal para ingresar el motivo e instalación
-    document.getElementById('myModal').style.display = 'block';
-});
-
-document.getElementById('confirm-btn').addEventListener('click', function() {
-    const motivo = document.getElementById('motivo').value;
-    const instalacion = document.getElementById('instalacion').value;
-
-    if (!motivo || !instalacion) {
-        alert('Por favor ingrese tanto el motivo como la instalación.');
-        return;
-    }
-
-    // Crear el PDF
-    generatePDF(motivo, instalacion);
-
-    // Cerrar el modal
-    document.getElementById('myModal').style.display = 'none';
-});
-
-function generatePDF(motivo, instalacion) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // Obtener la fecha actual
-    const today = new Date();
-    const formattedDate = today.toLocaleDateString('es-ES'); // Formato de fecha en español (día/mes/año)
-
-    // Título
-    doc.text('Inventario', 20, 20);
-
-    // Detalles adicionales
-    doc.text(`Motivo: ${motivo}`, 20, 30);
-    doc.text(`Instalación: ${instalacion}`, 20, 40);
-    doc.text(`Fecha: ${formattedDate}`, 20, 50); // Fecha
-
-    // Obtener los productos de la tabla
-    const table = document.querySelector('#inventory-table tbody');
-    const products = [];
-    
-    table.querySelectorAll('tr').forEach(row => {
-        const name = row.cells[0].innerText;
-        const quantity = row.cells[1].querySelector('input').value;
-        products.push([name, quantity]);
-    });
-
-    // Generar la tabla de productos en el PDF
-    doc.autoTable({
-        head: [['Producto', 'Cantidad']],
-        body: products,
-        startY: 60 // Comenzar la tabla después de los detalles
-    });
-
-    // Descargar el PDF
-    doc.save('inventario.pdf');
-}
-
-// Cerrar el modal cuando el usuario haga clic en el botón de cerrar
-document.querySelector('.close').addEventListener('click', function() {
-    document.getElementById('myModal').style.display = 'none';
-});
-
-// Cerrar el modal si se hace clic fuera del modal
-window.onclick = function(event) {
-    if (event.target == document.getElementById('myModal')) {
-        document.getElementById('myModal').style.display = 'none';
-    }
-};
-
+        }
     </script>
 </body>
 </html>

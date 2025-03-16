@@ -7,15 +7,15 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-$userName = $_SESSION['user']; 
+$userName = $_SESSION['user'];
 
 // Obtener la primera letra del nombre del usuario
 $firstLetter = strtoupper(substr($userName, 0, 1));
 
 // Generar un color a partir del hash del nombre del usuario
-$hash = md5($userName); // Hash MD5 de todo el nombre
-$color = substr($hash, 0, 6); // Tomamos los primeros 6 caracteres del hash
-$randomColor = '#' . $color; // Formato hexadecimal
+$hash = md5($userName); 
+$color = substr($hash, 0, 6); 
+$randomColor = '#' . $color; 
 ?>
 
 <!--
@@ -77,57 +77,6 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
-    <style>
-        .emergencias {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            border: 4px solid red;
-            background-color: #ffe6e6;
-        }
-        h2 {
-            color: red;
-            font-weight: bold;
-            text-align: center;
-        }
-        .list-group-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 18px;
-        }
-        .phone {
-            font-weight: bold;
-            color:orange;
-        }
-        .whatsapp-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 18px;
-            color: white;
-            background-color: #25D366;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .whatsapp-button img {
-            width: 24px;
-            height: 24px;
-        }
-    </style>
 </head>
 
 <body>
@@ -138,7 +87,7 @@ Copyright (c) 2025 Alejandro Roces Fernandez
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin6">
                     <!-- Logo -->
-                    <a class="navbar-brand ms-4" href="adminDashBoard.php">
+                    <a class="navbar-brand ms-4" href="monisDashBoard.php">
 
                         <b class="logo-icon">
                             <img src="../../../assets/img/logos/logoSF.png" alt="icono" class="dark-logo" style="max-width: 50px; height: auto;" />
@@ -156,19 +105,15 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav d-lg-none d-md-block ">
                         <li class="nav-item">
-                            <a class="nav-toggler nav-link waves-effect waves-light text-white "
-                                href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                            <a class="nav-toggler nav-link waves-effect waves-light text-white " href="javascript:void(0)">
+                                <i class="ti-menu ti-close"></i>
+                            </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav me-auto mt-md-0 ">
-                        <li class="nav-item search-box">
-                            <a class="nav-link text-muted" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search" style="display: none;">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a
-                                    class="srh-btn"><i class="ti-close"></i></a>
-                            </form>
-                        </li>
+                        <li class="nav-item" style="width: 200px;"></li> <!-- Espacio en blanco conservado -->
                     </ul>
+
 
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
@@ -203,38 +148,83 @@ Copyright (c) 2025 Alejandro Roces Fernandez
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                    <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard.php" aria-expanded="false">
-                                <i class="fas fa-home fa-2x me-2"></i> <!-- Casa en inicio -->
-                                <span class="hide-menu">INICIO</span>
+                <ul id="sidebarnav">
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard.php" aria-expanded="false">
+                                <i class="fas fa-home me-2"></i>
+                                <span class="hide-menu">Inicio</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Actividades.php" aria-expanded="false">
-                                <i class="fas fa-calendar-alt fa-2x"></i> <!-- Calendario en actividades -->
-                                <span class="hide-menu">TUS ACTIVIDADES</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Chat.php" aria-expanded="false">
+                                <i class="fas fa-comments me-2"></i>
+                                <span class="hide-menu">Chat</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Chat.php" aria-expanded="false">
-                                <i class="fas fa-users fa-2x me-2"></i> <!-- Icono de chat -->
-                                <span class="hide-menu">TU CHAT</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Instalaciones.php" aria-expanded="false">
+                                <i class="fas fa-building me-2"></i>
+                                <span class="hide-menu">Instalaciones</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Mensajes.php" aria-expanded="false">
-                                <i class="fas fa-envelope fa-2x me-2"></i> <!-- Icono de sobre para mensajes -->
-                                <span class="hide-menu">MENSAJES</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Familias.php" aria-expanded="false">
+                                <i class="fas fa-users me-2"></i>
+                                <span class="hide-menu">Familias</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Emergencias.php" aria-expanded="false">
-                                <i class="fas fa-exclamation-triangle fa-2x me-2"></i> <!-- Señal de alerta en emergencia -->
-                                <span class="hide-menu">EMERGENCIAS</span>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Acampados.php" aria-expanded="false">
+                                <i class="fas fa-list me-2"></i>
+                                <span class="hide-menu">Acampados</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false" onclick="toggleDropdown('actividadesDropdown')">
+                                <i class="fas fa-futbol me-2"></i>
+                                <span class="hide-menu">Actividades</span>
+                                <i class="fas fa-chevron-down float-end"></i>
+                            </a>
+                            <ul id="actividadesDropdown" class="dropdown-content" style="display: none;">
+                                <li><a href="monisDashBoard_Juegos.php"><i class="fas fa-gamepad me-2"></i>Juegos</a></li>
+                                <li><a href="monisDashBoard_Veladas.php"><i class="fas fa-moon me-2"></i>Veladas</a></li>
+                                <li><a href="monisDashBoard_equipos.php"><i class="fas fa-users-cog me-2"></i>Equipos</a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Almacen.php" aria-expanded="false">
+                                <i class="fas fa-warehouse me-2"></i>
+                                <span class="hide-menu">Almacén</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Horarios.php" aria-expanded="false">
+                                <i class="fas fa-clock me-2"></i>
+                                <span class="hide-menu">Horarios</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Materiales.php" aria-expanded="false">
+                                <i class="fas fa-box-open me-2"></i>
+                                <span class="hide-menu">Materiales</span>
+                            </a>
+                        </li>
+
+                        <!-- Cerrar sesión -->
+                        <li class="sidebar-item" style="position: absolute; bottom: 0; width: 100%; margin-bottom: 10px;">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="../logout.php" aria-expanded="false" onclick="return confirm('¿Estás seguro de que quieres cerrar sesión?');">
+                                <i class="fas fa-sign-out-alt me-2"></i>
+                                <span class="hide-menu">Cerrar sesión</span>
                             </a>
                         </li>
                     </ul>
+
+                    <script>
+                        function toggleDropdown(id) {
+                            var dropdown = document.getElementById(id);
+                            dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+                        }
+                    </script>
                 </nav>
             </div>
         </aside>
@@ -248,58 +238,21 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="familiasDashBoard.php">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Emergencias</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Actividades</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Equipos</li>
+
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <main class="emergencias">
-                <div class="container">
-                    <h2>⚠️ Contacto de Emergencia ⚠️</h2>
-                    <ul id="company-contact-list" class="list-group"></ul>
-                    <a id="whatsapp-link" class="whatsapp-button btn" href="#" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Enviar WhatsApp
-                    </a>
-                </div>
+            <main class="main-fondo">
+
             </main>
         </div>
     </div>
-    <script>
-        const companyContacts = [{
-                name: "📞 Atención al Cliente",
-                phone: "+34 900 123 456"
-            },
-            {
-                name: "📍 Coordinador de Campamento",
-                phone: "+34 678 987 654"
-            },
-            {
-                name: "🏢 Administración",
-                phone: "+34 912 345 678"
-            },
-            {
-                name: "⏳ Soporte 24h",
-                phone: "+34 600 112 233"
-            }
-        ];
 
-        const listElement = document.getElementById("company-contact-list");
-        companyContacts.forEach(contact => {
-            const listItem = document.createElement("li");
-            listItem.classList.add("list-group-item");
-            listItem.innerHTML = `<strong>${contact.name}</strong> <span class="phone">${contact.phone}</span>`;
-            listElement.appendChild(listItem);
-        });
-
-        const whatsappNumber = "34618486475";
-        document.getElementById("whatsapp-link").href = `https://wa.me/${whatsappNumber}`;
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../../../assets/plugins/jquery.min.js"></script>
     <script src="../../../assets/plugins/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/js/app-style-switcher.js"></script>

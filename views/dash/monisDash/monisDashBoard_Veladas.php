@@ -13,9 +13,9 @@ $userName = $_SESSION['user'];
 $firstLetter = strtoupper(substr($userName, 0, 1));
 
 // Generar un color a partir del hash del nombre del usuario
-$hash = md5($userName); 
-$color = substr($hash, 0, 6); 
-$randomColor = '#' . $color; 
+$hash = md5($userName);
+$color = substr($hash, 0, 6);
+$randomColor = '#' . $color;
 ?>
 
 <!--
@@ -77,6 +77,54 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
+    <style>
+        main {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            margin: 0;
+            padding: 20px;
+            color: #0d47a1;
+            height: 100vh;
+            box-sizing: border-box;
+
+        }
+
+        /* Estilo para las opciones del menú */
+        .menu-opcion {
+            background-color: #007bff;
+            /* Azul principal */
+            color: white;
+        }
+
+        .menu-opcion:hover {
+            background-color: #0056b3;
+            /* Azul más oscuro al pasar el ratón */
+            color: white;
+        }
+
+        /* Estilo para el contenedor de actividades */
+        .actividad-contenedor {
+            display: none;
+            margin-top: 10px;
+            background-color: #cce5ff;
+            /* Azul claro */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Estilo para las actividades */
+        .actividad-item {
+            background-color: #66b3ff;
+            /* Azul más claro */
+            color: #003366;
+            /* Color oscuro para texto */
+        }
+
+        .actividad-item:hover {
+            background-color: #3385ff;
+            /* Azul intermedio al pasar el ratón */
+        }
+    </style>
 </head>
 
 <body>
@@ -87,7 +135,7 @@ Copyright (c) 2025 Alejandro Roces Fernandez
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin6">
                     <!-- Logo -->
-                    <a class="navbar-brand ms-4" href="monisDashBoard.php">
+                    <a class="navbar-brand ms-4" href="adminDashBoard.php">
 
                         <b class="logo-icon">
                             <img src="../../../assets/img/logos/logoSF.png" alt="icono" class="dark-logo" style="max-width: 50px; height: auto;" />
@@ -148,7 +196,7 @@ Copyright (c) 2025 Alejandro Roces Fernandez
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
+                <ul id="sidebarnav">
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard.php" aria-expanded="false">
                                 <i class="fas fa-home me-2"></i>
@@ -238,15 +286,40 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="familiasDashBoard.php">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Actividades</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Veladas</li>
+
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <main class="main-fondo">
+            <main>
+                <div class="container mt-4">
+                    <h1 class="text-center">Menú de Actividades</h1>
+                    <div class="list-group">
+                        <!-- Opción Juegos de preguntas -->
+                        <a href="actividad.html" class="list-group-item list-group-item-action menu-opcion">Juegos de preguntas</a>
 
+                        <!-- Opción Veladas de terror -->
+                        <a href="#" class="list-group-item list-group-item-action menu-opcion" onclick="toggleActividades('actividadesVeladasTerror')">Veladas de terror</a>
+                        <div id="actividadesVeladasTerror" class="actividad-contenedor">
+                            <a href="actividad.html?actividad=deportes" class="list-group-item list-group-item-action actividad-item">Noche del terror</a>
+                            <a href="actividad.html?actividad=juegos" class="list-group-item list-group-item-action actividad-item">Cluedo</a>
+                            <a href="actividad.html?actividad=concursos" class="list-group-item list-group-item-action actividad-item">Asesino</a>
+                        </div>
+
+                        <!-- Opción Veladas de esconderse -->
+                        <a href="#" class="list-group-item list-group-item-action menu-opcion" onclick="toggleActividades('actividadesVeladasEsconderse')">Veladas de esconderse</a>
+                        <div id="actividadesVeladasEsconderse" class="actividad-contenedor">
+                            <a href="actividad.html?actividad=deportes" class="list-group-item list-group-item-action actividad-item">Mafecking</a>
+                            <a href="actividad.html?actividad=juegos" class="list-group-item list-group-item-action actividad-item">Stolking</a>
+                            <a href="actividad.html?actividad=concursos" class="list-group-item list-group-item-action actividad-item">Asalto al campamento</a>
+                        </div>
+                    </div>
+
+                </div>
             </main>
         </div>
     </div>
@@ -257,6 +330,18 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <script src="../../../assets/js/waves.js"></script>
     <script src="../../../assets/js/sidebarmenu.js"></script>
     <script src="../../../assets/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Función para mostrar u ocultar las actividades
+        function toggleActividades(id) {
+            var actividadContenedor = document.getElementById(id);
+            if (actividadContenedor.style.display === "none" || actividadContenedor.style.display === "") {
+                actividadContenedor.style.display = "block"; // Muestra la caja
+            } else {
+                actividadContenedor.style.display = "none"; // Oculta la caja
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -13,9 +13,9 @@ $userName = $_SESSION['user'];
 $firstLetter = strtoupper(substr($userName, 0, 1));
 
 // Generar un color a partir del hash del nombre del usuario
-$hash = md5($userName); 
-$color = substr($hash, 0, 6); 
-$randomColor = '#' . $color; 
+$hash = md5($userName);
+$color = substr($hash, 0, 6);
+$randomColor = '#' . $color;
 ?>
 
 <!--
@@ -77,6 +77,88 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
+    <style>
+        main {
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            margin: 0;
+            padding: 20px;
+            color: #0d47a1;
+            height: 100vh;
+            box-sizing: border-box;
+
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .menu button,
+        button {
+            padding: 10px;
+            background-color: #1565c0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .menu button.active,
+        button:hover {
+            background-color: #0d47a1;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #bbdefb;
+        }
+
+        .print-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -87,7 +169,7 @@ Copyright (c) 2025 Alejandro Roces Fernandez
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin6">
                     <!-- Logo -->
-                    <a class="navbar-brand ms-4" href="monisDashBoard.php">
+                    <a class="navbar-brand ms-4" href="adminDashBoard.php">
 
                         <b class="logo-icon">
                             <img src="../../../assets/img/logos/logoSF.png" alt="icono" class="dark-logo" style="max-width: 50px; height: auto;" />
@@ -148,7 +230,7 @@ Copyright (c) 2025 Alejandro Roces Fernandez
         <aside class="left-sidebar" data-sidebarbg="skin6">
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
+                <ul id="sidebarnav">
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard.php" aria-expanded="false">
                                 <i class="fas fa-home me-2"></i>
@@ -238,25 +320,133 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="familiasDashBoard.php">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Almacen</li>
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <main class="main-fondo">
+            <main>
+                <br><br>
+                <h1>Gestión de Inventarios</h1>
+                <br>
+                <div class="container">
+                    <div class="menu">
+                        <button id="toggle-section-btn" class="active">Ver Productos</button>
+                    </div>
 
+                    <div id="add-product-section">
+                        <form id="inventory-form">
+                            <input type="text" id="product-name" placeholder="Nombre del producto" required>
+                            <input type="number" id="product-quantity" placeholder="Cantidad" required>
+                            <button type="submit">Agregar Producto</button>
+                        </form>
+                    </div>
+
+                    <div id="list-products-section" style="display: none;">
+                        <table id="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Cantidad</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="print-container">
+                            <button id="print-pdf-btn">Imprimir PDF</button>
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
     </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.11/jspdf.plugin.autotable.min.js"></script>
     <script src="../../../assets/plugins/jquery.min.js"></script>
     <script src="../../../assets/plugins/bootstrap.bundle.min.js"></script>
     <script src="../../../assets/js/app-style-switcher.js"></script>
     <script src="../../../assets/js/waves.js"></script>
     <script src="../../../assets/js/sidebarmenu.js"></script>
     <script src="../../../assets/js/custom.js"></script>
+    <script>
+        document.getElementById('inventory-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const productName = document.getElementById('product-name').value;
+            const productQuantity = document.getElementById('product-quantity').value;
+            addProductToTable(productName, productQuantity);
+            this.reset();
+        });
+
+        function addProductToTable(name, quantity) {
+            const tableBody = document.querySelector('#inventory-table tbody');
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${name}</td>
+                <td><input type="number" value="${quantity}" onchange="updateQuantity(this)" /></td>
+                <td><button onclick="removeProduct(this)">Eliminar</button></td>
+            `;
+            tableBody.appendChild(row);
+        }
+
+        function removeProduct(button) {
+            const row = button.parentElement.parentElement;
+            row.remove();
+        }
+
+        function updateQuantity(input) {
+            console.log(`Cantidad actualizada a: ${input.value}`);
+        }
+
+        document.getElementById('toggle-section-btn').addEventListener('click', function() {
+            const isAdding = this.classList.contains('active');
+            if (isAdding) {
+                this.textContent = 'Añadir Productos';
+                this.classList.remove('active');
+                document.getElementById('add-product-section').style.display = 'none';
+                document.getElementById('list-products-section').style.display = 'block';
+            } else {
+                this.textContent = 'Ver Productos';
+                this.classList.add('active');
+                document.getElementById('add-product-section').style.display = 'block';
+                document.getElementById('list-products-section').style.display = 'none';
+            }
+        });
+
+        document.getElementById('print-pdf-btn').addEventListener('click', function() {
+            const {
+                jsPDF
+            } = window.jspdf;
+            const doc = new jsPDF();
+            const today = new Date().toLocaleDateString('es-ES');
+            doc.text(`Inventario - ${today}`, 20, 20);
+            const table = document.querySelector('#inventory-table tbody');
+            const products = [];
+
+            if (table.children.length === 0) {
+                alert("No hay productos para imprimir.");
+                return;
+            }
+
+            table.querySelectorAll('tr').forEach(row => {
+                const name = row.cells[0].innerText;
+                const quantity = row.cells[1].querySelector('input').value;
+                products.push([name, quantity]);
+            });
+
+            doc.autoTable({
+                head: [
+                    ['Producto', 'Cantidad']
+                ],
+                body: products,
+                startY: 30
+            });
+            doc.save(`Inventario_${today}.pdf`);
+        });
+    </script>
 </body>
 
 </html>

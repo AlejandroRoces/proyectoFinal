@@ -172,6 +172,12 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                             </a>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Mensajes.php" aria-expanded="false">
+                                <i class="fas fa-envelope fa-2x me-2"></i> <!-- Icono de sobre para mensajes -->
+                                <span class="hide-menu">MENSAJES</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="familiasDashBoard_Emergencias.php" aria-expanded="false">
                                 <i class="fas fa-exclamation-triangle fa-2x me-2"></i> <!-- Señal de alerta en emergencia -->
                                 <span class="hide-menu">EMERGENCIAS</span>

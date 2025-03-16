@@ -13,9 +13,9 @@ $userName = $_SESSION['user'];
 $firstLetter = strtoupper(substr($userName, 0, 1));
 
 // Generar un color a partir del hash del nombre del usuario
-$hash = md5($userName); 
-$color = substr($hash, 0, 6); 
-$randomColor = '#' . $color; 
+$hash = md5($userName);
+$color = substr($hash, 0, 6);
+$randomColor = '#' . $color;
 ?>
 
 <!--
@@ -77,6 +77,37 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
+    <style>
+        /* Estilo para las opciones del menú */
+        .menu-opcion {
+            background-color: #007bff; /* Azul principal */
+            color: white;
+        }
+
+        .menu-opcion:hover {
+            background-color: #0056b3; /* Azul más oscuro al pasar el ratón */
+            color: white;
+        }
+
+        /* Estilo para el contenedor de actividades */
+        .actividad-contenedor {
+            display: none;
+            margin-top: 10px;
+            background-color: #cce5ff; /* Azul claro */
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Estilo para las actividades */
+        .actividad-item {
+            background-color: #66b3ff; /* Azul más claro */
+            color: #003366; /* Color oscuro para texto */
+        }
+
+        .actividad-item:hover {
+            background-color: #3385ff; /* Azul intermedio al pasar el ratón */
+        }
+    </style>
 </head>
 
 <body>
@@ -87,7 +118,7 @@ Copyright (c) 2025 Alejandro Roces Fernandez
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin6">
                     <!-- Logo -->
-                    <a class="navbar-brand ms-4" href="monisDashBoard.php">
+                    <a class="navbar-brand ms-4" href="adminDashBoard.php">
 
                         <b class="logo-icon">
                             <img src="../../../assets/img/logos/logoSF.png" alt="icono" class="dark-logo" style="max-width: 50px; height: auto;" />
@@ -150,31 +181,31 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard.php" aria-expanded="false">
                                 <i class="fas fa-home me-2"></i>
                                 <span class="hide-menu">Inicio</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Chat.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Chat.php" aria-expanded="false">
                                 <i class="fas fa-comments me-2"></i>
                                 <span class="hide-menu">Chat</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Instalaciones.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Instalaciones.php" aria-expanded="false">
                                 <i class="fas fa-building me-2"></i>
                                 <span class="hide-menu">Instalaciones</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Familias.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Trabajadores.php" aria-expanded="false">
                                 <i class="fas fa-users me-2"></i>
                                 <span class="hide-menu">Familias</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Acampados.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Inscripciones.php" aria-expanded="false">
                                 <i class="fas fa-list me-2"></i>
                                 <span class="hide-menu">Acampados</span>
                             </a>
@@ -186,25 +217,25 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                                 <i class="fas fa-chevron-down float-end"></i>
                             </a>
                             <ul id="actividadesDropdown" class="dropdown-content" style="display: none;">
-                                <li><a href="monisDashBoard_Juegos.php"><i class="fas fa-gamepad me-2"></i>Juegos</a></li>
-                                <li><a href="monisDashBoard_Veladas.php"><i class="fas fa-moon me-2"></i>Veladas</a></li>
-                                <li><a href="monisDashBoard_equipos.php"><i class="fas fa-users-cog me-2"></i>Equipos</a></li>
+                                <li><a href="adminDashBoard_juegos.php"><i class="fas fa-gamepad me-2"></i>Juegos</a></li>
+                                <li><a href="adminDashBoard_veladas.php"><i class="fas fa-moon me-2"></i>Veladas</a></li>
+                                <li><a href="adminDashBoard_equipos.php"><i class="fas fa-users-cog me-2"></i>Equipos</a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Almacen.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Almacen.php" aria-expanded="false">
                                 <i class="fas fa-warehouse me-2"></i>
                                 <span class="hide-menu">Almacén</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Horarios.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Horarios.php" aria-expanded="false">
                                 <i class="fas fa-clock me-2"></i>
                                 <span class="hide-menu">Horarios</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="monisDashBoard_Materiales.php" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="adminDashBoard_Materiales.php" aria-expanded="false">
                                 <i class="fas fa-box-open me-2"></i>
                                 <span class="hide-menu">Materiales</span>
                             </a>
@@ -238,15 +269,38 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="familiasDashBoard.php">Inicio</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Actividades</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Veladas</li>
+
                                 </ol>
                             </nav>
                         </div>
                     </div>
                 </div>
             </div>
-            <main class="main-fondo">
+            <main>
+                <div class="container mt-4">
+                    <h1 class="text-center">Menú de Actividades</h1>
+                    <div class="list-group">
+                        <!-- Opción Juego de Aventura -->
+                        <a href="actividad.html" class="list-group-item list-group-item-action menu-opcion">Juegos de preguntas</a>
 
+                        <!-- Opción Actividades en Equipo -->
+                        <a href="#" class="list-group-item list-group-item-action menu-opcion" onclick="toggleActividades('actividadesEquipo')">Veladas de terror</a>
+                        <div id="actividadesEquipo" class="actividad-contenedor">
+                            <a href="actividad.html?actividad=deportes" class="list-group-item list-group-item-action actividad-item">Noche del terror</a>
+                            <a href="actividad.html?actividad=juegos" class="list-group-item list-group-item-action actividad-item">Cluedo</a>
+                            <a href="actividad.html?actividad=concursos" class="list-group-item list-group-item-action actividad-item">Asesino</a>
+                        </div>
+
+                        <!-- Opción Manualidades Creativas -->
+                        <a href="#" class="list-group-item list-group-item-action menu-opcion" onclick="toggleActividades('actividadesEquipo')">Veladas de esconderse</a>
+                        <div id="actividadesEquipo" class="actividad-contenedor">
+                            <a href="actividad.html?actividad=deportes" class="list-group-item list-group-item-action actividad-item">Mafecking</a>
+                            <a href="actividad.html?actividad=juegos" class="list-group-item list-group-item-action actividad-item">Stolking</a>
+                            <a href="actividad.html?actividad=concursos" class="list-group-item list-group-item-action actividad-item">Asalto al campamento</a>
+                        </div>                    </div>
+                </div>
             </main>
         </div>
     </div>
@@ -257,6 +311,18 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <script src="../../../assets/js/waves.js"></script>
     <script src="../../../assets/js/sidebarmenu.js"></script>
     <script src="../../../assets/js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Función para mostrar u ocultar las actividades
+        function toggleActividades(id) {
+            var actividadContenedor = document.getElementById(id);
+            if (actividadContenedor.style.display === "none" || actividadContenedor.style.display === "") {
+                actividadContenedor.style.display = "block"; // Muestra la caja
+            } else {
+                actividadContenedor.style.display = "none"; // Oculta la caja
+            }
+        }
+    </script>
 </body>
 
 </html>
