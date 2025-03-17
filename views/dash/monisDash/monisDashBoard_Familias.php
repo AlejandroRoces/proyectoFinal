@@ -7,6 +7,7 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
+// Obtener el nombre de usuario desde la sesión
 $userName = $_SESSION['user'];
 
 // Obtener la primera letra del nombre del usuario
@@ -17,7 +18,6 @@ $hash = md5($userName);
 $color = substr($hash, 0, 6);
 $randomColor = '#' . $color;
 ?>
-
 <!--
 ============================================================
  CAMPTRACK DASHBOARD - PANEL DE ADMINISTRACIÓN
@@ -77,6 +77,10 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+
     <style>
         main {
             font-family: 'Roboto', sans-serif;
@@ -132,12 +136,39 @@ Copyright (c) 2025 Alejandro Roces Fernandez
         }
 
         .attachment-area {
-            border: 2px dashed #007bff;
+            border: 2px dashed #ccc;
             padding: 20px;
+            background-color: #fff;
             text-align: center;
-            margin-top: 10px;
-            background-color: #f0f8ff;
+            border-radius: 10px;
+            position: relative;
+            width: 100%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
         }
+
+        .attachment-text {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .attachment-icon {
+            font-size: 80px;
+            /* Clip mucho más grande */
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .attachment-area button {
+            margin-top: 10px;
+        }
+
+
 
         .editor {
             height: 150px;
@@ -153,10 +184,16 @@ Copyright (c) 2025 Alejandro Roces Fernandez
         .message-box {
             border: 2px solid #007bff;
             background-color: #f0f8ff;
-            border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100vw;
+            /* Ocupa todo el ancho de la ventana */
+            max-width: 100%;
+            /* Evita desbordamientos */
+            border-radius: 0;
+            /* Elimina el redondeado */
         }
+
 
         .form-group label {
             color: #007bff;
@@ -193,6 +230,15 @@ Copyright (c) 2025 Alejandro Roces Fernandez
         .btn-link:hover {
             color: #0056b3;
         }
+
+        .btn:hover,
+        .btn:focus {
+            background-color: inherit !important;
+            border-color: inherit !important;
+            box-shadow: none !important;
+            color: inherit !important;
+        }
+
 
         /* Botones y textos dentro de los formularios */
         .message-box h2,
@@ -387,37 +433,45 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                             <!-- Título -->
                             <h2 class="text-center text-primary">Nuevo Mensaje</h2>
 
-                            <form>
+                            <form action="../../../model/guardarMensaje.php" method="POST" enctype="multipart/form-data">
                                 <!-- Destinatarios -->
                                 <div class="form-group">
                                     <label for="destinatarios" class="text-primary">Destinatarios</label>
-                                    <input type="text" class="form-control" id="destinatarios" placeholder="Introduce destinatarios" style="border: 1px solid #007bff;">
-                                    <button type="button" class="btn btn-primary mt-2">+</button>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" id="destinatarios" name="destinatarios" placeholder="Introduce destinatarios" style="border: 1px solid #007bff;">
+                                        <div class="input-group-append">
+                                            <button type="button" class="btn btn-primary rounded-0 px-3" style="height: 100%;">+</button>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- Asunto -->
                                 <div class="form-group">
                                     <label for="asunto" class="text-primary">Asunto</label>
-                                    <input type="text" class="form-control" id="asunto" placeholder="Introduce el asunto" style="border: 1px solid #007bff;">
+                                    <input type="text" class="form-control" id="asunto" name="asunto" placeholder="Introduce el asunto" style="border: 1px solid #007bff;">
                                 </div>
 
                                 <!-- Mensaje -->
                                 <div class="form-group">
                                     <label for="mensaje" class="text-primary">Mensaje</label>
-                                    <textarea class="form-control editor" id="mensaje" placeholder="Escribe tu mensaje" style="border: 1px solid #007bff;"></textarea>
+                                    <textarea class="form-control editor" id="mensaje" name="mensaje" placeholder="Escribe tu mensaje" style="border: 1px solid #007bff; border-radius: 0;"></textarea>
                                 </div>
 
                                 <!-- Área de archivos adjuntos -->
-                                <div class="attachment-area" style="border: 2px dashed #007bff; padding: 20px; background-color: #e7f1fe; text-align: center; margin-top: 10px; border-radius: 10px;">
-                                    <p class="text-primary">Arrastra los archivos hasta aquí o pulse para buscarlos</p>
-                                    <input type="file" multiple style="display: none;" id="file-input">
-                                    <button type="button" onclick="document.getElementById('file-input').click();" class="btn btn-link text-primary">Buscar archivos</button>
+                                <div class="attachment-area" onclick="document.getElementById('file-input').click();">
+                                    <p class="attachment-text">Arrastre los archivos hasta aquí o pulse para buscarlos</p>
+                                    <i class="fas fa-paperclip attachment-icon"></i>
+                                    <input type="file" multiple id="file-input" name="archivos[]" style="display: none;">
+                                    <button type="button" class="btn btn-link text-primary">Buscar archivos</button>
                                 </div>
 
                                 <!-- Botones de acción -->
-                                <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+                                <button type="submit" class="btn btn-primary mt-3">
+                                    <i class="bi bi-send"></i> Enviar
+                                </button>
                                 <button type="button" class="btn btn-secondary mt-3 ml-2" onclick="window.history.back();">Volver</button>
                             </form>
+
                         </div>
                     </div>
 
@@ -450,6 +504,15 @@ Copyright (c) 2025 Alejandro Roces Fernandez
             document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
             event.target.classList.add('active');
         }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.7.2/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: '#mensaje',
+            height: 300,
+            menubar: false,
+
+        });
     </script>
 </body>
 
