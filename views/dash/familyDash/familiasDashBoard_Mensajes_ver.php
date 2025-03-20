@@ -77,6 +77,8 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         th{
             color: white !important;
@@ -310,7 +312,7 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                 <div class="container content">
                     <div class="card">
                         <div class="card-header">Mensajes Recibidos</div>
-                        <?php include_once '../../../model/misMensajes.php'; ?>
+                        <?php include_once '../../../controller/verMensaje.php'; ?>
 
                         </div>
                     </div>

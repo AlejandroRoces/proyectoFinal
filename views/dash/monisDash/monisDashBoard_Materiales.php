@@ -372,7 +372,7 @@ Copyright (c) 2025 Alejandro Roces Fernandez
             </div>
             <main>
                 <div class="container">
-                    <h1>Simulador de Drive</h1>
+                    <h1>Camptrack Cloud</h1>
 
                     <!-- Barra de búsqueda -->
                     <div class="search-bar">
