@@ -1,86 +1,112 @@
-CampTrack
+# CAMPTRACK APP
 
-CampTrack es una plataforma de gestión de actividades y seguimiento de inscripciones para campamentos. Permite a los usuarios registrarse en actividades, gestionar pagos y almacenar información relevante de los participantes y sus familias.
+## Descripción Breve
+CampTrack es una aplicación web modular diseñada para adaptarse a las necesidades de empresas mediante un archivo de configuración y una guía de estilos personalizada. Facilita la promoción y gestión de actividades, proporcionando herramientas avanzadas de administración.
 
-Características
+## Tabla de Contenidos
+1. [Información General](#información-general)
+2. [Tecnologías](#tecnologías)
+3. [Instalación](#instalación)
+4. [Uso](#uso)
+5. [Contribución](#contribución)
+6. [Licencia](#licencia)
+7. [Documentación](#documentación)
 
-Registro e inscripción de participantes en actividades.
+## Información General
+CampTrack permite administrar y supervisar las operaciones diarias de una empresa, facilitando la asignación de tareas y el seguimiento del rendimiento.
 
-Gestión de información personal, médica y de contacto.
+## Tecnologías
+Este proyecto utiliza las siguientes tecnologías:
 
-Subida y almacenamiento de documentos requeridos.
+- **[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)**
+- **[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)**
+- **[JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)**
+- **[MySQL](https://www.mysql.com/)** (v8.0)
+- **[Bootstrap](https://getbootstrap.com/)** (v5.1)
+- **[PHP](https://www.php.net/)** (v8.0)
 
-Diferentes métodos de pago: directo en portal o por transferencia bancaria.
+## Instalación
+### Pasos Rápidos
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/usuario/proyecto.git
+   ```
+2. Acceder al directorio del proyecto:
+   ```bash
+   cd proyecto
+   ```
+3. Instalar dependencias:
+   ```bash
+   npm install
+   ```
+4. Iniciar el proyecto:
+   ```bash
+   npm start
+   ```
 
-Seguridad en la base de datos mediante transacciones y consultas preparadas.
+## Uso
+### 1. Acceder a la Aplicación
+   - Abre tu navegador y accede a `http://localhost:8000` (o la URL configurada).
 
-Panel de administración para la gestión de inscripciones y actividades.
+### 2. Iniciar Sesión
+   - Utiliza las credenciales predeterminadas o configuradas durante la instalación.
 
-Tecnologías Utilizadas
+### 3. Navegar por el Dashboard
+   - Visualiza información clave sobre actividades, reservas e instalaciones.
 
-Backend: PHP con PDO para la conexión a la base de datos.
+### 4. Administrar Actividades
+   - Crea, edita y gestiona actividades con detalles como fecha, hora y participantes.
 
-Frontend: HTML, CSS y JavaScript.
+### 5. Gestionar Instalaciones
+   - Consulta disponibilidad y realiza reservas de instalaciones.
 
-Base de Datos: MySQL alojado en Clever Cloud.
+### 6. Consultar Estadísticas
+   - Obtén análisis detallados sobre el uso del sistema.
 
-Frameworks y Librerías: Bootstrap para estilos y diseño responsivo.
+### 7. Configurar la Aplicación
+   - Personaliza colores, usuarios y preferencias desde el panel de configuración.
 
-Estructura del Proyecto
+### 8. Cerrar Sesión
+   - Finaliza tu sesión para mantener la seguridad del sistema.
 
-CampTrack/
-│── assets/
-│   ├── css/
-│   ├── img/
-│   ├── js/
-│── controller/
-│── model/
-│   ├── database/
-│── templates/
-│── views/
-│── licence.txt
-│── index.php
-│── README.md
+Para más detalles, revisa nuestra [documentación completa](docs/instalacion.md).
 
-Instalación
+## Contribución
+CampTrack utiliza la **Licencia Creative Commons Atribución-NoComercial 4.0 Internacional**.
 
-Clonar el repositorio:
+### Pasos para Contribuir
+1. **Realiza un Fork** del repositorio en GitHub.
+2. **Clona tu copia localmente:**
+   ```bash
+   git clone https://github.com/TU_USUARIO/camptrack.git
+   ```
+3. **Crea una nueva rama:**
+   ```bash
+   git checkout -b nombre-de-tu-rama
+   ```
+4. **Realiza tus cambios** siguiendo las mejores prácticas de desarrollo.
+5. **Ejecuta pruebas** antes de enviar cambios.
+6. **Envía un Pull Request** con una descripción clara de los cambios.
+7. **Dale crédito al proyecto** según los términos de la licencia.
+8. **Espera la revisión** del equipo de CampTrack.
+9. **Reporta errores** abriendo un "issue" en GitHub.
 
-git clone https://github.com/usuario/CampTrack.git
+## Licencia
+Este proyecto está bajo la **Licencia Creative Commons Atribución-NoComercial 4.0 Internacional**.
 
-Configurar la base de datos en model/database/connection.php.
+### Permisos:
+- **Compartir:** Redistribuir en cualquier formato para fines **no comerciales**.
+- **Adaptar:** Modificar el material con fines **no comerciales**.
 
-Subir el proyecto a un servidor web compatible con PHP.
+### Condiciones:
+- **Atribución:** Dar crédito y enlazar la licencia.
+- **No Comercial:** No puede usarse con fines comerciales.
 
-Asegurar permisos de escritura en la carpeta uploads/ para almacenar documentos.
+Más detalles en [Creative Commons](https://creativecommons.org/licenses/by-nc/4.0/).
 
-Uso
-
-Acceder a la página de inscripción (views/inscripcion.php).
-
-Completar el formulario con los datos del participante.
-
-Subir los documentos requeridos y seleccionar el método de pago.
-
-Confirmar la inscripción y proceder con el pago.
-
-Contribución
-
-Las contribuciones son bienvenidas. Para contribuir:
-
-Hacer un fork del repositorio.
-
-Crear una nueva rama (feature/nueva-funcionalidad).
-
-Realizar los cambios y subirlos al fork.
-
-Crear un Pull Request con una descripción clara de los cambios.
-
-Licencia
-
-Este proyecto está bajo la licencia Creative Commons Atribución-NoComercial 4.0 Internacional (CC BY-NC 4.0).
-
-Autor
-
-Alejandro Roces Fernández
+## 📚 Documentación
+- [Documentación de APIs](docs/api_documentation.md)
+- [Instalación y Configuración](docs/instalacion.md)
+- [Estructura de Base de Datos](docs/base_de_datos.md)
+- [Documentación de Pruebas](docs/test_documentation.md)
 

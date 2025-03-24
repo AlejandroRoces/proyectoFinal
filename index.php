@@ -129,7 +129,8 @@
         <a href="views/gen/cursos.php"><img src="assets/img/nav2/(nav) CURSOS.EDIT.jpg" alt="Imagen 2" class="imagen"></a> 
         <a href="views/gen/masActividades.php"><img src="assets/img/nav2/(nav) MAS ACTIVIDADES.EDIT.jpg" alt="Imagen 3" class="imagen"></a> 
     </div>
-    <!-- Elfsight Google Reviews | Untitled Google Reviews -->
+
+    <!-- Google Reviews -->
     <script src="https://widget.trustmary.com/m4vhx8V8Z"></script>
     </main>
 

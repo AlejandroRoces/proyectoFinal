@@ -30,7 +30,7 @@ Propósito:
 
 </head>
 <body>
-  <header class="header2">
+  <header class="header2" style="background-color: #4CAF50;">
     <h1><?php echo $instalacion['titulo']; ?></h1>
   </header>
 

@@ -1,11 +1,15 @@
 <?php
 session_start();
+require_once '../../../model/database/connection.php';  // Asegúrate de que la ruta sea correcta
 
 // Verifica si el usuario ha iniciado sesión
 if (!isset($_SESSION['user'])) {
     header("Location: ../../login.php");
     exit();
 }
+
+// Obtener la conexión a la base de datos
+$conn = conectarDB();
 
 $userName = $_SESSION['user']; 
 
@@ -16,7 +20,62 @@ $firstLetter = strtoupper(substr($userName, 0, 1));
 $hash = md5($userName); // Hash MD5 de todo el nombre
 $color = substr($hash, 0, 6); // Tomamos los primeros 6 caracteres del hash
 $randomColor = '#' . $color; // Formato hexadecimal
+
+// Obtener el correo del usuario desde la tabla login_camptrack
+$sql = "SELECT email FROM login_camptrack WHERE user = :user";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':user', $userName);
+$stmt->execute();
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$email = $user['email'] ?? null;
+if (!$email) {
+    die("Error: No se encontró el correo del usuario.");
+}
+
+// Obtener los id_participante asociados al correo
+$sql = "SELECT id_participante FROM Padres_inscripciones_camptrack WHERE correo_electronico = :email";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':email', $email);
+$stmt->execute();
+$participantIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+// Si no tiene participantes asociados, no hay chats que mostrar
+if (empty($participantIds)) {
+    $chats = [];
+} else {
+    // Obtener los id_actividad de los participantes
+    $sql = "SELECT id_actividad FROM Participantes_inscripciones_camptrack WHERE id IN (" . implode(',', array_fill(0, count($participantIds), '?')) . ")";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute($participantIds);
+    $activityIds = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+    // Obtener los chats correspondientes a las actividades desde chat_camptrack
+    if (!empty($activityIds)) {
+        $sql = "SELECT * FROM chat_camptrack WHERE idChat IN (" . implode(',', array_fill(0, count($activityIds), '?')) . ")";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute($activityIds);
+        $chats = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // Obtener el último mensaje de cada chat
+        foreach ($chats as &$chat) {
+            $sql = "SELECT mensaje FROM mensajes_chat_camptrack WHERE idChat = :idChat ORDER BY fecha DESC, hora DESC LIMIT 1";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':idChat', $chat['idChat']);
+            $stmt->execute();
+            $lastMessage = $stmt->fetch(PDO::FETCH_ASSOC);
+            $chat['ultimo_mensaje'] = $lastMessage['mensaje'] ?? 'No hay mensajes aún';
+        }
+    } else {
+        $chats = [];
+    }
+}
 ?>
+
+
+
+
+
 
 <!--
 ============================================================
@@ -77,6 +136,64 @@ Copyright (c) 2025 Alejandro Roces Fernandez
     <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/img/logos/logoSF.png">
 
     <link href="../../../assets/css/dash/dashGen/style.min.css" rel="stylesheet">
+    <style>
+        main {
+            background-color: #f8f9fa;
+        }
+        .chat-list-container {
+            max-width: 1000px;
+            width: 100%;
+            margin: auto;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            margin-top: 20px;
+        }
+        .chat-header {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+        .search-bar {
+            padding: 10px;
+        }
+        .chat-list {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .chat-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+        }
+        .chat-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .chat-item:hover {
+            background: #f1f1f1;
+        }
+        .chat-info {
+            flex-grow: 1;
+        }
+        .chat-name {
+            font-weight: bold;
+        }
+        .last-message {
+            font-size: 14px;
+            color: gray;
+        }
+    </style>
 </head>
 
 <body>
@@ -204,8 +321,48 @@ Copyright (c) 2025 Alejandro Roces Fernandez
                     </div>
                 </div>
             </div>
-            <main class="main-fondo">
+            <main>
+            <div class="chat-list-container">
+        <div class="chat-header">Chats</div>
+        <div class="search-bar">
+            <input type="text" class="form-control" id="searchInput" placeholder="Busca un chat o inicia uno nuevo" onkeyup="filterChats()">
+        </div>
+        <div class="chat-list" id="chatList">
+            <?php if (!empty($chats)): ?>
+                <?php foreach ($chats as $chat): ?>
+                    <div class="chat-item" onclick="openChat(<?php echo $chat['idChat']; ?>)">
+                        <img src="data:image/jpeg;base64,<?php echo base64_encode($chat['foto']); ?>" alt="Chat">
+                        <div class="chat-info">
+                            <div class="chat-name"><?php echo htmlspecialchars($chat['nombre']); ?></div>
+                            <div class="last-message"><?php echo htmlspecialchars($chat['ultimo_mensaje']); ?></div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p class="text-center mt-3">No tienes chats disponibles.</p>
+            <?php endif; ?>
+        </div>
+    </div>
 
+    <script>
+        function openChat(chatId) {
+            window.location.href = `familiasDashBoard_Show_Chat.php?idChat=${chatId}`;
+        }
+
+        function filterChats() {
+            let input = document.getElementById("searchInput").value.toLowerCase();
+            let chatItems = document.querySelectorAll(".chat-item");
+
+            chatItems.forEach(chat => {
+                let chatName = chat.querySelector(".chat-name").textContent.toLowerCase();
+                if (chatName.includes(input)) {
+                    chat.style.display = "flex";
+                } else {
+                    chat.style.display = "none";
+                }
+            });
+        }
+    </script>
             </main>
         </div>
     </div>

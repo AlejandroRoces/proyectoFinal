@@ -5,12 +5,15 @@ body {
     box-sizing: border-box;
     background-color: #f4f4f4;
     color: #333;
+
   }
 
   .header2 {
     color: white;
     text-align: center;
     padding: 20px 0;
+    
+    
   }
 
   .container {
